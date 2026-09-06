@@ -26,7 +26,7 @@ create-context-graph [PROJECT_NAME] [OPTIONS]
 | `--custom-domain` | `string` | -- | Natural language domain description. Requires `--anthropic-api-key`. Mutually exclusive with `--ontology-file`. |
 | `--ontology-file` | `path` | -- | Path to a hand-written domain ontology YAML. Scaffolds directly from the file (no LLM call); overrides `--domain`, and the YAML is copied into the project as `data/ontology.yaml`. |
 | `--output-dir` | `path` | `./<project-slug>` | Directory for generated project. |
-| `--with-mcp` | `flag` | `false` | Generate MCP server config for Claude Desktop. |
+| `--with-mcp` | `flag` | `false` | Generate MCP server config for VS Code and GitHub Copilot. |
 | `--mcp-profile` | `choice` | `extended` | MCP tool profile: `core` (6 tools) or `extended` (16 tools). |
 
 ### Data Generation
@@ -224,7 +224,7 @@ create-context-graph my-project \
   --linear-team ENG
 ```
 
-### With MCP server for Claude Desktop
+### With MCP server for VS Code and GitHub Copilot
 
 Generate a project with MCP server support:
 
@@ -237,7 +237,7 @@ create-context-graph my-app \
   --mcp-profile extended
 ```
 
-After scaffolding, copy `mcp/claude_desktop_config.json` to your Claude Desktop config directory and restart Claude Desktop to connect.
+After scaffolding, copy the `servers` entry from `mcp/vscode_mcp.json` to `.vscode/mcp.json` and restart the MCP server in VS Code.
 
 ### Scaffold and ingest into Neo4j
 

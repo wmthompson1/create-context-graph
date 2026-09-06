@@ -1,0 +1,60 @@
+{% if is_nams %}
+{
+  "servers": {
+    "{{ project_slug }}-memory": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory", "${workspaceFolder}/backend",
+        "python", "-m", "neo4j_agent_memory.mcp.server",
+        "--backend", "nams",
+        "--profile", "{{ mcp_profile }}"
+      ],
+      "env": {
+        "MEMORY_API_KEY": "${input:memoryApiKey}",
+        "MEMORY_NAMS_ENDPOINT": "{{ nams_endpoint }}"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "id": "memoryApiKey",
+      "type": "promptString",
+      "description": "Neo4j Agent Memory API key",
+      "password": true
+    }
+  ]
+}
+{% else %}
+{
+  "servers": {
+    "{{ project_slug }}-memory": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory", "${workspaceFolder}/backend",
+        "python", "-m", "neo4j_agent_memory.mcp.server",
+        "--neo4j-uri", "${input:neo4jUri}",
+        "--neo4j-password", "${input:neo4jPassword}",
+        "--profile", "{{ mcp_profile }}"
+      ]
+    }
+  },
+  "inputs": [
+    {
+      "id": "neo4jUri",
+      "type": "promptString",
+      "description": "Neo4j Bolt URI",
+      "default": "{{ neo4j_uri }}"
+    },
+    {
+      "id": "neo4jPassword",
+      "type": "promptString",
+      "description": "Neo4j password",
+      "password": true
+    }
+  ]
+}
+{% endif %}

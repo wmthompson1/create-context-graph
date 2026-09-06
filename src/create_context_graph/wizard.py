@@ -431,7 +431,7 @@ def _prompt_advanced(*, is_nams: bool, framework: str) -> dict:
 
     with_mcp = _ask_or_abort(
         questionary.confirm(
-            "Generate MCP server config for Claude Desktop integration?",
+            "Generate MCP server config for VS Code and GitHub Copilot?",
             default=False,
         ).ask(),
         "mcp",

@@ -183,4 +183,4 @@ on bolt.
 
 - [Memory Backends](/docs/explanation/memory-backends) — conceptual NAMS vs self-hosted comparison
 - [Configure Memory Providers](/docs/how-to/configure-memory-providers) — LiteLLM, native adapters
-- [Connect Claude Desktop](/docs/how-to/connect-claude-desktop) — MCP server (NAMS shape included)
+- [Connect GitHub Copilot](/docs/how-to/connect-github-copilot) - MCP server (NAMS shape included)

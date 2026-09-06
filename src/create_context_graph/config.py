@@ -111,7 +111,7 @@ class ProjectConfig(BaseModel):
     saas_credentials: dict[str, dict[str, str]] = Field(default_factory=dict, exclude=True)
 
     # Memory enhancement settings (neo4j-agent-memory)
-    with_mcp: bool = Field(default=False, description="Generate MCP server config for Claude Desktop")
+    with_mcp: bool = Field(default=False, description="Generate MCP server config for VS Code and GitHub Copilot")
     mcp_profile: Literal["core", "extended"] = Field(
         default="extended", description="MCP tool profile"
     )

@@ -1,0 +1,132 @@
+{
+  "artifacts": [
+    {
+      "format": "sparql",
+      "kind": "acceptance_query",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "path": "acceptance/lineage.sparql",
+      "sha256": "1050ee2d0493007c409923f9b5a669d81758902aaed8169e2d2037c026eb5ff8"
+    },
+    {
+      "format": "sparql",
+      "kind": "acceptance_query",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "path": "acceptance/provenance.sparql",
+      "sha256": "afe0663eb7240f049ce8999f55df1a6065da009af2c60fb0315485d894c32b6f"
+    },
+    {
+      "format": "sparql",
+      "kind": "acceptance_query",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "path": "acceptance/semantics.sparql",
+      "sha256": "c3374cc764a59e52b99d3250376541656dd43bc9fb6c9ea50c151dbb1bba0b8b"
+    },
+    {
+      "format": "properties",
+      "kind": "configuration",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "path": "ontop.properties",
+      "sha256": "383e6fe056fda6873f569e8d28ffeabd2118fb33b91747004bafd1a5dfd376d8"
+    },
+    {
+      "format": "obda",
+      "kind": "mapping",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "path": "salt-manufacturing.obda",
+      "sha256": "570d8dec637b9fca42b92af2b21dc02742aaf6ae0471e5ee256f11c1bfafb9a5"
+    },
+    {
+      "format": "sparql",
+      "kind": "query",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "path": "salt-manufacturing.sparql",
+      "sha256": "3c299eec81660ed1dc151b380922eb9482c938fd33a9a64bd4b553221254ecaf"
+    },
+    {
+      "format": "turtle",
+      "kind": "ontology",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "path": "salt-manufacturing.ttl",
+      "sha256": "0fa4b0757d177da0c338e1bc3d0d00fc1277f3525de3c95f80cfc66c9f6816e3"
+    }
+  ],
+  "classes": [
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.0#KnowledgeBase",
+      "label": "Knowledge base",
+      "local_name": "KnowledgeBase",
+      "ontology_id": "salt.manufacturing.v1.0"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.0#ManufacturingResource",
+      "label": "Manufacturing resource",
+      "local_name": "ManufacturingResource",
+      "ontology_id": "salt.manufacturing.v1.0"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.0#MaterialRequirement",
+      "label": "Material requirement",
+      "local_name": "MaterialRequirement",
+      "ontology_id": "salt.manufacturing.v1.0"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.0#WorkOrder",
+      "label": "Work order",
+      "local_name": "WorkOrder",
+      "ontology_id": "salt.manufacturing.v1.0"
+    }
+  ],
+  "ingestion_runs": [
+    {
+      "completed_at": "2026-09-06T05:55:20.646000000+00:00",
+      "manifest_sha256": "903ae06b3ba625c9245d7ce540a09b1f29a64e6e6aaecd0d87a4753c0f287730",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "run_id": "salt.manufacturing.v1.0:2026-09-06T05:55:04.907431+00:00",
+      "started_at": "2026-09-06T05:55:04.908431000+00:00",
+      "status": "succeeded"
+    },
+    {
+      "completed_at": "2026-09-06T05:55:43.268000000+00:00",
+      "manifest_sha256": "903ae06b3ba625c9245d7ce540a09b1f29a64e6e6aaecd0d87a4753c0f287730",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "run_id": "salt.manufacturing.v1.0:2026-09-06T05:55:40.517515+00:00",
+      "started_at": "2026-09-06T05:55:40.517515000+00:00",
+      "status": "succeeded"
+    }
+  ],
+  "knowledge_base": {
+    "document_root": "../../../../",
+    "kb_id": "my-mrp-kb",
+    "name": "Manufacturing and MRP Knowledge Base"
+  },
+  "ontology": {
+    "domain": "manufacturing",
+    "manifest_sha256": "903ae06b3ba625c9245d7ce540a09b1f29a64e6e6aaecd0d87a4753c0f287730",
+    "namespace": "salt",
+    "ontology_id": "salt.manufacturing.v1.0",
+    "ontology_iri": "https://example.org/ontology/salt/manufacturing/v1.0",
+    "version": "v1.0"
+  },
+  "properties": [
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.0#WorkOrder"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.0#requiresMaterial",
+      "label": "requires material",
+      "local_name": "requiresMaterial",
+      "ontology_id": "salt.manufacturing.v1.0",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.0#MaterialRequirement"
+      ]
+    }
+  ],
+  "source_policy": [
+    {
+      "ontology_id": "salt.manufacturing.v1.0",
+      "source_name": "sap_salt_data",
+      "usage_status": "Reference-only pending license review"
+    }
+  ]
+}

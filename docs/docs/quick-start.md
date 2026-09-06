@@ -118,7 +118,7 @@ Loading fixture data...
 ✓ Seeded 85 entities, 180 relationships, 25 documents, 4 decision traces
 ```
 
-## With MCP Server for Claude Desktop
+## With MCP Server for VS Code and GitHub Copilot
 
 Either flow supports `--with-mcp`:
 
@@ -130,7 +130,7 @@ uvx create-context-graph my-app \
   --with-mcp
 ```
 
-After scaffold, copy `mcp/claude_desktop_config.json` into your Claude Desktop config to query the same memory graph from Claude. See [Connect Claude Desktop](/docs/how-to/connect-claude-desktop).
+After scaffolding, copy the `servers` entry from `mcp/vscode_mcp.json` into `.vscode/mcp.json` to query the same memory graph from GitHub Copilot. See [Connect GitHub Copilot](/docs/how-to/connect-github-copilot).
 
 ## Troubleshooting
 

@@ -1,0 +1,8 @@
+PREFIX saltmfg: <https://example.org/ontology/salt/manufacturing/v1.0#>
+
+SELECT ?knowledgeBase ?label
+WHERE {
+  ?knowledgeBase a saltmfg:KnowledgeBase ;
+    <http://www.w3.org/2000/01/rdf-schema#label> ?label .
+}
+ORDER BY ?knowledgeBase

@@ -1,0 +1,370 @@
+"""MCP server for librarian-style access to MRP documents and ArangoDB research graph writes."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import logging
+import os
+from pathlib import Path
+from typing import Any, Dict, Iterable, List, Optional, Tuple
+
+from arango import ArangoClient
+from dotenv import load_dotenv
+from mcp.server.fastmcp import FastMCP
+
+
+LOGGER = logging.getLogger(__name__)
+logging.basicConfig(
+    level=os.getenv("LIBRARIAN_LOG_LEVEL", "INFO").upper(),
+    format="%(asctime)s %(levelname)s %(name)s %(message)s",
+)
+
+load_dotenv()
+
+MCP = FastMCP("librarian-server")
+
+DOCS_ROOT = Path(
+    os.getenv(
+        "LIBRARIAN_DOC_ROOT",
+        os.getenv("MRP_DOC_ROOT", os.getcwd()),
+    )
+).expanduser().resolve()
+
+ARANGO_HOST = os.getenv("LIBRARIAN_ARANGO_HOST", os.getenv("ARANGO_HOST", "http://127.0.0.1:8529"))
+ARANGO_DB = os.getenv("LIBRARIAN_ARANGO_DB", os.getenv("ARANGO_DB", "ai_research"))
+ARANGO_USER = os.getenv("LIBRARIAN_ARANGO_USER", os.getenv("ARANGO_USER", "_system"))
+ARANGO_PASSWORD = os.getenv("LIBRARIAN_ARANGO_PASSWORD", os.getenv("ARANGO_PASSWORD", ""))
+NEO4J_HOST = os.getenv("LIBRARIAN_NEO4J_HOST", os.getenv("NEO4J_HOST", ""))
+NEO4J_PORT = os.getenv("LIBRARIAN_NEO4J_PORT", os.getenv("NEO4J_PORT", "7687"))
+NEO4J_URI = os.getenv("LIBRARIAN_NEO4J_URI", os.getenv("NEO4J_URI", "")) or (
+    f"bolt://{NEO4J_HOST}:{NEO4J_PORT}" if NEO4J_HOST else ""
+)
+NEO4J_USER = os.getenv(
+    "LIBRARIAN_NEO4J_USERNAME",
+    os.getenv("LIBRARIAN_NEO4J_USER", os.getenv("NEO4J_USERNAME", os.getenv("NEO4J_USER", "neo4j"))),
+)
+NEO4J_PASSWORD = os.getenv("LIBRARIAN_NEO4J_PASSWORD", os.getenv("NEO4J_PASSWORD", ""))
+NEO4J_DATABASE = os.getenv("LIBRARIAN_NEO4J_DATABASE", os.getenv("NEO4J_DATABASE", ""))
+
+NODE_COLLECTION = "ai_research_node"
+EDGE_COLLECTION = "ai_research_edge"
+RESOLVES_TO = "RESOLVES_TO"
+
+
+def _error(message: str, **details: Any) -> Dict[str, Any]:
+    payload = {"ok": False, "error": message}
+    if details:
+        payload["details"] = details
+    return payload
+
+
+def _is_within_root(path: Path, root: Path) -> bool:
+    try:
+        path.relative_to(root)
+        return True
+    except ValueError:
+        return False
+
+
+def _resolve_local_path(raw_path: str) -> Path:
+    candidate = Path(raw_path).expanduser()
+    if not candidate.is_absolute():
+        candidate = DOCS_ROOT / candidate
+    candidate = candidate.resolve()
+    if not _is_within_root(candidate, DOCS_ROOT):
+        raise ValueError(f"Path escapes configured document root: {raw_path}")
+    return candidate
+
+
+def _connect_arango():
+    client = ArangoClient(hosts=ARANGO_HOST)
+    system_db = client.db("_system", username=ARANGO_USER, password=ARANGO_PASSWORD)
+    if not system_db.has_database(ARANGO_DB):
+        try:
+            system_db.create_database(ARANGO_DB)
+            LOGGER.info("Created ArangoDB database %s", ARANGO_DB)
+        except Exception:
+            LOGGER.warning("Could not create database %s; trying to use it anyway", ARANGO_DB, exc_info=True)
+    return client.db(ARANGO_DB, username=ARANGO_USER, password=ARANGO_PASSWORD)
+
+
+def _read_neo4j(cypher: str, parameters: Dict[str, Any]) -> List[Dict[str, Any]]:
+    if not NEO4J_URI or not NEO4J_PASSWORD:
+        raise RuntimeError(
+            "Neo4j read access is not configured; set LIBRARIAN_NEO4J_URI and "
+            "LIBRARIAN_NEO4J_PASSWORD"
+        )
+    from neo4j import GraphDatabase
+
+    driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
+    try:
+        with driver.session(database=NEO4J_DATABASE or None) as session:
+            return [record.data() for record in session.run(cypher, parameters)]
+    finally:
+        driver.close()
+
+
+def _ensure_collections(db) -> None:
+    if not db.has_collection(NODE_COLLECTION):
+        db.create_collection(NODE_COLLECTION)
+    if not db.has_collection(EDGE_COLLECTION):
+        db.create_collection(EDGE_COLLECTION, edge=True)
+
+
+def _stable_key(prefix: str, *parts: str) -> str:
+    material = "|".join(parts)
+    digest = hashlib.sha1(material.encode("utf-8")).hexdigest()
+    return f"{prefix}_{digest[:24]}"
+
+
+def _coerce_payload(payload: Any) -> Dict[str, Any]:
+    if isinstance(payload, str):
+        return json.loads(payload)
+    if isinstance(payload, dict):
+        return payload
+    raise TypeError("payload must be a JSON string or object")
+
+
+def _normalize_node(node: Dict[str, Any]) -> Dict[str, Any]:
+    doc = dict(node)
+    key = str(
+        doc.get("_key")
+        or doc.get("key")
+        or doc.get("id")
+        or doc.get("name")
+        or _stable_key(
+            "node",
+            str(doc.get("type", "")),
+            str(doc.get("label", doc.get("name", doc.get("id", "")))),
+        )
+    )
+    doc["_key"] = key
+    doc.pop("_id", None)
+    doc.pop("_rev", None)
+    return doc
+
+
+def _endpoint_for_node(node: Dict[str, Any]) -> str:
+    key = node.get("_key") or node.get("key") or node.get("id") or node.get("name")
+    if not key:
+        raise ValueError("Node is missing a stable identifier")
+    return f"{NODE_COLLECTION}/{key}"
+
+
+def _edge_predicate(edge: Dict[str, Any], source_node: Dict[str, Any], target_node: Dict[str, Any]) -> str:
+    predicate = edge.get("predicate") or edge.get("relation") or edge.get("edge_type")
+    source_kind = str(source_node.get("kind") or source_node.get("type") or source_node.get("category") or "").lower()
+    target_kind = str(target_node.get("kind") or target_node.get("type") or target_node.get("category") or "").lower()
+    if predicate:
+        return str(predicate)
+    if "concept" in source_kind and ("schema" in target_kind or "physical" in target_kind):
+        return RESOLVES_TO
+    return "RELATED_TO"
+
+
+def _edge_key(source_ref: str, target_ref: str, predicate: str) -> str:
+    return _stable_key("edge", source_ref, target_ref, predicate)
+
+
+def _upsert_docs(db, collection: str, docs: List[Dict[str, Any]]) -> int:
+    if not docs:
+        return 0
+    query = f"""
+FOR doc IN @docs
+    UPSERT {{ _key: doc._key }}
+    INSERT doc
+    UPDATE MERGE(OLD, doc)
+    IN {collection}
+    RETURN NEW._key
+"""
+    cursor = db.aql.execute(query, bind_vars={"docs": docs})
+    return sum(1 for _ in cursor)
+
+
+@MCP.tool()
+def list_mrp_documents() -> Dict[str, Any]:
+    """List files under the configured MRP document root."""
+    try:
+        if not DOCS_ROOT.exists():
+            return _error("Document root does not exist", doc_root=str(DOCS_ROOT))
+
+        files: List[Dict[str, Any]] = []
+        for path in sorted(DOCS_ROOT.rglob("*")):
+            if path.is_file():
+                stat = path.stat()
+                files.append(
+                    {
+                        "path": str(path.relative_to(DOCS_ROOT)),
+                        "absolute_path": str(path),
+                        "size_bytes": stat.st_size,
+                    }
+                )
+        return {"ok": True, "doc_root": str(DOCS_ROOT), "count": len(files), "files": files}
+    except Exception as exc:
+        LOGGER.exception("list_mrp_documents failed")
+        return _error("Failed to list MRP documents", exception=str(exc))
+
+
+@MCP.tool()
+def read_document(filepath: str) -> Dict[str, Any]:
+    """Read a .docx document and return its text content."""
+    try:
+        resolved = _resolve_local_path(filepath)
+        if resolved.suffix.lower() != ".docx":
+            return _error("Only .docx files are supported", filepath=str(resolved))
+        if not resolved.exists():
+            return _error("Document not found", filepath=str(resolved))
+
+        try:
+            from docx import Document
+        except Exception as exc:
+            LOGGER.exception("python-docx import failed")
+            return _error("python-docx is not available", exception=str(exc))
+
+        document = Document(str(resolved))
+        paragraphs = [paragraph.text for paragraph in document.paragraphs if paragraph.text]
+        text = "\n".join(paragraphs)
+        return {
+            "ok": True,
+            "filepath": str(resolved),
+            "paragraph_count": len(paragraphs),
+            "text": text,
+        }
+    except Exception as exc:
+        LOGGER.exception("read_document failed")
+        return _error("Failed to read document", filepath=filepath, exception=str(exc))
+
+
+@MCP.tool()
+def get_ontology(ontology_id: str) -> Dict[str, Any]:
+    """Get a versioned ontology and its knowledge-base owner from Neo4j."""
+    try:
+        rows = _read_neo4j(
+            "MATCH (kb:KnowledgeBase)-[:OWNS_ONTOLOGY]->(ontology:Ontology {ontology_id: $ontology_id}) "
+            "RETURN ontology, kb",
+            {"ontology_id": ontology_id},
+        )
+        return {"ok": True, "ontology_id": ontology_id, "results": rows}
+    except Exception as exc:
+        return _error("Failed to get ontology", ontology_id=ontology_id, exception=str(exc))
+
+
+@MCP.tool()
+def list_ontology_artifacts(ontology_id: str) -> Dict[str, Any]:
+    """List checksummed ontology artifacts registered in Neo4j."""
+    try:
+        rows = _read_neo4j(
+            "MATCH (:Ontology {ontology_id: $ontology_id})-[:HAS_ARTIFACT]->(artifact:OntologyArtifact) "
+            "RETURN artifact.path AS path, artifact.kind AS kind, artifact.format AS format, artifact.sha256 AS sha256 "
+            "ORDER BY artifact.path",
+            {"ontology_id": ontology_id},
+        )
+        return {"ok": True, "ontology_id": ontology_id, "artifacts": rows}
+    except Exception as exc:
+        return _error("Failed to list ontology artifacts", ontology_id=ontology_id, exception=str(exc))
+
+
+@MCP.tool()
+def list_ontology_classes(ontology_id: str) -> Dict[str, Any]:
+    """List ontology classes declared by a versioned ontology."""
+    try:
+        rows = _read_neo4j(
+            "MATCH (:Ontology {ontology_id: $ontology_id})-[:DECLARES_CLASS]->(class:OntologyClass) "
+            "RETURN class.iri AS iri, class.local_name AS local_name, class.label AS label "
+            "ORDER BY class.local_name",
+            {"ontology_id": ontology_id},
+        )
+        return {"ok": True, "ontology_id": ontology_id, "classes": rows}
+    except Exception as exc:
+        return _error("Failed to list ontology classes", ontology_id=ontology_id, exception=str(exc))
+
+
+@MCP.tool()
+def get_ontology_property(ontology_id: str, local_name: str) -> Dict[str, Any]:
+    """Get an ontology property with its domain and range evidence."""
+    try:
+        rows = _read_neo4j(
+            "MATCH (property:OntologyProperty {ontology_id: $ontology_id, local_name: $local_name}) "
+            "OPTIONAL MATCH (property)-[:HAS_DOMAIN]->(domain:OntologyClass) "
+            "OPTIONAL MATCH (property)-[:HAS_RANGE]->(range:OntologyClass) "
+            "RETURN property.iri AS iri, property.label AS label, property.property_kind AS property_kind, "
+            "collect(DISTINCT domain.local_name) AS domains, collect(DISTINCT range.local_name) AS ranges",
+            {"ontology_id": ontology_id, "local_name": local_name},
+        )
+        return {"ok": True, "ontology_id": ontology_id, "properties": rows}
+    except Exception as exc:
+        return _error("Failed to get ontology property", ontology_id=ontology_id, exception=str(exc))
+
+
+def _prepare_edges(nodes_by_key: Dict[str, Dict[str, Any]], edges: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    prepared: List[Dict[str, Any]] = []
+    for edge in edges:
+        edge_doc = dict(edge)
+        source_ref = edge_doc.get("_from") or edge_doc.get("from") or edge_doc.get("source") or edge_doc.get("source_id")
+        target_ref = edge_doc.get("_to") or edge_doc.get("to") or edge_doc.get("target") or edge_doc.get("target_id")
+        if not source_ref or not target_ref:
+            raise ValueError("Each edge must provide source and target references")
+
+        source_node = nodes_by_key.get(str(source_ref).split("/")[-1])
+        target_node = nodes_by_key.get(str(target_ref).split("/")[-1])
+        if source_node is None or target_node is None:
+            raise ValueError(f"Edge references unknown node(s): {source_ref} -> {target_ref}")
+
+        predicate = _edge_predicate(edge_doc, source_node, target_node)
+        source_vertex = source_ref if "/" in str(source_ref) else _endpoint_for_node(source_node)
+        target_vertex = target_ref if "/" in str(target_ref) else _endpoint_for_node(target_node)
+
+        prepared.append(
+            {
+                **edge_doc,
+                "_from": source_vertex,
+                "_to": target_vertex,
+                "predicate": predicate,
+                "_key": str(
+                    edge_doc.get("_key")
+                    or edge_doc.get("key")
+                    or _edge_key(source_vertex, target_vertex, predicate)
+                ),
+            }
+        )
+    return prepared
+
+
+@MCP.tool()
+def commit_to_arangodb(payload: Any) -> Dict[str, Any]:
+    """Upsert nodes and edges into ArangoDB research collections."""
+    try:
+        data = _coerce_payload(payload)
+        raw_nodes = data.get("nodes", [])
+        raw_edges = data.get("edges", [])
+        if not isinstance(raw_nodes, list) or not isinstance(raw_edges, list):
+            return _error("payload must contain list-valued nodes and edges")
+
+        nodes = [_normalize_node(node) for node in raw_nodes if isinstance(node, dict)]
+        nodes_by_key = {node["_key"]: node for node in nodes}
+        edges = _prepare_edges(nodes_by_key, [edge for edge in raw_edges if isinstance(edge, dict)])
+
+        db = _connect_arango()
+        _ensure_collections(db)
+
+        node_count = _upsert_docs(db, NODE_COLLECTION, nodes)
+        edge_count = _upsert_docs(db, EDGE_COLLECTION, edges)
+
+        LOGGER.info("Committed %s nodes and %s edges to ArangoDB", node_count, edge_count)
+        return {
+            "ok": True,
+            "database": ARANGO_DB,
+            "node_collection": NODE_COLLECTION,
+            "edge_collection": EDGE_COLLECTION,
+            "nodes_upserted": node_count,
+            "edges_upserted": edge_count,
+        }
+    except Exception as exc:
+        LOGGER.exception("commit_to_arangodb failed")
+        return _error("Failed to commit payload to ArangoDB", exception=str(exc))
+
+
+if __name__ == "__main__":
+    LOGGER.info("Starting librarian MCP server with doc root %s", DOCS_ROOT)
+    MCP.run()

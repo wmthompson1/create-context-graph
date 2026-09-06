@@ -166,7 +166,7 @@ For the full demo experience, scaffold with `--self-hosted --demo`.
 
 ### New Features
 
-- **MCP Server Integration** -- Generated projects can include an MCP server for Claude Desktop, enabling a dual-interface architecture where both the web app and Claude Desktop query the same knowledge graph. See [Connect Claude Desktop](/docs/how-to/connect-claude-desktop).
+- **MCP Server Integration** -- Generated projects can include an MCP server for VS Code and GitHub Copilot, enabling a dual-interface architecture where both the web app and Copilot query the same knowledge graph. See [Connect GitHub Copilot](/docs/how-to/connect-github-copilot).
 - **Chat History Import** -- Import your Claude AI or ChatGPT conversation exports into a context graph. Supports date/title filtering, deep mode for tool call decision traces, and streaming parsing for large exports (1GB+). See [Import Chat History](/docs/tutorials/import-chat-history).
 - **12 SaaS Connectors** -- Added Claude Code, Claude AI, ChatGPT, and Google Workspace connectors alongside the existing GitHub, Notion, Jira, Slack, Gmail, Google Calendar, Salesforce, and Linear connectors. See [Import SaaS Data](/docs/how-to/import-saas-data).
 - **22 Built-in Domains** -- Complete ontology catalog with pre-generated fixture data, domain-specific agent tools, and demo scenarios for every domain. See [Domain Catalog](/docs/reference/domain-catalog).
@@ -177,7 +177,7 @@ For the full demo experience, scaffold with `--self-hosted --demo`.
 
 ### New Documentation Pages
 
-- [Connect Claude Desktop](/docs/how-to/connect-claude-desktop) -- MCP server setup and dual-interface architecture
+- [Connect GitHub Copilot](/docs/how-to/connect-github-copilot) -- MCP server setup and dual-interface architecture
 - [Customizing Your Domain Ontology](/docs/tutorials/customizing-domain-ontology) -- Tutorial for modifying and creating domain ontologies
 - [Import Your AI Chat History](/docs/tutorials/import-chat-history) -- Claude AI and ChatGPT import tutorial
 - [Chat Import Schema](/docs/reference/chat-import-schema) -- Graph schema reference for chat history imports

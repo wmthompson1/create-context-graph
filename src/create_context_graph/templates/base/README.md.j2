@@ -197,9 +197,9 @@ Requires `ANTHROPIC_API_KEY` in `.env`.
 See `backend/app/agent.py` for the full implementation.
 
 {% if with_mcp %}
-## MCP Server (Claude Desktop Integration)
+## MCP Server (VS Code and GitHub Copilot)
 
-This project includes an MCP server configuration that lets Claude Desktop query
+This project includes an MCP server configuration that lets GitHub Copilot in VS Code query
 the same knowledge graph your web application uses.
 
 ```bash
@@ -208,7 +208,7 @@ make mcp-server
 ```
 
 See `mcp/README.md` for detailed setup instructions including how to configure
-Claude Desktop and the list of available tools.
+VS Code and the list of available tools.
 {% endif %}
 
 ## Environment Variables

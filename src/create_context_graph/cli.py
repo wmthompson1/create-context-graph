@@ -190,7 +190,7 @@ def _run_import_preview(
 @click.option("--import-filter-title", type=str, help="Only import conversations matching this title pattern (regex)")
 @click.option("--import-max-conversations", type=int, default=0, help="Maximum conversations to import (0=all)")
 @click.option("--import-preview", is_flag=True, default=False, help="Parse the import file and print a summary without scaffolding or ingesting")
-@click.option("--with-mcp", is_flag=True, default=False, help="Generate MCP server configuration for Claude Desktop")
+@click.option("--with-mcp", is_flag=True, default=False, help="Generate MCP server configuration for VS Code and GitHub Copilot")
 @click.option("--mcp-profile", type=click.Choice(["core", "extended"], case_sensitive=False), default="extended", help="MCP tool profile (core=6 tools, extended=16 tools)")
 @click.option("--session-strategy", type=click.Choice(["per_conversation", "per_day", "persistent"], case_sensitive=False), default="per_conversation", help="Memory session strategy")
 @click.option("--auto-extract/--no-auto-extract", default=True, help="Auto-extract entities from conversation messages")
@@ -711,7 +711,7 @@ def main(
             _step("make seed",        "Ingest demo data into NAMS (entities only)")
         _step("make start",       "Start backend + frontend")
         if config.with_mcp:
-            _step("make mcp-server",  "Start MCP server for Claude Desktop")
+            _step("make mcp-server",  "Start MCP server for VS Code and GitHub Copilot")
         console.print()
         console.print("  Backend:  http://localhost:8000")
         console.print("  Frontend: http://localhost:3000")
@@ -740,7 +740,7 @@ def main(
         else:
             _step("make seed",        "Apply schema + seed sample data")
         if config.with_mcp:
-            _step("make mcp-server",  "Start MCP server for Claude Desktop")
+            _step("make mcp-server",  "Start MCP server for VS Code and GitHub Copilot")
         _step("make start",       "Start backend + frontend")
         console.print()
         console.print("  Backend:  http://localhost:8000")

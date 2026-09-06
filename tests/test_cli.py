@@ -869,7 +869,7 @@ class TestClaudeCodeConnectorCLI:
             "--output-dir", str(out),
         ])
         assert result.exit_code == 0, result.output
-        assert (out / "mcp" / "claude_desktop_config.json").exists()
+        assert (out / "mcp" / "vscode_mcp.json").exists()
         assert (out / "mcp" / "README.md").exists()
         makefile = (out / "Makefile").read_text()
         assert "mcp-server" in makefile
@@ -915,7 +915,7 @@ class TestClaudeCodeConnectorCLI:
             "--output-dir", str(out),
         ])
         assert result.exit_code == 0, result.output
-        mcp_config = (out / "mcp" / "claude_desktop_config.json").read_text()
+        mcp_config = (out / "mcp" / "vscode_mcp.json").read_text()
         assert "core" in mcp_config
 
     def test_dry_run_shows_memory_config(self, runner, tmp_path):

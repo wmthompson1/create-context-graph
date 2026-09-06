@@ -102,15 +102,15 @@ neo4j-status:
 
 {% if with_mcp %}
 {% if is_nams %}
-# MCP Server for Claude Desktop (NAMS backend)
-mcp-server:  ## Start MCP server for Claude Desktop (NAMS)
+# MCP Server for VS Code and GitHub Copilot (NAMS backend)
+mcp-server:  ## Start MCP server for VS Code and GitHub Copilot (NAMS)
 	cd backend && MEMORY_API_KEY=$${MEMORY_API_KEY} MEMORY_NAMS_ENDPOINT={{ nams_endpoint }} \
 		uv run python -m neo4j_agent_memory.mcp.server \
 		--backend nams \
 		--profile {{ mcp_profile }}
 {% else %}
-# MCP Server for Claude Desktop (bolt backend)
-mcp-server:  ## Start MCP server for Claude Desktop
+# MCP Server for VS Code and GitHub Copilot (bolt backend)
+mcp-server:  ## Start MCP server for VS Code and GitHub Copilot
 	cd backend && uv run python -m neo4j_agent_memory.mcp.server \
 		--neo4j-uri $${NEO4J_URI:-neo4j://localhost:7687} \
 		--neo4j-password $${NEO4J_PASSWORD:-password} \

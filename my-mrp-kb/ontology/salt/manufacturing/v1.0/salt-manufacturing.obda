@@ -1,0 +1,8 @@
+[PrefixDeclaration]
+:	https://example.org/ontology/salt/manufacturing/v1.0#
+
+[MappingDeclaration] @collection [[
+mappingId	knowledge-base
+target		<https://example.org/kb/my-mrp-kb> a :KnowledgeBase ; <http://www.w3.org/2000/01/rdf-schema#label> {label} .
+source		SELECT 'Manufacturing and MRP Knowledge Base' AS label
+]]

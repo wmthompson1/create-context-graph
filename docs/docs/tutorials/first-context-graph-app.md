@@ -155,7 +155,7 @@ Watch the decision trace panel as the agent processes each query -- you will see
 - **[Customizing Your Domain Ontology](./customizing-domain-ontology)** -- modify entity types, relationships, and agent tools to fit your use case
 - **[Import Data from SaaS Services](/docs/how-to/import-saas-data)** -- connect real data from GitHub, Linear, Slack, and more
 - **[Switch Agent Frameworks](/docs/how-to/switch-frameworks)** -- try PydanticAI, Claude Agent SDK, LangGraph, or other frameworks
-- **[Connect Claude Desktop](/docs/how-to/connect-claude-desktop)** -- query the same knowledge graph from Claude Desktop via MCP
+- **[Connect GitHub Copilot](/docs/how-to/connect-github-copilot)** -- query the same knowledge graph from GitHub Copilot in VS Code via MCP
 
 :::info Suggested next tutorial
 Ready for more? Continue with **[Customizing Your Domain Ontology](./customizing-domain-ontology)** to learn how to modify entity types, relationships, and agent tools.

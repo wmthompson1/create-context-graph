@@ -398,8 +398,8 @@ class ProjectRenderer:
         # MCP server config (only if --with-mcp)
         if self.config.with_mcp:
             self._render_template(
-                "base/mcp/claude_desktop_config.json.j2",
-                output_dir / "mcp" / "claude_desktop_config.json",
+                "base/mcp/vscode_mcp.json.j2",
+                output_dir / "mcp" / "vscode_mcp.json",
                 ctx,
             )
             self._render_template(

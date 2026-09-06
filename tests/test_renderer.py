@@ -455,13 +455,15 @@ class TestProjectRenderer:
         renderer = ProjectRenderer(config, ontology)
         renderer.render(tmp_output)
 
-        mcp_config = tmp_output / "mcp" / "claude_desktop_config.json"
+        mcp_config = tmp_output / "mcp" / "vscode_mcp.json"
         mcp_readme = tmp_output / "mcp" / "README.md"
         assert mcp_config.exists()
         assert mcp_readme.exists()
         content = mcp_config.read_text()
         assert "test-mcp-app-memory" in content
         assert "extended" in content
+        assert '"servers"' in content
+        assert "GitHub Copilot" in mcp_readme.read_text()
 
     def test_mcp_files_not_generated_by_default(self, financial_config, tmp_output):
         """Verify MCP files are NOT generated when with_mcp=False."""

@@ -34,7 +34,7 @@ Create Context Graph walks you through an interactive wizard and generates a com
 - **SaaS data import** — connect GitHub, Slack, Gmail, Jira, Notion, Google Calendar, Salesforce, Linear, Google Workspace, Claude Code, Claude AI, ChatGPT, or local files
 - **Custom domains** — describe your domain in plain English and the LLM generates a complete ontology
 - **Domain-specific agent tools** with Cypher queries tailored to your industry
-- **MCP server for Claude Desktop** — optionally generates an MCP server config so Claude Desktop can query the same knowledge graph (`--with-mcp`)
+- **MCP server for VS Code and GitHub Copilot** — optionally generates an MCP server config so GitHub Copilot can query the same knowledge graph (`--with-mcp`)
 
 ```
   Creating context graph application...
@@ -125,7 +125,7 @@ uvx create-context-graph my-app \
   --domain personal-knowledge --framework pydanticai --self-hosted \
   --connector github --connector slack
 
-# With MCP server for Claude Desktop (works on either backend)
+# With MCP server for VS Code and GitHub Copilot (works on either backend)
 uvx create-context-graph my-app \
   --domain healthcare --framework strands \
   --nams-api-key sk-nams-... --with-mcp
@@ -335,7 +335,7 @@ Options:
   --claude-code-since TEXT Import sessions since date (ISO format)
   --claude-code-max-sessions INT Max sessions to import, 0=all (default: 0)
   --claude-code-content TEXT Content mode: truncated, full, none (default: truncated)
-  --with-mcp                Generate MCP server configuration for Claude Desktop
+  --with-mcp                Generate MCP server configuration for VS Code and GitHub Copilot
   --mcp-profile TEXT        MCP tool profile: core (6 tools) or extended (16 tools, default)
   --session-strategy TEXT   Memory session strategy: per_conversation (default), per_day, persistent
   --auto-extract/--no-auto-extract  Auto-extract entities from messages (default: on)
@@ -377,7 +377,7 @@ Every generated app demonstrates the three-memory-type architecture from [neo4j-
 
 This is what makes context graphs different from simple RAG — the agent doesn't just retrieve text, it reasons over a structured knowledge graph with full decision traceability.
 
-With `--with-mcp`, the generated project also includes an MCP server configuration that connects Claude Desktop to the same knowledge graph. This dual-interface architecture means the web app and Claude Desktop share one context graph — entities, conversations, and reasoning traces are available everywhere.
+With `--with-mcp`, the generated project also includes an MCP server configuration that connects GitHub Copilot in VS Code to the same knowledge graph. Copilot remains an MCP client; the generated FastAPI application uses its configured runtime model provider. This dual-interface architecture means the web app and Copilot share one context graph — entities, conversations, and reasoning traces are available everywhere.
 
 ## Development
 

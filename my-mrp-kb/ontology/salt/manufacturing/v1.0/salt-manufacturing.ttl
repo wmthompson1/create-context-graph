@@ -1,0 +1,24 @@
+@prefix saltmfg: <https://example.org/ontology/salt/manufacturing/v1.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://example.org/ontology/salt/manufacturing/v1.0> a owl:Ontology ;
+    rdfs:label "SALT Manufacturing Ontology v1.0" ;
+    rdfs:comment "ontology_id: salt.manufacturing.v1.0" .
+
+saltmfg:KnowledgeBase a owl:Class ;
+    rdfs:label "Knowledge base" .
+
+saltmfg:ManufacturingResource a owl:Class ;
+    rdfs:label "Manufacturing resource" .
+
+saltmfg:MaterialRequirement a owl:Class ;
+    rdfs:label "Material requirement" .
+
+saltmfg:WorkOrder a owl:Class ;
+    rdfs:label "Work order" .
+
+saltmfg:requiresMaterial a owl:ObjectProperty ;
+    rdfs:domain saltmfg:WorkOrder ;
+    rdfs:range saltmfg:MaterialRequirement ;
+    rdfs:label "requires material" .

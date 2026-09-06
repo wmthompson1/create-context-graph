@@ -29,7 +29,7 @@ The **POLE+O** entity model is the foundation for all context graphs: **P**erson
 - **Rich demo data** -- LLM-generated fixture data per domain: 80-90 entities, 25+ professional documents, and 3-5 multi-step decision traces. Loaded via `make seed`.
 - **13 SaaS data connectors** -- GitHub (`github`), Slack (`slack`), Jira (`jira`), Notion (`notion`), Gmail (`gmail`), Google Calendar (`gcal`), Salesforce (`salesforce`), Linear (`linear`), Google Workspace (`google-workspace`), Claude Code (`claude-code`), Claude AI (`claude-ai`), ChatGPT (`chatgpt`), and local files (`local-file`). Use the ID in parentheses with `--connector`.
 - **Custom domains** -- Describe your domain in natural language to generate a complete ontology, or write your own YAML definition.
-- **MCP server for Claude Desktop** -- Optionally generate an MCP server config so Claude Desktop queries the same knowledge graph as your web app.
+- **MCP server for VS Code and GitHub Copilot** -- Optionally generate an MCP server config so GitHub Copilot queries the same knowledge graph as your web app.
 
 ## Quick Install
 

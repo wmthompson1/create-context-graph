@@ -158,6 +158,141 @@ entity_types:
         type: string
         enum: [single, double, triple, continuous]
 
+  - label: CDSView
+    pole_type: OBJECT
+    subtype: ENTERPRISE_DATA_VIEW
+    color: "#0f766e"
+    icon: table-2
+    properties:
+      - name: view_uri
+        type: string
+        required: true
+        unique: true
+      - name: name
+        type: string
+        required: true
+      - name: technical_name
+        type: string
+        required: true
+      - name: short_description
+        type: string
+      - name: source_system
+        type: string
+
+  - label: CDSField
+    pole_type: OBJECT
+    subtype: ENTERPRISE_DATA_FIELD
+    color: "#2563eb"
+    icon: columns-3
+    properties:
+      - name: field_uri
+        type: string
+        required: true
+        unique: true
+      - name: name
+        type: string
+        required: true
+      - name: field_name
+        type: string
+        required: true
+      - name: field_type
+        type: string
+      - name: definition
+        type: string
+      - name: reference_field
+        type: string
+
+  - label: BusinessConcept
+    pole_type: OBJECT
+    subtype: SEMANTIC_CONCEPT
+    color: "#be123c"
+    icon: lightbulb
+    properties:
+      - name: concept_uri
+        type: string
+        required: true
+        unique: true
+      - name: name
+        type: string
+        required: true
+      - name: notation
+        type: string
+      - name: scope_note
+        type: string
+
+  - label: TaxonomyConcept
+    pole_type: OBJECT
+    subtype: CONTROLLED_VOCABULARY_TERM
+    color: "#a16207"
+    icon: tags
+    properties:
+      - name: concept_uri
+        type: string
+        required: true
+        unique: true
+      - name: pref_label
+        type: string
+        required: true
+      - name: alt_labels
+        type: string
+      - name: notation
+        type: string
+      - name: scope_note
+        type: string
+      - name: governance_status
+        type: string
+        enum: [draft, approved, deprecated]
+
+  - label: SourceDataset
+    pole_type: OBJECT
+    subtype: DATA_PROVENANCE
+    color: "#4f46e5"
+    icon: database
+    properties:
+      - name: source_uri
+        type: string
+        required: true
+        unique: true
+      - name: name
+        type: string
+        required: true
+      - name: source_commit
+        type: string
+      - name: license
+        type: string
+      - name: import_timestamp
+        type: datetime
+      - name: row_count
+        type: integer
+
+  - label: SalesDocument
+    pole_type: EVENT
+    subtype: CUSTOMER_SALES_DOCUMENT
+    color: "#c2410c"
+    icon: file-text
+    properties:
+      - name: sales_document
+        type: string
+        required: true
+        unique: true
+      - name: name
+        type: string
+        required: true
+      - name: sales_organization
+        type: string
+      - name: sales_document_type
+        type: string
+      - name: distribution_channel
+        type: string
+      - name: division
+        type: string
+      - name: transaction_currency
+        type: string
+      - name: incoterms_classification
+        type: string
+      - name: creation_timestamp
+        type: datetime
+
 relationships:
   - type: ASSEMBLED_FROM
     source: Part
@@ -183,6 +318,33 @@ relationships:
   - type: REPORTED_BY
     source: QualityReport
     target: Person
+  - type: DEFINES_FIELD
+    source: CDSView
+    target: CDSField
+  - type: INSTANCE_OF_VIEW
+    source: SalesDocument
+    target: CDSView
+  - type: REPRESENTS_CONCEPT
+    source: CDSField
+    target: BusinessConcept
+  - type: BROADER_THAN
+    source: TaxonomyConcept
+    target: TaxonomyConcept
+  - type: NARROWER_THAN
+    source: TaxonomyConcept
+    target: TaxonomyConcept
+  - type: EXACT_MATCH
+    source: TaxonomyConcept
+    target: TaxonomyConcept
+  - type: CLOSE_MATCH
+    source: TaxonomyConcept
+    target: TaxonomyConcept
+  - type: SOURCED_FROM
+    source: SalesDocument
+    target: SourceDataset
+  - type: DRIVES_DEMAND_FOR
+    source: SalesDocument
+    target: WorkOrder
 
 document_templates:
   - id: work_order_doc
@@ -383,6 +545,38 @@ demo_scenarios:
       - "What is the bill of materials for part P-4500?"
 
 agent_tools:
+  - name: lookup_field_semantics
+    description: Look up enterprise field definitions and their mapped business concepts
+    cypher: |
+      MATCH (field:CDSField)
+      WHERE toLower(field.field_name) CONTAINS toLower($query)
+         OR toLower(field.name) CONTAINS toLower($query)
+      OPTIONAL MATCH (view:CDSView)-[:DEFINES_FIELD]->(field)
+      OPTIONAL MATCH (field)-[:REPRESENTS_CONCEPT]->(concept:BusinessConcept)
+      RETURN field, view.name AS view_name, concept.name AS concept_name,
+             concept.scope_note AS concept_scope_note
+      ORDER BY view_name, field.field_name
+      LIMIT 25
+    parameters:
+      - name: query
+        type: string
+        description: Field name or business label to search for
+
+  - name: search_sales_documents
+    description: Search sales documents and retrieve their semantic source view
+    cypher: |
+      MATCH (document:SalesDocument)
+      WHERE document.sales_document = $sales_document OR $sales_document = ''
+      OPTIONAL MATCH (document)-[:INSTANCE_OF_VIEW]->(view:CDSView)
+      OPTIONAL MATCH (document)-[:SOURCED_FROM]->(source:SourceDataset)
+      RETURN document, view.name AS view_name, source.name AS source_dataset
+      ORDER BY document.sales_document
+      LIMIT 25
+    parameters:
+      - name: sales_document
+        type: string
+        description: Exact sales document identifier, or empty for a sample
+
   - name: search_machine
     description: Search for machines by name, type, or status
     cypher: |

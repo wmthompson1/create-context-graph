@@ -267,8 +267,8 @@ class TestNamsRenderedTemplates:
         out.mkdir()
         ProjectRenderer(cfg, ontology).render(out)
 
-        config = json.loads((out / "mcp" / "claude_desktop_config.json").read_text())
-        server = next(iter(config["mcpServers"].values()))
+        config = json.loads((out / "mcp" / "vscode_mcp.json").read_text())
+        server = next(iter(config["servers"].values()))
         assert "--backend" in server["args"]
         assert "nams" in server["args"]
         assert "core" in server["args"]  # NAMS forces core profile
