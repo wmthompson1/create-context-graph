@@ -1,0 +1,38 @@
+{
+  "manifest_version": "1.0",
+  "ontology_id": "salt.manufacturing.v1.1",
+  "namespace": "salt",
+  "domain": "manufacturing",
+  "version": "v1.1",
+  "knowledge_base": {
+    "id": "my-mrp-kb",
+    "label": "Manufacturing and MRP Knowledge Base",
+    "document_root": "../../../../"
+  },
+  "ontology_iri": "https://example.org/ontology/salt/manufacturing/v1.1",
+  "ontop": {
+    "image": "ontop/ontop:5.3.0",
+    "image_digest": "sha256:a49c10a6f39fe782cf8be08d0e59f232402e30dec40ac127c11d2936faeda165",
+    "wrapper": "ontop.ps1",
+    "properties": "ontop.properties",
+    "jdbc_driver": {
+      "path": "drivers/h2-2.2.224.jar",
+      "sha256": "B9D8F19358ADA82A4F6EB5B174C6CFE320A375B5A9CB5A4FE456D623E6E55497"
+    }
+  },
+  "artifacts": {
+    "ontology": "salt-manufacturing.ttl",
+    "mapping": "salt-manufacturing.obda",
+    "configuration": "ontop.properties",
+    "smoke_query": "salt-manufacturing.sparql",
+    "acceptance_queries": [
+      "acceptance/lineage.sparql",
+      "acceptance/provenance.sparql",
+      "acceptance/semantics.sparql"
+    ]
+  },
+  "source_policy": {
+    "sap_salt_data": "Reference-only pending license review",
+    "production_mappings": "Require a configured relational datasource and approved source access"
+  }
+}

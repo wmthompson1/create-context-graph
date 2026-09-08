@@ -1,0 +1,12 @@
+ontology_id: salt.manufacturing.v1.1
+allowed_document_kinds:
+- work_instruction
+- bom_pdf
+- routing_sheet
+- supplier_spec
+- manufacturing_documentation
+chunk_size: 800
+chunk_overlap: 120
+linking: explicit identifiers only
+provenance_required: true
+reject_sap_cds_transactional_content: true

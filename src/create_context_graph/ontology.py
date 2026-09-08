@@ -168,7 +168,7 @@ def list_available_domains() -> list[dict[str, str]]:
             if path.stem.startswith("_"):
                 continue
             try:
-                with open(path) as f:
+                with open(path, encoding="utf-8") as f:
                     data = yaml.safe_load(f)
                 domain_info = data.get("domain", {})
                 domain_id = domain_info.get("id", path.stem)
@@ -191,7 +191,7 @@ def _load_base() -> dict:
     base_path = _get_domains_path() / "_base.yaml"
     if not base_path.exists():
         return {}
-    with open(base_path) as f:
+    with open(base_path, encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
 
 
@@ -264,7 +264,7 @@ def _find_domain_path(domain_id: str) -> Path | None:
             if path.stem.startswith("_"):
                 continue
             try:
-                with open(path) as f:
+                with open(path, encoding="utf-8") as f:
                     data = yaml.safe_load(f) or {}
             except Exception:
                 continue
@@ -318,7 +318,7 @@ def load_domain_from_path(path: Path) -> DomainOntology:
     if not path.exists():
         raise FileNotFoundError(f"Domain ontology not found: {path}")
 
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     if data.get("inherits") == "_base" or data.get("domain", {}).get("inherits") == "_base":

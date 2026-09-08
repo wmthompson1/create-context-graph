@@ -1,0 +1,41 @@
+PREFIX saltmfg: <https://example.org/ontology/salt/manufacturing/v1.1#>
+
+SELECT ?resource ?source ?target
+WHERE {
+  ?resource a saltmfg:BillOfMaterials .
+  ?resource a saltmfg:KnowledgeBase .
+  ?resource a saltmfg:Machine .
+  ?resource a saltmfg:ManufacturingResource .
+  ?resource a saltmfg:MaterialRequirement .
+  ?resource a saltmfg:Part .
+  ?resource a saltmfg:ProductionEvent .
+  ?resource a saltmfg:ScheduleSlot .
+  ?resource a saltmfg:Supplier .
+  ?resource a saltmfg:SupplyCommitment .
+  ?resource a saltmfg:WorkCenter .
+  ?resource a saltmfg:WorkOrder .
+  ?source saltmfg:actualEnd ?target .
+  ?source saltmfg:actualStart ?target .
+  ?source saltmfg:allocatedTo ?target .
+  ?source saltmfg:commitmentDate ?target .
+  ?source saltmfg:committedBy ?target .
+  ?source saltmfg:consumesPart ?target .
+  ?source saltmfg:definesRequirement ?target .
+  ?source saltmfg:executesWorkOrder ?target .
+  ?source saltmfg:hasBillOfMaterials ?target .
+  ?source saltmfg:hasWorkCenter ?target .
+  ?source saltmfg:identifier ?target .
+  ?source saltmfg:leadTimeDays ?target .
+  ?source saltmfg:plannedEnd ?target .
+  ?source saltmfg:plannedStart ?target .
+  ?source saltmfg:precedesEvent ?target .
+  ?source saltmfg:producesPart ?target .
+  ?source saltmfg:quantity ?target .
+  ?source saltmfg:requiresPart ?target .
+  ?source saltmfg:scheduledAt ?target .
+  ?source saltmfg:scheduledFor ?target .
+  ?source saltmfg:status ?target .
+  ?source saltmfg:suppliesPart ?target .
+  ?source saltmfg:unitOfMeasure ?target .
+  ?source saltmfg:usesMachine ?target .
+}

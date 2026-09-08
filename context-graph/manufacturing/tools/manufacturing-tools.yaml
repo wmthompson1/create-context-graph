@@ -1,0 +1,54 @@
+ontology_id: salt.manufacturing.v1.1
+tools:
+- name: get_work_order
+  description: Retrieve one scoped work order by its context-graph identifier.
+  parameters:
+  - id
+  cypher: MATCH (node:WorkOrder) WHERE node.ontology_id = $ontology_id AND node.id
+    = $id RETURN node LIMIT 1
+- name: get_bom_components
+  description: Retrieve a work order's bill of materials, requirements, and required
+    parts.
+  parameters:
+  - work_order_id
+  cypher: MATCH (workOrder:WorkOrder) WHERE workOrder.ontology_id = $ontology_id AND
+    workOrder.id = $work_order_id MATCH (workOrder)-[:HAS_BILL_OF_MATERIALS]->(bom:BillOfMaterials)-[:DEFINES_REQUIREMENT]->(requirement:MaterialRequirement)-[:REQUIRES_PART]->(part:Part)
+    WHERE bom.ontology_id = $ontology_id AND requirement.ontology_id = $ontology_id
+    AND part.ontology_id = $ontology_id RETURN bom, requirement, part ORDER BY part.id
+- name: get_machine_status
+  description: Retrieve machines and their work centers, optionally by machine identifier.
+  parameters:
+  - machine_id
+  cypher: MATCH (machine:Machine) WHERE machine.ontology_id = $ontology_id AND ($machine_id
+    IS NULL OR machine.id = $machine_id) OPTIONAL MATCH (machine)-[:HAS_WORK_CENTER]->(workCenter:WorkCenter)
+    WHERE workCenter.ontology_id = $ontology_id RETURN machine, workCenter ORDER BY
+    machine.id
+- name: get_supplier_parts
+  description: Retrieve supplier commitments and the parts they supply.
+  parameters:
+  - supplier_id
+  cypher: MATCH (commitment:SupplyCommitment) WHERE commitment.ontology_id = $ontology_id
+    MATCH (commitment)-[:COMMITTED_BY]->(supplier:Supplier) WHERE supplier.ontology_id
+    = $ontology_id AND ($supplier_id IS NULL OR supplier.id = $supplier_id) OPTIONAL
+    MATCH (commitment)-[:SUPPLIES_PART]->(part:Part) WHERE part.ontology_id = $ontology_id
+    RETURN supplier, commitment, part ORDER BY supplier.id, part.id
+- name: get_material_requirements
+  description: Retrieve material requirements, required parts, and their owning bills
+    of materials.
+  parameters:
+  - part_id
+  cypher: MATCH (bom:BillOfMaterials) WHERE bom.ontology_id = $ontology_id MATCH (bom)-[:DEFINES_REQUIREMENT]->(requirement:MaterialRequirement)-[:REQUIRES_PART]->(part:Part)
+    WHERE requirement.ontology_id = $ontology_id AND part.ontology_id = $ontology_id
+    AND ($part_id IS NULL OR part.id = $part_id) RETURN bom, requirement, part ORDER
+    BY requirement.id
+- name: get_production_events
+  description: Retrieve production events with their work order and machine execution
+    context.
+  parameters:
+  - work_order_id
+  cypher: MATCH (event:ProductionEvent) WHERE event.ontology_id = $ontology_id OPTIONAL
+    MATCH (event)-[:EXECUTES_WORK_ORDER]->(workOrder:WorkOrder) WHERE workOrder.ontology_id
+    = $ontology_id OPTIONAL MATCH (event)-[:USES_MACHINE]->(machine:Machine) WHERE
+    machine.ontology_id = $ontology_id WITH event, workOrder, machine WHERE $work_order_id
+    IS NULL OR workOrder.id = $work_order_id RETURN event, workOrder, machine ORDER
+    BY event.id

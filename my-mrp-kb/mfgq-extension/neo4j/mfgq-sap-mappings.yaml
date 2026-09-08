@@ -1,0 +1,48 @@
+ontology_id: mfgq.quality.v0.1
+binding_layer: sap.obkg
+mappings:
+  affectedPart:
+    sap_property: sap:hasPart
+    source_entity: Part
+    target_entity: Nonconformance
+    notes: Bind the NCR part reference to the canonical SAP part node.
+  affectedMaterial:
+    sap_property: sap:hasMaterial
+    source_entity: Material
+    target_entity: Nonconformance
+    notes: Bind the material reference to the canonical SAP material node.
+  affectedBatch:
+    sap_property: sap:hasBatch
+    source_entity: Batch
+    target_entity: Nonconformance
+    notes: Bind the batch-trace to the SAP batch node.
+  occurredAtPlant:
+    sap_property: sap:hasPlant
+    source_entity: Plant
+    target_entity: Nonconformance
+    notes: Bind the plant location for the quality event.
+  associatedWithOrder:
+    sap_property: sap:hasProductionOrder
+    source_entity: WorkOrder
+    target_entity: Nonconformance
+    notes: Bind the NCR to the SAP production order context.
+  associatedWithOperation:
+    sap_property: sap:hasOperation
+    source_entity: Operation
+    target_entity: Nonconformance
+    notes: Bind the NCR to the SAP operation context.
+  associatedWithWorkCenter:
+    sap_property: sap:hasWorkCenter
+    source_entity: WorkCenter
+    target_entity: Nonconformance
+    notes: Bind the NCR to the operating work center.
+  associatedWithEquipment:
+    sap_property: sap:hasEquipment
+    source_entity: Machine
+    target_entity: Nonconformance
+    notes: Bind the NCR to the equipment involved.
+  associatedWithSupplier:
+    sap_property: sap:hasSupplier
+    source_entity: Supplier
+    target_entity: Nonconformance
+    notes: Bind the supplier context to the NCR.

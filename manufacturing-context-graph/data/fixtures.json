@@ -1,0 +1,3042 @@
+{
+  "domain": "manufacturing",
+  "entities": {
+    "Person": [
+      {
+        "name": "Sarah Chen",
+        "email": "sarah.chen@acme.co",
+        "role": "Senior Analyst",
+        "description": "Sarah Chen, senior analyst specializing in manufacturing."
+      },
+      {
+        "name": "James Morrison",
+        "email": "james.morrison@corp.net",
+        "role": "Project Manager",
+        "description": "Project Manager James Morrison \u2014 active in the manufacturing sector with relevant domain expertise."
+      },
+      {
+        "name": "Maria Rodriguez",
+        "email": "maria.rodriguez@acme.co",
+        "role": "Technical Lead",
+        "description": "Maria Rodriguez serves as technical lead, contributing to manufacturing initiatives and operations."
+      },
+      {
+        "name": "David Park",
+        "email": "david.park@company.org",
+        "role": "Research Director",
+        "description": "David Park, research director specializing in manufacturing."
+      },
+      {
+        "name": "Elena Volkov",
+        "email": "elena.volkov@company.org",
+        "role": "Operations Manager",
+        "description": "Operations Manager Elena Volkov \u2014 active in the manufacturing sector with relevant domain expertise."
+      }
+    ],
+    "Organization": [
+      {
+        "name": "Meridian Consulting Group",
+        "description": "Meridian Consulting Group is a industrial manufacturing organization operating in the manufacturing space.",
+        "industry": "Industrial Manufacturing"
+      },
+      {
+        "name": "Pacific Northwest Industries",
+        "description": "Automotive entity Pacific Northwest Industries, providing services and resources for manufacturing operations.",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Apex Financial Partners",
+        "description": "Apex Financial Partners \u2014 a aerospace institution active in manufacturing.",
+        "industry": "Aerospace"
+      },
+      {
+        "name": "Greenleaf Technologies",
+        "description": "Greenleaf Technologies is a process engineering organization operating in the manufacturing space.",
+        "industry": "Process Engineering"
+      },
+      {
+        "name": "Summit Healthcare Systems",
+        "description": "Supply Chain entity Summit Healthcare Systems, providing services and resources for manufacturing operations.",
+        "industry": "Supply Chain"
+      }
+    ],
+    "Location": [
+      {
+        "name": "Downtown Medical Center",
+        "address": "987 Elm Court, Boston, MA 02101",
+        "latitude": 41.03,
+        "longitude": -101.58
+      },
+      {
+        "name": "Westside Corporate Campus",
+        "address": "456 Oak Avenue, Miami, FL 33101",
+        "latitude": 25.64,
+        "longitude": -100.72
+      },
+      {
+        "name": "Harbor View Complex",
+        "address": "321 Maple Drive, Seattle, WA 98101",
+        "latitude": 47.95,
+        "longitude": -121.88
+      },
+      {
+        "name": "Mountain Ridge Facility",
+        "address": "321 Maple Drive, Atlanta, GA 30301",
+        "latitude": 46.14,
+        "longitude": -119.43
+      },
+      {
+        "name": "Riverside Research Park",
+        "address": "741 Chestnut Terrace, San Francisco, CA 94105",
+        "latitude": 30.83,
+        "longitude": -86.53
+      }
+    ],
+    "Event": [
+      {
+        "name": "Q4 Strategy Review",
+        "date": "2025-02-04T15:00:00",
+        "description": "Q4 Strategy Review, a event event recorded in the manufacturing timeline."
+      },
+      {
+        "name": "Annual Compliance Audit",
+        "date": "2024-04-06T12:00:00",
+        "description": "Event Annual Compliance Audit \u2014 occurred as part of manufacturing activities."
+      },
+      {
+        "name": "Emergency Response Drill",
+        "date": "2026-02-27T12:30:00",
+        "description": "Recorded event: Emergency Response Drill, relevant to manufacturing workflows."
+      },
+      {
+        "name": "Product Launch Summit",
+        "date": "2025-08-07T09:30:00",
+        "description": "Product Launch Summit, a event event recorded in the manufacturing timeline."
+      },
+      {
+        "name": "Board of Directors Meeting",
+        "date": "2025-07-23T09:30:00",
+        "description": "Event Board of Directors Meeting \u2014 occurred as part of manufacturing activities."
+      }
+    ],
+    "Object": [
+      {
+        "name": "Primary Analysis Report",
+        "description": "Primary Analysis Report, a object used in manufacturing workflows."
+      },
+      {
+        "name": "Standard Operating Procedure",
+        "description": "Object Standard Operating Procedure \u2014 cataloged for manufacturing operations."
+      },
+      {
+        "name": "Quarterly Assessment Document",
+        "description": "Quarterly Assessment Document is a object supporting manufacturing processes."
+      },
+      {
+        "name": "Technical Specification",
+        "description": "Technical Specification, a object used in manufacturing workflows."
+      },
+      {
+        "name": "Compliance Certificate",
+        "description": "Object Compliance Certificate \u2014 cataloged for manufacturing operations."
+      }
+    ],
+    "Machine": [
+      {
+        "name": "CNC Mill Station A3",
+        "machine_id": "MCH-2026-0000",
+        "machine_type": "cnc",
+        "manufacturer": "Meridian Consulting Group",
+        "install_date": "2024-01-23",
+        "status": "operational",
+        "operating_hours": 13
+      },
+      {
+        "name": "Hydraulic Press HP-200",
+        "machine_id": "MCH-2026-0001",
+        "machine_type": "press",
+        "manufacturer": "Pacific Northwest Industries",
+        "install_date": "2025-11-17",
+        "status": "maintenance",
+        "operating_hours": 63
+      },
+      {
+        "name": "Laser Cutter LC-5000",
+        "machine_id": "MCH-2025-0002",
+        "machine_type": "lathe",
+        "manufacturer": "Apex Financial Partners",
+        "install_date": "2024-03-12",
+        "status": "offline",
+        "operating_hours": 26
+      },
+      {
+        "name": "Assembly Robot AR-12",
+        "machine_id": "MCH-2026-0003",
+        "machine_type": "welder",
+        "manufacturer": "Greenleaf Technologies",
+        "install_date": "2024-10-21",
+        "status": "decommissioned",
+        "operating_hours": 44
+      },
+      {
+        "name": "Injection Molder IM-800",
+        "machine_id": "MCH-2026-0004",
+        "machine_type": "assembler",
+        "manufacturer": "Summit Healthcare Systems",
+        "install_date": "2024-08-31",
+        "status": "operational",
+        "operating_hours": 43
+      }
+    ],
+    "Part": [
+      {
+        "name": "Titanium Gear Assembly TGA-401",
+        "part_number": "PRT-2025-0000",
+        "category": "raw_material",
+        "unit_cost": 408233.8,
+        "stock_quantity": 92,
+        "minimum_stock": 398,
+        "specification": "Titanium Gear Assembly TGA-401 - Specification"
+      },
+      {
+        "name": "Steel Bearing Housing SBH-220",
+        "part_number": "PRT-2026-0001",
+        "category": "component",
+        "unit_cost": 176365.49,
+        "stock_quantity": 14,
+        "minimum_stock": 5747,
+        "specification": "Steel Bearing Housing SBH-220 - Specification"
+      },
+      {
+        "name": "Aluminum Heat Sink AHS-150",
+        "part_number": "PRT-2026-0002",
+        "category": "subassembly",
+        "unit_cost": 337607.92,
+        "stock_quantity": 95,
+        "minimum_stock": 6033,
+        "specification": "Aluminum Heat Sink AHS-150 - Specification"
+      },
+      {
+        "name": "Carbon Fiber Panel CFP-88",
+        "part_number": "PRT-2026-0003",
+        "category": "finished_good",
+        "unit_cost": 456807.68,
+        "stock_quantity": 83,
+        "minimum_stock": 9578,
+        "specification": "Carbon Fiber Panel CFP-88 - Specification"
+      },
+      {
+        "name": "Precision Valve PV-610",
+        "part_number": "PRT-2026-0004",
+        "category": "raw_material",
+        "unit_cost": 34951.46,
+        "stock_quantity": 23,
+        "minimum_stock": 169,
+        "specification": "Precision Valve PV-610 - Specification"
+      }
+    ],
+    "WorkOrder": [
+      {
+        "name": "WO-2025-0412 Batch Production",
+        "work_order_id": "WO-2024-0000",
+        "description": "WO-2025-0412 Batch Production, a workorder relevant to manufacturing operations.",
+        "priority": "low",
+        "status": "planned",
+        "start_date": "2024-11-03T17:15:00",
+        "due_date": "2025-10-29T11:45:00",
+        "quantity": 32
+      },
+      {
+        "name": "WO-2025-0587 Custom Fabrication",
+        "work_order_id": "WO-2025-0001",
+        "description": "WorkOrder WO-2025-0587 Custom Fabrication \u2014 part of the manufacturing knowledge graph.",
+        "priority": "medium",
+        "status": "in_progress",
+        "start_date": "2025-05-29T09:15:00",
+        "due_date": "2026-05-27T09:00:00",
+        "quantity": 89
+      },
+      {
+        "name": "WO-2025-0721 Maintenance Overhaul",
+        "work_order_id": "WO-2025-0002",
+        "description": "WO-2025-0721 Maintenance Overhaul is a workorder tracked within the manufacturing domain.",
+        "priority": "high",
+        "status": "completed",
+        "start_date": "2026-09-30T14:00:00",
+        "due_date": "2024-10-20T15:15:00",
+        "quantity": 61
+      },
+      {
+        "name": "WO-2025-0893 Quality Rework",
+        "work_order_id": "WO-2025-0003",
+        "description": "WO-2025-0893 Quality Rework, a workorder relevant to manufacturing operations.",
+        "priority": "critical",
+        "status": "on_hold",
+        "start_date": "2026-10-22T11:45:00",
+        "due_date": "2025-04-04T08:15:00",
+        "quantity": 97
+      },
+      {
+        "name": "WO-2025-1045 Prototype Build",
+        "work_order_id": "WO-2026-0004",
+        "description": "WorkOrder WO-2025-1045 Prototype Build \u2014 part of the manufacturing knowledge graph.",
+        "priority": "low",
+        "status": "cancelled",
+        "start_date": "2026-04-24T11:30:00",
+        "due_date": "2025-11-18T14:00:00",
+        "quantity": 84
+      }
+    ],
+    "WorkCenter": [
+      {
+        "name": "Downtown Medical Center",
+        "work_center_id": "WOR-2024-0000",
+        "capacity_per_hour": 1804,
+        "status": "available"
+      },
+      {
+        "name": "Westside Corporate Campus",
+        "work_center_id": "WOR-2026-0001",
+        "capacity_per_hour": 474,
+        "status": "constrained"
+      },
+      {
+        "name": "Harbor View Complex",
+        "work_center_id": "WOR-2024-0002",
+        "capacity_per_hour": 6895,
+        "status": "maintenance"
+      },
+      {
+        "name": "Mountain Ridge Facility",
+        "work_center_id": "WOR-2026-0003",
+        "capacity_per_hour": 5801,
+        "status": "offline"
+      },
+      {
+        "name": "Riverside Research Park",
+        "work_center_id": "WOR-2025-0004",
+        "capacity_per_hour": 8979,
+        "status": "available"
+      }
+    ],
+    "ProductionEvent": [
+      {
+        "name": "Q4 Strategy Review",
+        "production_event_id": "PRO-2025-0000",
+        "actual_start": "2024-04-02T08:00:00",
+        "actual_end": "2026-02-16T12:15:00",
+        "status": "planned"
+      },
+      {
+        "name": "Annual Compliance Audit",
+        "production_event_id": "PRO-2025-0001",
+        "actual_start": "2024-03-24T13:45:00",
+        "actual_end": "2025-05-17T09:00:00",
+        "status": "in_progress"
+      },
+      {
+        "name": "Emergency Response Drill",
+        "production_event_id": "PRO-2024-0002",
+        "actual_start": "2026-08-13T10:45:00",
+        "actual_end": "2025-12-29T11:30:00",
+        "status": "completed"
+      },
+      {
+        "name": "Product Launch Summit",
+        "production_event_id": "PRO-2024-0003",
+        "actual_start": "2024-12-15T11:30:00",
+        "actual_end": "2026-03-29T08:00:00",
+        "status": "interrupted"
+      },
+      {
+        "name": "Board of Directors Meeting",
+        "production_event_id": "PRO-2024-0004",
+        "actual_start": "2024-08-22T08:30:00",
+        "actual_end": "2024-02-22T10:00:00",
+        "status": "cancelled"
+      }
+    ],
+    "BillOfMaterials": [
+      {
+        "name": "Primary Analysis Report",
+        "bill_of_materials_id": "BIL-2025-0000",
+        "status": "draft"
+      },
+      {
+        "name": "Standard Operating Procedure",
+        "bill_of_materials_id": "BIL-2025-0001",
+        "status": "active"
+      },
+      {
+        "name": "Quarterly Assessment Document",
+        "bill_of_materials_id": "BIL-2024-0002",
+        "status": "obsolete"
+      },
+      {
+        "name": "Technical Specification",
+        "bill_of_materials_id": "BIL-2026-0003",
+        "status": "draft"
+      },
+      {
+        "name": "Compliance Certificate",
+        "bill_of_materials_id": "BIL-2026-0004",
+        "status": "active"
+      }
+    ],
+    "MaterialRequirement": [
+      {
+        "name": "Primary Analysis Report",
+        "material_requirement_id": "MAT-2025-0000",
+        "quantity": 366.91,
+        "unit_of_measure": "Primary Analysis Report - Unit Of Measure"
+      },
+      {
+        "name": "Standard Operating Procedure",
+        "material_requirement_id": "MAT-2025-0001",
+        "quantity": 599.03,
+        "unit_of_measure": "Standard Operating Procedure - Unit Of Measure"
+      },
+      {
+        "name": "Quarterly Assessment Document",
+        "material_requirement_id": "MAT-2026-0002",
+        "quantity": 747.05,
+        "unit_of_measure": "Quarterly Assessment Document - Unit Of Measure"
+      },
+      {
+        "name": "Technical Specification",
+        "material_requirement_id": "MAT-2024-0003",
+        "quantity": 353.7,
+        "unit_of_measure": "Technical Specification - Unit Of Measure"
+      },
+      {
+        "name": "Compliance Certificate",
+        "material_requirement_id": "MAT-2026-0004",
+        "quantity": 890.13,
+        "unit_of_measure": "Compliance Certificate - Unit Of Measure"
+      }
+    ],
+    "ScheduleSlot": [
+      {
+        "name": "Q4 Strategy Review",
+        "schedule_slot_id": "SCH-2026-0000",
+        "planned_start": "2025-02-05T14:15:00",
+        "planned_end": "2025-12-31T13:45:00",
+        "priority": "low"
+      },
+      {
+        "name": "Annual Compliance Audit",
+        "schedule_slot_id": "SCH-2024-0001",
+        "planned_start": "2024-12-02T15:30:00",
+        "planned_end": "2026-03-01T10:30:00",
+        "priority": "medium"
+      },
+      {
+        "name": "Emergency Response Drill",
+        "schedule_slot_id": "SCH-2025-0002",
+        "planned_start": "2026-02-04T08:45:00",
+        "planned_end": "2025-09-11T16:00:00",
+        "priority": "high"
+      },
+      {
+        "name": "Product Launch Summit",
+        "schedule_slot_id": "SCH-2024-0003",
+        "planned_start": "2025-10-02T10:45:00",
+        "planned_end": "2025-03-24T11:00:00",
+        "priority": "critical"
+      },
+      {
+        "name": "Board of Directors Meeting",
+        "schedule_slot_id": "SCH-2025-0004",
+        "planned_start": "2025-04-08T13:45:00",
+        "planned_end": "2024-04-14T15:00:00",
+        "priority": "low"
+      }
+    ],
+    "SupplyCommitment": [
+      {
+        "name": "Q4 Strategy Review",
+        "supply_commitment_id": "SUP-2026-0000",
+        "commitment_date": "2026-08-26",
+        "lead_time_days": 3086,
+        "status": "planned"
+      },
+      {
+        "name": "Annual Compliance Audit",
+        "supply_commitment_id": "SUP-2025-0001",
+        "commitment_date": "2024-05-24",
+        "lead_time_days": 5265,
+        "status": "confirmed"
+      },
+      {
+        "name": "Emergency Response Drill",
+        "supply_commitment_id": "SUP-2026-0002",
+        "commitment_date": "2024-09-14",
+        "lead_time_days": 6815,
+        "status": "delayed"
+      },
+      {
+        "name": "Product Launch Summit",
+        "supply_commitment_id": "SUP-2026-0003",
+        "commitment_date": "2024-03-20",
+        "lead_time_days": 5527,
+        "status": "fulfilled"
+      },
+      {
+        "name": "Board of Directors Meeting",
+        "supply_commitment_id": "SUP-2026-0004",
+        "commitment_date": "2026-11-30",
+        "lead_time_days": 8709,
+        "status": "cancelled"
+      }
+    ],
+    "Supplier": [
+      {
+        "name": "Pacific Steel Corp",
+        "supplier_id": "SUP-2025-0000",
+        "country": "United States",
+        "lead_time_days": 5617,
+        "quality_rating": 0.71,
+        "status": "approved"
+      },
+      {
+        "name": "Rhine Valley Components",
+        "supplier_id": "SUP-2024-0001",
+        "country": "United Kingdom",
+        "lead_time_days": 3949,
+        "quality_rating": 0.52,
+        "status": "probationary"
+      },
+      {
+        "name": "Shanghai Precision Parts",
+        "supplier_id": "SUP-2026-0002",
+        "country": "Canada",
+        "lead_time_days": 8466,
+        "quality_rating": 0.93,
+        "status": "suspended"
+      },
+      {
+        "name": "Great Lakes Polymers",
+        "supplier_id": "SUP-2024-0003",
+        "country": "Germany",
+        "lead_time_days": 9976,
+        "quality_rating": 0.63,
+        "status": "blacklisted"
+      },
+      {
+        "name": "Nordic Metals AB",
+        "supplier_id": "SUP-2024-0004",
+        "country": "France",
+        "lead_time_days": 9647,
+        "quality_rating": 0.79,
+        "status": "approved"
+      }
+    ],
+    "QualityReport": [
+      {
+        "name": "QR-2025-041 Dimensional Check",
+        "report_id": "QUA-2026-0000",
+        "inspection_date": "2025-01-05T16:15:00",
+        "inspector": "QR-2025-041 Dimensional Check - Inspector",
+        "result": "pass",
+        "defect_count": 69,
+        "defect_type": "QR-2025-041 Dimensional Check - Defect Type",
+        "notes": "QR-2025-041 Dimensional Check, a qualityreport relevant to manufacturing operations."
+      },
+      {
+        "name": "QR-2025-078 Material Test",
+        "report_id": "QUA-2024-0001",
+        "inspection_date": "2026-04-21T12:15:00",
+        "inspector": "QR-2025-078 Material Test - Inspector",
+        "result": "fail",
+        "defect_count": 84,
+        "defect_type": "QR-2025-078 Material Test - Defect Type",
+        "notes": "QualityReport QR-2025-078 Material Test \u2014 part of the manufacturing knowledge graph."
+      },
+      {
+        "name": "QR-2025-112 Surface Finish Audit",
+        "report_id": "QUA-2024-0002",
+        "inspection_date": "2026-11-08T16:00:00",
+        "inspector": "QR-2025-112 Surface Finish Audit - Inspector",
+        "result": "conditional_pass",
+        "defect_count": 70,
+        "defect_type": "QR-2025-112 Surface Finish Audit - Defect Type",
+        "notes": "QR-2025-112 Surface Finish Audit is a qualityreport tracked within the manufacturing domain."
+      },
+      {
+        "name": "QR-2025-156 Stress Analysis",
+        "report_id": "QUA-2024-0003",
+        "inspection_date": "2025-11-21T08:00:00",
+        "inspector": "QR-2025-156 Stress Analysis - Inspector",
+        "result": "pass",
+        "defect_count": 97,
+        "defect_type": "QR-2025-156 Stress Analysis - Defect Type",
+        "notes": "QR-2025-156 Stress Analysis, a qualityreport relevant to manufacturing operations."
+      },
+      {
+        "name": "QR-2025-041 Dimensional Check 1",
+        "report_id": "QUA-2026-0004",
+        "inspection_date": "2024-12-22T08:30:00",
+        "inspector": "QR-2025-041 Dimensional Check 1 - Inspector",
+        "result": "fail",
+        "defect_count": 57,
+        "defect_type": "QR-2025-041 Dimensional Check 1 - Defect Type",
+        "notes": "QualityReport QR-2025-041 Dimensional Check 1 \u2014 part of the manufacturing knowledge graph."
+      }
+    ],
+    "ProductionLine": [
+      {
+        "name": "Line A - High Volume",
+        "line_id": "PRO-2026-0000",
+        "capacity_per_hour": 9901,
+        "efficiency_rating": 0.65,
+        "status": "active",
+        "shift_pattern": "single"
+      },
+      {
+        "name": "Line B - Custom Orders",
+        "line_id": "PRO-2025-0001",
+        "capacity_per_hour": 3192,
+        "efficiency_rating": 0.73,
+        "status": "idle",
+        "shift_pattern": "double"
+      },
+      {
+        "name": "Line C - Precision Parts",
+        "line_id": "PRO-2025-0002",
+        "capacity_per_hour": 6505,
+        "efficiency_rating": 0.98,
+        "status": "maintenance",
+        "shift_pattern": "triple"
+      },
+      {
+        "name": "Line D - Assembly",
+        "line_id": "PRO-2024-0003",
+        "capacity_per_hour": 7852,
+        "efficiency_rating": 0.54,
+        "status": "retooling",
+        "shift_pattern": "continuous"
+      },
+      {
+        "name": "Line A - High Volume 1",
+        "line_id": "PRO-2026-0004",
+        "capacity_per_hour": 267,
+        "efficiency_rating": 0.93,
+        "status": "active",
+        "shift_pattern": "single"
+      }
+    ],
+    "CDSView": [
+      {
+        "name": "Primary Analysis Report",
+        "view_uri": "Primary Analysis Report - View Uri",
+        "technical_name": "Primary Analysis Report",
+        "short_description": "Primary Analysis Report - Short Description",
+        "source_system": "Primary Analysis Report - Source System"
+      },
+      {
+        "name": "Standard Operating Procedure",
+        "view_uri": "Standard Operating Procedure - View Uri",
+        "technical_name": "Standard Operating Procedure",
+        "short_description": "Standard Operating Procedure - Short Description",
+        "source_system": "Standard Operating Procedure - Source System"
+      },
+      {
+        "name": "Quarterly Assessment Document",
+        "view_uri": "Quarterly Assessment Document - View Uri",
+        "technical_name": "Quarterly Assessment Document",
+        "short_description": "Quarterly Assessment Document - Short Description",
+        "source_system": "Quarterly Assessment Document - Source System"
+      },
+      {
+        "name": "Technical Specification",
+        "view_uri": "Technical Specification - View Uri",
+        "technical_name": "Technical Specification",
+        "short_description": "Technical Specification - Short Description",
+        "source_system": "Technical Specification - Source System"
+      },
+      {
+        "name": "Compliance Certificate",
+        "view_uri": "Compliance Certificate - View Uri",
+        "technical_name": "Compliance Certificate",
+        "short_description": "Compliance Certificate - Short Description",
+        "source_system": "Compliance Certificate - Source System"
+      }
+    ],
+    "CDSField": [
+      {
+        "name": "Primary Analysis Report",
+        "field_uri": "Primary Analysis Report - Field Uri",
+        "field_name": "Primary Analysis Report",
+        "field_type": "Primary Analysis Report - Field Type",
+        "definition": "Primary Analysis Report - Definition",
+        "reference_field": "Primary Analysis Report - Reference Field"
+      },
+      {
+        "name": "Standard Operating Procedure",
+        "field_uri": "Standard Operating Procedure - Field Uri",
+        "field_name": "Standard Operating Procedure",
+        "field_type": "Standard Operating Procedure - Field Type",
+        "definition": "Standard Operating Procedure - Definition",
+        "reference_field": "Standard Operating Procedure - Reference Field"
+      },
+      {
+        "name": "Quarterly Assessment Document",
+        "field_uri": "Quarterly Assessment Document - Field Uri",
+        "field_name": "Quarterly Assessment Document",
+        "field_type": "Quarterly Assessment Document - Field Type",
+        "definition": "Quarterly Assessment Document - Definition",
+        "reference_field": "Quarterly Assessment Document - Reference Field"
+      },
+      {
+        "name": "Technical Specification",
+        "field_uri": "Technical Specification - Field Uri",
+        "field_name": "Technical Specification",
+        "field_type": "Technical Specification - Field Type",
+        "definition": "Technical Specification - Definition",
+        "reference_field": "Technical Specification - Reference Field"
+      },
+      {
+        "name": "Compliance Certificate",
+        "field_uri": "Compliance Certificate - Field Uri",
+        "field_name": "Compliance Certificate",
+        "field_type": "Compliance Certificate - Field Type",
+        "definition": "Compliance Certificate - Definition",
+        "reference_field": "Compliance Certificate - Reference Field"
+      }
+    ],
+    "BusinessConcept": [
+      {
+        "name": "Primary Analysis Report",
+        "concept_uri": "Primary Analysis Report - Concept Uri",
+        "notation": "Primary Analysis Report - Notation",
+        "scope_note": "Primary Analysis Report - Scope Note"
+      },
+      {
+        "name": "Standard Operating Procedure",
+        "concept_uri": "Standard Operating Procedure - Concept Uri",
+        "notation": "Standard Operating Procedure - Notation",
+        "scope_note": "Standard Operating Procedure - Scope Note"
+      },
+      {
+        "name": "Quarterly Assessment Document",
+        "concept_uri": "Quarterly Assessment Document - Concept Uri",
+        "notation": "Quarterly Assessment Document - Notation",
+        "scope_note": "Quarterly Assessment Document - Scope Note"
+      },
+      {
+        "name": "Technical Specification",
+        "concept_uri": "Technical Specification - Concept Uri",
+        "notation": "Technical Specification - Notation",
+        "scope_note": "Technical Specification - Scope Note"
+      },
+      {
+        "name": "Compliance Certificate",
+        "concept_uri": "Compliance Certificate - Concept Uri",
+        "notation": "Compliance Certificate - Notation",
+        "scope_note": "Compliance Certificate - Scope Note"
+      }
+    ],
+    "TaxonomyConcept": [
+      {
+        "name": "Primary Analysis Report",
+        "concept_uri": "Primary Analysis Report - Concept Uri",
+        "pref_label": "Primary Analysis Report",
+        "alt_labels": "Primary Analysis Report",
+        "notation": "Primary Analysis Report - Notation",
+        "scope_note": "Primary Analysis Report - Scope Note",
+        "governance_status": "draft"
+      },
+      {
+        "name": "Standard Operating Procedure",
+        "concept_uri": "Standard Operating Procedure - Concept Uri",
+        "pref_label": "Standard Operating Procedure",
+        "alt_labels": "Standard Operating Procedure",
+        "notation": "Standard Operating Procedure - Notation",
+        "scope_note": "Standard Operating Procedure - Scope Note",
+        "governance_status": "approved"
+      },
+      {
+        "name": "Quarterly Assessment Document",
+        "concept_uri": "Quarterly Assessment Document - Concept Uri",
+        "pref_label": "Quarterly Assessment Document",
+        "alt_labels": "Quarterly Assessment Document",
+        "notation": "Quarterly Assessment Document - Notation",
+        "scope_note": "Quarterly Assessment Document - Scope Note",
+        "governance_status": "deprecated"
+      },
+      {
+        "name": "Technical Specification",
+        "concept_uri": "Technical Specification - Concept Uri",
+        "pref_label": "Technical Specification",
+        "alt_labels": "Technical Specification",
+        "notation": "Technical Specification - Notation",
+        "scope_note": "Technical Specification - Scope Note",
+        "governance_status": "draft"
+      },
+      {
+        "name": "Compliance Certificate",
+        "concept_uri": "Compliance Certificate - Concept Uri",
+        "pref_label": "Compliance Certificate",
+        "alt_labels": "Compliance Certificate",
+        "notation": "Compliance Certificate - Notation",
+        "scope_note": "Compliance Certificate - Scope Note",
+        "governance_status": "approved"
+      }
+    ],
+    "SourceDataset": [
+      {
+        "name": "Primary Analysis Report",
+        "source_uri": "Primary Analysis Report - Source Uri",
+        "source_commit": "Primary Analysis Report - Source Commit",
+        "license": "Primary Analysis Report - License",
+        "import_timestamp": "2026-02-25T09:30:00",
+        "row_count": 87
+      },
+      {
+        "name": "Standard Operating Procedure",
+        "source_uri": "Standard Operating Procedure - Source Uri",
+        "source_commit": "Standard Operating Procedure - Source Commit",
+        "license": "Standard Operating Procedure - License",
+        "import_timestamp": "2025-02-06T14:15:00",
+        "row_count": 61
+      },
+      {
+        "name": "Quarterly Assessment Document",
+        "source_uri": "Quarterly Assessment Document - Source Uri",
+        "source_commit": "Quarterly Assessment Document - Source Commit",
+        "license": "Quarterly Assessment Document - License",
+        "import_timestamp": "2024-12-01T16:45:00",
+        "row_count": 29
+      },
+      {
+        "name": "Technical Specification",
+        "source_uri": "Technical Specification - Source Uri",
+        "source_commit": "Technical Specification - Source Commit",
+        "license": "Technical Specification - License",
+        "import_timestamp": "2026-09-20T17:30:00",
+        "row_count": 15
+      },
+      {
+        "name": "Compliance Certificate",
+        "source_uri": "Compliance Certificate - Source Uri",
+        "source_commit": "Compliance Certificate - Source Commit",
+        "license": "Compliance Certificate - License",
+        "import_timestamp": "2025-03-30T13:00:00",
+        "row_count": 29
+      }
+    ],
+    "SalesDocument": [
+      {
+        "name": "Q4 Strategy Review",
+        "sales_document": "Q4 Strategy Review - Sales Document",
+        "sales_organization": "Q4 Strategy Review - Sales Organization",
+        "sales_document_type": "Q4 Strategy Review - Sales Document Type",
+        "distribution_channel": "Q4 Strategy Review - Distribution Channel",
+        "division": "Q4 Strategy Review - Division",
+        "transaction_currency": "Q4 Strategy Review - Transaction Currency",
+        "incoterms_classification": "Q4 Strategy Review - Incoterms Classification",
+        "creation_timestamp": "2024-01-13T09:30:00"
+      },
+      {
+        "name": "Annual Compliance Audit",
+        "sales_document": "Annual Compliance Audit - Sales Document",
+        "sales_organization": "Annual Compliance Audit - Sales Organization",
+        "sales_document_type": "Annual Compliance Audit - Sales Document Type",
+        "distribution_channel": "Annual Compliance Audit - Distribution Channel",
+        "division": "Annual Compliance Audit - Division",
+        "transaction_currency": "Annual Compliance Audit - Transaction Currency",
+        "incoterms_classification": "Annual Compliance Audit - Incoterms Classification",
+        "creation_timestamp": "2026-03-15T14:30:00"
+      },
+      {
+        "name": "Emergency Response Drill",
+        "sales_document": "Emergency Response Drill - Sales Document",
+        "sales_organization": "Emergency Response Drill - Sales Organization",
+        "sales_document_type": "Emergency Response Drill - Sales Document Type",
+        "distribution_channel": "Emergency Response Drill - Distribution Channel",
+        "division": "Emergency Response Drill - Division",
+        "transaction_currency": "Emergency Response Drill - Transaction Currency",
+        "incoterms_classification": "Emergency Response Drill - Incoterms Classification",
+        "creation_timestamp": "2024-11-02T10:45:00"
+      },
+      {
+        "name": "Product Launch Summit",
+        "sales_document": "Product Launch Summit - Sales Document",
+        "sales_organization": "Product Launch Summit - Sales Organization",
+        "sales_document_type": "Product Launch Summit - Sales Document Type",
+        "distribution_channel": "Product Launch Summit - Distribution Channel",
+        "division": "Product Launch Summit - Division",
+        "transaction_currency": "Product Launch Summit - Transaction Currency",
+        "incoterms_classification": "Product Launch Summit - Incoterms Classification",
+        "creation_timestamp": "2026-11-26T14:45:00"
+      },
+      {
+        "name": "Board of Directors Meeting",
+        "sales_document": "Board of Directors Meeting - Sales Document",
+        "sales_organization": "Board of Directors Meeting - Sales Organization",
+        "sales_document_type": "Board of Directors Meeting - Sales Document Type",
+        "distribution_channel": "Board of Directors Meeting - Distribution Channel",
+        "division": "Board of Directors Meeting - Division",
+        "transaction_currency": "Board of Directors Meeting - Transaction Currency",
+        "incoterms_classification": "Board of Directors Meeting - Incoterms Classification",
+        "creation_timestamp": "2026-08-26T16:15:00"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "type": "WORKS_FOR",
+      "source_label": "Person",
+      "source_name": "Sarah Chen",
+      "target_label": "Organization",
+      "target_name": "Apex Financial Partners"
+    },
+    {
+      "type": "WORKS_FOR",
+      "source_label": "Person",
+      "source_name": "James Morrison",
+      "target_label": "Organization",
+      "target_name": "Apex Financial Partners"
+    },
+    {
+      "type": "WORKS_FOR",
+      "source_label": "Person",
+      "source_name": "James Morrison",
+      "target_label": "Organization",
+      "target_name": "Greenleaf Technologies"
+    },
+    {
+      "type": "WORKS_FOR",
+      "source_label": "Person",
+      "source_name": "Maria Rodriguez",
+      "target_label": "Organization",
+      "target_name": "Greenleaf Technologies"
+    },
+    {
+      "type": "WORKS_FOR",
+      "source_label": "Person",
+      "source_name": "Maria Rodriguez",
+      "target_label": "Organization",
+      "target_name": "Summit Healthcare Systems"
+    },
+    {
+      "type": "WORKS_FOR",
+      "source_label": "Person",
+      "source_name": "David Park",
+      "target_label": "Organization",
+      "target_name": "Pacific Northwest Industries"
+    },
+    {
+      "type": "WORKS_FOR",
+      "source_label": "Person",
+      "source_name": "David Park",
+      "target_label": "Organization",
+      "target_name": "Apex Financial Partners"
+    },
+    {
+      "type": "WORKS_FOR",
+      "source_label": "Person",
+      "source_name": "Elena Volkov",
+      "target_label": "Organization",
+      "target_name": "Greenleaf Technologies"
+    },
+    {
+      "type": "LOCATED_AT",
+      "source_label": "Organization",
+      "source_name": "Meridian Consulting Group",
+      "target_label": "Location",
+      "target_name": "Downtown Medical Center"
+    },
+    {
+      "type": "LOCATED_AT",
+      "source_label": "Organization",
+      "source_name": "Meridian Consulting Group",
+      "target_label": "Location",
+      "target_name": "Harbor View Complex"
+    },
+    {
+      "type": "LOCATED_AT",
+      "source_label": "Organization",
+      "source_name": "Pacific Northwest Industries",
+      "target_label": "Location",
+      "target_name": "Harbor View Complex"
+    },
+    {
+      "type": "LOCATED_AT",
+      "source_label": "Organization",
+      "source_name": "Pacific Northwest Industries",
+      "target_label": "Location",
+      "target_name": "Westside Corporate Campus"
+    },
+    {
+      "type": "LOCATED_AT",
+      "source_label": "Organization",
+      "source_name": "Apex Financial Partners",
+      "target_label": "Location",
+      "target_name": "Westside Corporate Campus"
+    },
+    {
+      "type": "LOCATED_AT",
+      "source_label": "Organization",
+      "source_name": "Greenleaf Technologies",
+      "target_label": "Location",
+      "target_name": "Westside Corporate Campus"
+    },
+    {
+      "type": "LOCATED_AT",
+      "source_label": "Organization",
+      "source_name": "Summit Healthcare Systems",
+      "target_label": "Location",
+      "target_name": "Westside Corporate Campus"
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source_label": "Person",
+      "source_name": "Sarah Chen",
+      "target_label": "Event",
+      "target_name": "Annual Compliance Audit"
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source_label": "Person",
+      "source_name": "Sarah Chen",
+      "target_label": "Event",
+      "target_name": "Q4 Strategy Review"
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source_label": "Person",
+      "source_name": "James Morrison",
+      "target_label": "Event",
+      "target_name": "Board of Directors Meeting"
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source_label": "Person",
+      "source_name": "Maria Rodriguez",
+      "target_label": "Event",
+      "target_name": "Emergency Response Drill"
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source_label": "Person",
+      "source_name": "David Park",
+      "target_label": "Event",
+      "target_name": "Product Launch Summit"
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source_label": "Person",
+      "source_name": "David Park",
+      "target_label": "Event",
+      "target_name": "Board of Directors Meeting"
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source_label": "Person",
+      "source_name": "Elena Volkov",
+      "target_label": "Event",
+      "target_name": "Product Launch Summit"
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source_label": "Person",
+      "source_name": "Elena Volkov",
+      "target_label": "Event",
+      "target_name": "Board of Directors Meeting"
+    },
+    {
+      "type": "HAS_WORK_CENTER",
+      "source_label": "Machine",
+      "source_name": "CNC Mill Station A3",
+      "target_label": "WorkCenter",
+      "target_name": "Harbor View Complex"
+    },
+    {
+      "type": "HAS_WORK_CENTER",
+      "source_label": "Machine",
+      "source_name": "CNC Mill Station A3",
+      "target_label": "WorkCenter",
+      "target_name": "Westside Corporate Campus"
+    },
+    {
+      "type": "HAS_WORK_CENTER",
+      "source_label": "Machine",
+      "source_name": "Hydraulic Press HP-200",
+      "target_label": "WorkCenter",
+      "target_name": "Mountain Ridge Facility"
+    },
+    {
+      "type": "HAS_WORK_CENTER",
+      "source_label": "Machine",
+      "source_name": "Laser Cutter LC-5000",
+      "target_label": "WorkCenter",
+      "target_name": "Downtown Medical Center"
+    },
+    {
+      "type": "HAS_WORK_CENTER",
+      "source_label": "Machine",
+      "source_name": "Assembly Robot AR-12",
+      "target_label": "WorkCenter",
+      "target_name": "Mountain Ridge Facility"
+    },
+    {
+      "type": "HAS_WORK_CENTER",
+      "source_label": "Machine",
+      "source_name": "Injection Molder IM-800",
+      "target_label": "WorkCenter",
+      "target_name": "Harbor View Complex"
+    },
+    {
+      "type": "HAS_WORK_CENTER",
+      "source_label": "Machine",
+      "source_name": "Injection Molder IM-800",
+      "target_label": "WorkCenter",
+      "target_name": "Riverside Research Park"
+    },
+    {
+      "type": "SCHEDULED_AT",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0412 Batch Production",
+      "target_label": "WorkCenter",
+      "target_name": "Downtown Medical Center"
+    },
+    {
+      "type": "SCHEDULED_AT",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0587 Custom Fabrication",
+      "target_label": "WorkCenter",
+      "target_name": "Westside Corporate Campus"
+    },
+    {
+      "type": "SCHEDULED_AT",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0587 Custom Fabrication",
+      "target_label": "WorkCenter",
+      "target_name": "Riverside Research Park"
+    },
+    {
+      "type": "SCHEDULED_AT",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0721 Maintenance Overhaul",
+      "target_label": "WorkCenter",
+      "target_name": "Mountain Ridge Facility"
+    },
+    {
+      "type": "SCHEDULED_AT",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0893 Quality Rework",
+      "target_label": "WorkCenter",
+      "target_name": "Mountain Ridge Facility"
+    },
+    {
+      "type": "SCHEDULED_AT",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0893 Quality Rework",
+      "target_label": "WorkCenter",
+      "target_name": "Downtown Medical Center"
+    },
+    {
+      "type": "SCHEDULED_AT",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-1045 Prototype Build",
+      "target_label": "WorkCenter",
+      "target_name": "Downtown Medical Center"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Machine",
+      "target_name": "Assembly Robot AR-12"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Machine",
+      "target_name": "Laser Cutter LC-5000"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "Machine",
+      "target_name": "Injection Molder IM-800"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "Machine",
+      "target_name": "CNC Mill Station A3"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Emergency Response Drill",
+      "target_label": "Machine",
+      "target_name": "Laser Cutter LC-5000"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Emergency Response Drill",
+      "target_label": "Machine",
+      "target_name": "Hydraulic Press HP-200"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Product Launch Summit",
+      "target_label": "Machine",
+      "target_name": "Injection Molder IM-800"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Product Launch Summit",
+      "target_label": "Machine",
+      "target_name": "Hydraulic Press HP-200"
+    },
+    {
+      "type": "USES_MACHINE",
+      "source_label": "ProductionEvent",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "Machine",
+      "target_name": "Assembly Robot AR-12"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0721 Maintenance Overhaul"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-1045 Prototype Build"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-1045 Prototype Build"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Emergency Response Drill",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0412 Batch Production"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Emergency Response Drill",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0893 Quality Rework"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Product Launch Summit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0721 Maintenance Overhaul"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Product Launch Summit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0587 Custom Fabrication"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-1045 Prototype Build"
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source_label": "ProductionEvent",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0721 Maintenance Overhaul"
+    },
+    {
+      "type": "CONSUMES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "CONSUMES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "CONSUMES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "CONSUMES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Emergency Response Drill",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "CONSUMES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Emergency Response Drill",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "CONSUMES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Product Launch Summit",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "CONSUMES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Emergency Response Drill",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Product Launch Summit",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Product Launch Summit",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source_label": "ProductionEvent",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "HAS_BILL_OF_MATERIALS",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0412 Batch Production",
+      "target_label": "BillOfMaterials",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "HAS_BILL_OF_MATERIALS",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0587 Custom Fabrication",
+      "target_label": "BillOfMaterials",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "HAS_BILL_OF_MATERIALS",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0721 Maintenance Overhaul",
+      "target_label": "BillOfMaterials",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "HAS_BILL_OF_MATERIALS",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0721 Maintenance Overhaul",
+      "target_label": "BillOfMaterials",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "HAS_BILL_OF_MATERIALS",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0893 Quality Rework",
+      "target_label": "BillOfMaterials",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "HAS_BILL_OF_MATERIALS",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-1045 Prototype Build",
+      "target_label": "BillOfMaterials",
+      "target_name": "Technical Specification"
+    },
+    {
+      "type": "DEFINES_REQUIREMENT",
+      "source_label": "BillOfMaterials",
+      "source_name": "Primary Analysis Report",
+      "target_label": "MaterialRequirement",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "DEFINES_REQUIREMENT",
+      "source_label": "BillOfMaterials",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "MaterialRequirement",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "DEFINES_REQUIREMENT",
+      "source_label": "BillOfMaterials",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "MaterialRequirement",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "DEFINES_REQUIREMENT",
+      "source_label": "BillOfMaterials",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "MaterialRequirement",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "DEFINES_REQUIREMENT",
+      "source_label": "BillOfMaterials",
+      "source_name": "Technical Specification",
+      "target_label": "MaterialRequirement",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "DEFINES_REQUIREMENT",
+      "source_label": "BillOfMaterials",
+      "source_name": "Compliance Certificate",
+      "target_label": "MaterialRequirement",
+      "target_name": "Technical Specification"
+    },
+    {
+      "type": "REQUIRES_PART",
+      "source_label": "MaterialRequirement",
+      "source_name": "Primary Analysis Report",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "REQUIRES_PART",
+      "source_label": "MaterialRequirement",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "REQUIRES_PART",
+      "source_label": "MaterialRequirement",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "REQUIRES_PART",
+      "source_label": "MaterialRequirement",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "REQUIRES_PART",
+      "source_label": "MaterialRequirement",
+      "source_name": "Technical Specification",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "REQUIRES_PART",
+      "source_label": "MaterialRequirement",
+      "source_name": "Compliance Certificate",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source_label": "ScheduleSlot",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0893 Quality Rework"
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source_label": "ScheduleSlot",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-1045 Prototype Build"
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source_label": "ScheduleSlot",
+      "source_name": "Emergency Response Drill",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0721 Maintenance Overhaul"
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source_label": "ScheduleSlot",
+      "source_name": "Emergency Response Drill",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-1045 Prototype Build"
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source_label": "ScheduleSlot",
+      "source_name": "Product Launch Summit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0893 Quality Rework"
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source_label": "ScheduleSlot",
+      "source_name": "Product Launch Summit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0587 Custom Fabrication"
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source_label": "ScheduleSlot",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0412 Batch Production"
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source_label": "ScheduleSlot",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0893 Quality Rework"
+    },
+    {
+      "type": "ALLOCATED_TO",
+      "source_label": "ScheduleSlot",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "WorkCenter",
+      "target_name": "Harbor View Complex"
+    },
+    {
+      "type": "ALLOCATED_TO",
+      "source_label": "ScheduleSlot",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "WorkCenter",
+      "target_name": "Downtown Medical Center"
+    },
+    {
+      "type": "ALLOCATED_TO",
+      "source_label": "ScheduleSlot",
+      "source_name": "Emergency Response Drill",
+      "target_label": "WorkCenter",
+      "target_name": "Riverside Research Park"
+    },
+    {
+      "type": "ALLOCATED_TO",
+      "source_label": "ScheduleSlot",
+      "source_name": "Emergency Response Drill",
+      "target_label": "WorkCenter",
+      "target_name": "Westside Corporate Campus"
+    },
+    {
+      "type": "ALLOCATED_TO",
+      "source_label": "ScheduleSlot",
+      "source_name": "Product Launch Summit",
+      "target_label": "WorkCenter",
+      "target_name": "Downtown Medical Center"
+    },
+    {
+      "type": "ALLOCATED_TO",
+      "source_label": "ScheduleSlot",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "WorkCenter",
+      "target_name": "Harbor View Complex"
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source_label": "SupplyCommitment",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source_label": "SupplyCommitment",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source_label": "SupplyCommitment",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source_label": "SupplyCommitment",
+      "source_name": "Emergency Response Drill",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source_label": "SupplyCommitment",
+      "source_name": "Emergency Response Drill",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source_label": "SupplyCommitment",
+      "source_name": "Product Launch Summit",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source_label": "SupplyCommitment",
+      "source_name": "Product Launch Summit",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source_label": "SupplyCommitment",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source_label": "SupplyCommitment",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Supplier",
+      "target_name": "Pacific Steel Corp"
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source_label": "SupplyCommitment",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "Supplier",
+      "target_name": "Rhine Valley Components"
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source_label": "SupplyCommitment",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "Supplier",
+      "target_name": "Rhine Valley Components"
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source_label": "SupplyCommitment",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "Supplier",
+      "target_name": "Great Lakes Polymers"
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source_label": "SupplyCommitment",
+      "source_name": "Emergency Response Drill",
+      "target_label": "Supplier",
+      "target_name": "Shanghai Precision Parts"
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source_label": "SupplyCommitment",
+      "source_name": "Product Launch Summit",
+      "target_label": "Supplier",
+      "target_name": "Pacific Steel Corp"
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source_label": "SupplyCommitment",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "Supplier",
+      "target_name": "Pacific Steel Corp"
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source_label": "SupplyCommitment",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "Supplier",
+      "target_name": "Great Lakes Polymers"
+    },
+    {
+      "type": "PRECEDES_EVENT",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "ProductionEvent",
+      "target_name": "Board of Directors Meeting"
+    },
+    {
+      "type": "PRECEDES_EVENT",
+      "source_label": "ProductionEvent",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "ProductionEvent",
+      "target_name": "Product Launch Summit"
+    },
+    {
+      "type": "PRECEDES_EVENT",
+      "source_label": "ProductionEvent",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "ProductionEvent",
+      "target_name": "Emergency Response Drill"
+    },
+    {
+      "type": "PRECEDES_EVENT",
+      "source_label": "ProductionEvent",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "ProductionEvent",
+      "target_name": "Q4 Strategy Review"
+    },
+    {
+      "type": "PRECEDES_EVENT",
+      "source_label": "ProductionEvent",
+      "source_name": "Emergency Response Drill",
+      "target_label": "ProductionEvent",
+      "target_name": "Board of Directors Meeting"
+    },
+    {
+      "type": "PRECEDES_EVENT",
+      "source_label": "ProductionEvent",
+      "source_name": "Product Launch Summit",
+      "target_label": "ProductionEvent",
+      "target_name": "Q4 Strategy Review"
+    },
+    {
+      "type": "PRECEDES_EVENT",
+      "source_label": "ProductionEvent",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "ProductionEvent",
+      "target_name": "Product Launch Summit"
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source_label": "Part",
+      "source_name": "Titanium Gear Assembly TGA-401",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source_label": "Part",
+      "source_name": "Titanium Gear Assembly TGA-401",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source_label": "Part",
+      "source_name": "Steel Bearing Housing SBH-220",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source_label": "Part",
+      "source_name": "Aluminum Heat Sink AHS-150",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source_label": "Part",
+      "source_name": "Aluminum Heat Sink AHS-150",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source_label": "Part",
+      "source_name": "Carbon Fiber Panel CFP-88",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source_label": "Part",
+      "source_name": "Carbon Fiber Panel CFP-88",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source_label": "Part",
+      "source_name": "Precision Valve PV-610",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "SUPPLIED_BY",
+      "source_label": "Part",
+      "source_name": "Titanium Gear Assembly TGA-401",
+      "target_label": "Supplier",
+      "target_name": "Great Lakes Polymers"
+    },
+    {
+      "type": "SUPPLIED_BY",
+      "source_label": "Part",
+      "source_name": "Titanium Gear Assembly TGA-401",
+      "target_label": "Supplier",
+      "target_name": "Pacific Steel Corp"
+    },
+    {
+      "type": "SUPPLIED_BY",
+      "source_label": "Part",
+      "source_name": "Steel Bearing Housing SBH-220",
+      "target_label": "Supplier",
+      "target_name": "Rhine Valley Components"
+    },
+    {
+      "type": "SUPPLIED_BY",
+      "source_label": "Part",
+      "source_name": "Aluminum Heat Sink AHS-150",
+      "target_label": "Supplier",
+      "target_name": "Nordic Metals AB"
+    },
+    {
+      "type": "SUPPLIED_BY",
+      "source_label": "Part",
+      "source_name": "Aluminum Heat Sink AHS-150",
+      "target_label": "Supplier",
+      "target_name": "Shanghai Precision Parts"
+    },
+    {
+      "type": "SUPPLIED_BY",
+      "source_label": "Part",
+      "source_name": "Carbon Fiber Panel CFP-88",
+      "target_label": "Supplier",
+      "target_name": "Rhine Valley Components"
+    },
+    {
+      "type": "SUPPLIED_BY",
+      "source_label": "Part",
+      "source_name": "Precision Valve PV-610",
+      "target_label": "Supplier",
+      "target_name": "Rhine Valley Components"
+    },
+    {
+      "type": "INSPECTED",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-041 Dimensional Check",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "INSPECTED",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-078 Material Test",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "INSPECTED",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-078 Material Test",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "INSPECTED",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-112 Surface Finish Audit",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "INSPECTED",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-112 Surface Finish Audit",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "INSPECTED",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-156 Stress Analysis",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "INSPECTED",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-041 Dimensional Check 1",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "INSPECTED",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-041 Dimensional Check 1",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "PRODUCED_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0412 Batch Production",
+      "target_label": "ProductionLine",
+      "target_name": "Line B - Custom Orders"
+    },
+    {
+      "type": "PRODUCED_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0587 Custom Fabrication",
+      "target_label": "ProductionLine",
+      "target_name": "Line A - High Volume"
+    },
+    {
+      "type": "PRODUCED_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0721 Maintenance Overhaul",
+      "target_label": "ProductionLine",
+      "target_name": "Line C - Precision Parts"
+    },
+    {
+      "type": "PRODUCED_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0721 Maintenance Overhaul",
+      "target_label": "ProductionLine",
+      "target_name": "Line D - Assembly"
+    },
+    {
+      "type": "PRODUCED_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0893 Quality Rework",
+      "target_label": "ProductionLine",
+      "target_name": "Line C - Precision Parts"
+    },
+    {
+      "type": "PRODUCED_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0893 Quality Rework",
+      "target_label": "ProductionLine",
+      "target_name": "Line A - High Volume 1"
+    },
+    {
+      "type": "PRODUCED_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-1045 Prototype Build",
+      "target_label": "ProductionLine",
+      "target_name": "Line A - High Volume 1"
+    },
+    {
+      "type": "DEPENDS_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0412 Batch Production",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "DEPENDS_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0587 Custom Fabrication",
+      "target_label": "Part",
+      "target_name": "Carbon Fiber Panel CFP-88"
+    },
+    {
+      "type": "DEPENDS_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0587 Custom Fabrication",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "DEPENDS_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0721 Maintenance Overhaul",
+      "target_label": "Part",
+      "target_name": "Aluminum Heat Sink AHS-150"
+    },
+    {
+      "type": "DEPENDS_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0893 Quality Rework",
+      "target_label": "Part",
+      "target_name": "Titanium Gear Assembly TGA-401"
+    },
+    {
+      "type": "DEPENDS_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-1045 Prototype Build",
+      "target_label": "Part",
+      "target_name": "Steel Bearing Housing SBH-220"
+    },
+    {
+      "type": "DEPENDS_ON",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-1045 Prototype Build",
+      "target_label": "Part",
+      "target_name": "Precision Valve PV-610"
+    },
+    {
+      "type": "OPERATED_BY",
+      "source_label": "Machine",
+      "source_name": "CNC Mill Station A3",
+      "target_label": "ProductionLine",
+      "target_name": "Line D - Assembly"
+    },
+    {
+      "type": "OPERATED_BY",
+      "source_label": "Machine",
+      "source_name": "Hydraulic Press HP-200",
+      "target_label": "ProductionLine",
+      "target_name": "Line D - Assembly"
+    },
+    {
+      "type": "OPERATED_BY",
+      "source_label": "Machine",
+      "source_name": "Hydraulic Press HP-200",
+      "target_label": "ProductionLine",
+      "target_name": "Line A - High Volume"
+    },
+    {
+      "type": "OPERATED_BY",
+      "source_label": "Machine",
+      "source_name": "Laser Cutter LC-5000",
+      "target_label": "ProductionLine",
+      "target_name": "Line B - Custom Orders"
+    },
+    {
+      "type": "OPERATED_BY",
+      "source_label": "Machine",
+      "source_name": "Assembly Robot AR-12",
+      "target_label": "ProductionLine",
+      "target_name": "Line A - High Volume"
+    },
+    {
+      "type": "OPERATED_BY",
+      "source_label": "Machine",
+      "source_name": "Assembly Robot AR-12",
+      "target_label": "ProductionLine",
+      "target_name": "Line D - Assembly"
+    },
+    {
+      "type": "OPERATED_BY",
+      "source_label": "Machine",
+      "source_name": "Injection Molder IM-800",
+      "target_label": "ProductionLine",
+      "target_name": "Line A - High Volume 1"
+    },
+    {
+      "type": "ASSIGNED_TO",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0412 Batch Production",
+      "target_label": "Machine",
+      "target_name": "Hydraulic Press HP-200"
+    },
+    {
+      "type": "ASSIGNED_TO",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0587 Custom Fabrication",
+      "target_label": "Machine",
+      "target_name": "Hydraulic Press HP-200"
+    },
+    {
+      "type": "ASSIGNED_TO",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0721 Maintenance Overhaul",
+      "target_label": "Machine",
+      "target_name": "Assembly Robot AR-12"
+    },
+    {
+      "type": "ASSIGNED_TO",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0721 Maintenance Overhaul",
+      "target_label": "Machine",
+      "target_name": "CNC Mill Station A3"
+    },
+    {
+      "type": "ASSIGNED_TO",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-0893 Quality Rework",
+      "target_label": "Machine",
+      "target_name": "Injection Molder IM-800"
+    },
+    {
+      "type": "ASSIGNED_TO",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-1045 Prototype Build",
+      "target_label": "Machine",
+      "target_name": "Assembly Robot AR-12"
+    },
+    {
+      "type": "ASSIGNED_TO",
+      "source_label": "WorkOrder",
+      "source_name": "WO-2025-1045 Prototype Build",
+      "target_label": "Machine",
+      "target_name": "CNC Mill Station A3"
+    },
+    {
+      "type": "REPORTED_BY",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-041 Dimensional Check",
+      "target_label": "Person",
+      "target_name": "Maria Rodriguez"
+    },
+    {
+      "type": "REPORTED_BY",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-041 Dimensional Check",
+      "target_label": "Person",
+      "target_name": "David Park"
+    },
+    {
+      "type": "REPORTED_BY",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-078 Material Test",
+      "target_label": "Person",
+      "target_name": "Sarah Chen"
+    },
+    {
+      "type": "REPORTED_BY",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-112 Surface Finish Audit",
+      "target_label": "Person",
+      "target_name": "Maria Rodriguez"
+    },
+    {
+      "type": "REPORTED_BY",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-156 Stress Analysis",
+      "target_label": "Person",
+      "target_name": "Elena Volkov"
+    },
+    {
+      "type": "REPORTED_BY",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-156 Stress Analysis",
+      "target_label": "Person",
+      "target_name": "James Morrison"
+    },
+    {
+      "type": "REPORTED_BY",
+      "source_label": "QualityReport",
+      "source_name": "QR-2025-041 Dimensional Check 1",
+      "target_label": "Person",
+      "target_name": "Maria Rodriguez"
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source_label": "CDSView",
+      "source_name": "Primary Analysis Report",
+      "target_label": "CDSField",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source_label": "CDSView",
+      "source_name": "Primary Analysis Report",
+      "target_label": "CDSField",
+      "target_name": "Technical Specification"
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source_label": "CDSView",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "CDSField",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source_label": "CDSView",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "CDSField",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source_label": "CDSView",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "CDSField",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source_label": "CDSView",
+      "source_name": "Technical Specification",
+      "target_label": "CDSField",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source_label": "CDSView",
+      "source_name": "Compliance Certificate",
+      "target_label": "CDSField",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source_label": "CDSView",
+      "source_name": "Compliance Certificate",
+      "target_label": "CDSField",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source_label": "SalesDocument",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "CDSView",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source_label": "SalesDocument",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "CDSView",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source_label": "SalesDocument",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "CDSView",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source_label": "SalesDocument",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "CDSView",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source_label": "SalesDocument",
+      "source_name": "Emergency Response Drill",
+      "target_label": "CDSView",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source_label": "SalesDocument",
+      "source_name": "Product Launch Summit",
+      "target_label": "CDSView",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source_label": "SalesDocument",
+      "source_name": "Product Launch Summit",
+      "target_label": "CDSView",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source_label": "SalesDocument",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "CDSView",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source_label": "CDSField",
+      "source_name": "Primary Analysis Report",
+      "target_label": "BusinessConcept",
+      "target_name": "Technical Specification"
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source_label": "CDSField",
+      "source_name": "Primary Analysis Report",
+      "target_label": "BusinessConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source_label": "CDSField",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "BusinessConcept",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source_label": "CDSField",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "BusinessConcept",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source_label": "CDSField",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "BusinessConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source_label": "CDSField",
+      "source_name": "Technical Specification",
+      "target_label": "BusinessConcept",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source_label": "CDSField",
+      "source_name": "Technical Specification",
+      "target_label": "BusinessConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source_label": "CDSField",
+      "source_name": "Compliance Certificate",
+      "target_label": "BusinessConcept",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "BROADER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Primary Analysis Report",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "BROADER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "BROADER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "BROADER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Technical Specification",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "BROADER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Technical Specification",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "BROADER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Compliance Certificate",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "NARROWER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Primary Analysis Report",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Technical Specification"
+    },
+    {
+      "type": "NARROWER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Primary Analysis Report",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "NARROWER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "NARROWER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "NARROWER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Technical Specification",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "NARROWER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Compliance Certificate",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Technical Specification"
+    },
+    {
+      "type": "NARROWER_THAN",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Compliance Certificate",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Primary Analysis Report",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Technical Specification"
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Technical Specification",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Compliance Certificate",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Compliance Certificate",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "CLOSE_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Primary Analysis Report",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "CLOSE_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Standard Operating Procedure",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "CLOSE_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Compliance Certificate"
+    },
+    {
+      "type": "CLOSE_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Quarterly Assessment Document",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "CLOSE_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Technical Specification",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "CLOSE_MATCH",
+      "source_label": "TaxonomyConcept",
+      "source_name": "Compliance Certificate",
+      "target_label": "TaxonomyConcept",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source_label": "SalesDocument",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "SourceDataset",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source_label": "SalesDocument",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "SourceDataset",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source_label": "SalesDocument",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "SourceDataset",
+      "target_name": "Primary Analysis Report"
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source_label": "SalesDocument",
+      "source_name": "Emergency Response Drill",
+      "target_label": "SourceDataset",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source_label": "SalesDocument",
+      "source_name": "Product Launch Summit",
+      "target_label": "SourceDataset",
+      "target_name": "Technical Specification"
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source_label": "SalesDocument",
+      "source_name": "Product Launch Summit",
+      "target_label": "SourceDataset",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source_label": "SalesDocument",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "SourceDataset",
+      "target_name": "Standard Operating Procedure"
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source_label": "SalesDocument",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "SourceDataset",
+      "target_name": "Quarterly Assessment Document"
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source_label": "SalesDocument",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-1045 Prototype Build"
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source_label": "SalesDocument",
+      "source_name": "Q4 Strategy Review",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0412 Batch Production"
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source_label": "SalesDocument",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0893 Quality Rework"
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source_label": "SalesDocument",
+      "source_name": "Annual Compliance Audit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0721 Maintenance Overhaul"
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source_label": "SalesDocument",
+      "source_name": "Emergency Response Drill",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0587 Custom Fabrication"
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source_label": "SalesDocument",
+      "source_name": "Product Launch Summit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-0893 Quality Rework"
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source_label": "SalesDocument",
+      "source_name": "Product Launch Summit",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-1045 Prototype Build"
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source_label": "SalesDocument",
+      "source_name": "Board of Directors Meeting",
+      "target_label": "WorkOrder",
+      "target_name": "WO-2025-1045 Prototype Build"
+    }
+  ],
+  "documents": [
+    {
+      "template_id": "work_order_doc",
+      "template_name": "Work Order",
+      "title": "Work Order: WO-2025-0412 Batch Production",
+      "content": "# Work Order\n\n**Date:** 2026-05-14  \n**Domain:** Manufacturing  \n**Reference:** WorkOrder: WO-2025-0412 Batch Production, Part: Titanium Gear Assembly TGA-401, ProductionLine: Line A - High Volume, Machine: CNC Mill Station A3\n\n## Summary\n\nThis work order documents production work orders with specifications and requirements. It pertains to WorkOrder: WO-2025-0412 Batch Production, Part: Titanium Gear Assembly TGA-401, ProductionLine: Line A - High Volume, Machine: CNC Mill Station A3 and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to WorkOrder: WO-2025-0412 Batch Production, Part: Titanium Gear Assembly TGA-401, ProductionLine: Line A - High Volume, Machine: CNC Mill Station A3 are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of WorkOrder: WO-2025-0412 Batch Production, Part: Titanium Gear Assembly TGA-401, ProductionLine: Line A - High Volume, Machine: CNC Mill Station A3, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior work order records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "work_order_doc",
+      "template_name": "Work Order",
+      "title": "Work Order: WO-2025-0587 Custom Fabrication",
+      "content": "# Work Order\n\n**Date:** 2024-03-06  \n**Domain:** Manufacturing  \n**Reference:** WorkOrder: WO-2025-0587 Custom Fabrication, Part: Steel Bearing Housing SBH-220, ProductionLine: Line B - Custom Orders, Machine: Hydraulic Press HP-200\n\n## Summary\n\nThis work order documents production work orders with specifications and requirements. It pertains to WorkOrder: WO-2025-0587 Custom Fabrication, Part: Steel Bearing Housing SBH-220, ProductionLine: Line B - Custom Orders, Machine: Hydraulic Press HP-200 and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to WorkOrder: WO-2025-0587 Custom Fabrication, Part: Steel Bearing Housing SBH-220, ProductionLine: Line B - Custom Orders, Machine: Hydraulic Press HP-200 are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of WorkOrder: WO-2025-0587 Custom Fabrication, Part: Steel Bearing Housing SBH-220, ProductionLine: Line B - Custom Orders, Machine: Hydraulic Press HP-200, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior work order records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "work_order_doc",
+      "template_name": "Work Order",
+      "title": "Work Order: WO-2025-0721 Maintenance Overhaul",
+      "content": "# Work Order\n\n**Date:** 2025-08-22  \n**Domain:** Manufacturing  \n**Reference:** WorkOrder: WO-2025-0721 Maintenance Overhaul, Part: Aluminum Heat Sink AHS-150, ProductionLine: Line C - Precision Parts, Machine: Laser Cutter LC-5000\n\n## Summary\n\nThis work order documents production work orders with specifications and requirements. It pertains to WorkOrder: WO-2025-0721 Maintenance Overhaul, Part: Aluminum Heat Sink AHS-150, ProductionLine: Line C - Precision Parts, Machine: Laser Cutter LC-5000 and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to WorkOrder: WO-2025-0721 Maintenance Overhaul, Part: Aluminum Heat Sink AHS-150, ProductionLine: Line C - Precision Parts, Machine: Laser Cutter LC-5000 are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of WorkOrder: WO-2025-0721 Maintenance Overhaul, Part: Aluminum Heat Sink AHS-150, ProductionLine: Line C - Precision Parts, Machine: Laser Cutter LC-5000, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior work order records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "work_order_doc",
+      "template_name": "Work Order",
+      "title": "Work Order: WO-2025-0893 Quality Rework",
+      "content": "# Work Order\n\n**Date:** 2026-01-08  \n**Domain:** Manufacturing  \n**Reference:** WorkOrder: WO-2025-0893 Quality Rework, Part: Carbon Fiber Panel CFP-88, ProductionLine: Line D - Assembly, Machine: Assembly Robot AR-12\n\n## Summary\n\nThis work order documents production work orders with specifications and requirements. It pertains to WorkOrder: WO-2025-0893 Quality Rework, Part: Carbon Fiber Panel CFP-88, ProductionLine: Line D - Assembly, Machine: Assembly Robot AR-12 and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to WorkOrder: WO-2025-0893 Quality Rework, Part: Carbon Fiber Panel CFP-88, ProductionLine: Line D - Assembly, Machine: Assembly Robot AR-12 are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of WorkOrder: WO-2025-0893 Quality Rework, Part: Carbon Fiber Panel CFP-88, ProductionLine: Line D - Assembly, Machine: Assembly Robot AR-12, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior work order records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "work_order_doc",
+      "template_name": "Work Order",
+      "title": "Work Order: WO-2025-1045 Prototype Build",
+      "content": "# Work Order\n\n**Date:** 2025-02-25  \n**Domain:** Manufacturing  \n**Reference:** WorkOrder: WO-2025-1045 Prototype Build, Part: Precision Valve PV-610, ProductionLine: Line A - High Volume 1, Machine: Injection Molder IM-800\n\n## Summary\n\nThis work order documents production work orders with specifications and requirements. It pertains to WorkOrder: WO-2025-1045 Prototype Build, Part: Precision Valve PV-610, ProductionLine: Line A - High Volume 1, Machine: Injection Molder IM-800 and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to WorkOrder: WO-2025-1045 Prototype Build, Part: Precision Valve PV-610, ProductionLine: Line A - High Volume 1, Machine: Injection Molder IM-800 are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of WorkOrder: WO-2025-1045 Prototype Build, Part: Precision Valve PV-610, ProductionLine: Line A - High Volume 1, Machine: Injection Molder IM-800, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior work order records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "quality_audit",
+      "template_name": "Quality Audit",
+      "title": "Quality Audit: QR-2025-041 Dimensional Check",
+      "content": "# Quality Audit\n\n**Date:** 2025-02-25  \n**Domain:** Manufacturing  \n**Reference:** QualityReport: QR-2025-041 Dimensional Check, Part: Titanium Gear Assembly TGA-401, ProductionLine: Line A - High Volume, Person: Sarah Chen\n\n## Summary\n\nThis quality audit documents quality inspection and audit reports. It pertains to QualityReport: QR-2025-041 Dimensional Check, Part: Titanium Gear Assembly TGA-401, ProductionLine: Line A - High Volume, Person: Sarah Chen and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to QualityReport: QR-2025-041 Dimensional Check, Part: Titanium Gear Assembly TGA-401, ProductionLine: Line A - High Volume, Person: Sarah Chen are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of QualityReport: QR-2025-041 Dimensional Check, Part: Titanium Gear Assembly TGA-401, ProductionLine: Line A - High Volume, Person: Sarah Chen, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior quality audit records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "quality_audit",
+      "template_name": "Quality Audit",
+      "title": "Quality Audit: QR-2025-078 Material Test",
+      "content": "# Quality Audit\n\n**Date:** 2025-02-18  \n**Domain:** Manufacturing  \n**Reference:** QualityReport: QR-2025-078 Material Test, Part: Steel Bearing Housing SBH-220, ProductionLine: Line B - Custom Orders, Person: James Morrison\n\n## Summary\n\nThis quality audit documents quality inspection and audit reports. It pertains to QualityReport: QR-2025-078 Material Test, Part: Steel Bearing Housing SBH-220, ProductionLine: Line B - Custom Orders, Person: James Morrison and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to QualityReport: QR-2025-078 Material Test, Part: Steel Bearing Housing SBH-220, ProductionLine: Line B - Custom Orders, Person: James Morrison are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of QualityReport: QR-2025-078 Material Test, Part: Steel Bearing Housing SBH-220, ProductionLine: Line B - Custom Orders, Person: James Morrison, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior quality audit records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "quality_audit",
+      "template_name": "Quality Audit",
+      "title": "Quality Audit: QR-2025-112 Surface Finish Audit",
+      "content": "# Quality Audit\n\n**Date:** 2025-05-31  \n**Domain:** Manufacturing  \n**Reference:** QualityReport: QR-2025-112 Surface Finish Audit, Part: Aluminum Heat Sink AHS-150, ProductionLine: Line C - Precision Parts, Person: Maria Rodriguez\n\n## Summary\n\nThis quality audit documents quality inspection and audit reports. It pertains to QualityReport: QR-2025-112 Surface Finish Audit, Part: Aluminum Heat Sink AHS-150, ProductionLine: Line C - Precision Parts, Person: Maria Rodriguez and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to QualityReport: QR-2025-112 Surface Finish Audit, Part: Aluminum Heat Sink AHS-150, ProductionLine: Line C - Precision Parts, Person: Maria Rodriguez are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of QualityReport: QR-2025-112 Surface Finish Audit, Part: Aluminum Heat Sink AHS-150, ProductionLine: Line C - Precision Parts, Person: Maria Rodriguez, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior quality audit records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "quality_audit",
+      "template_name": "Quality Audit",
+      "title": "Quality Audit: QR-2025-156 Stress Analysis",
+      "content": "# Quality Audit\n\n**Date:** 2026-04-12  \n**Domain:** Manufacturing  \n**Reference:** QualityReport: QR-2025-156 Stress Analysis, Part: Carbon Fiber Panel CFP-88, ProductionLine: Line D - Assembly, Person: David Park\n\n## Summary\n\nThis quality audit documents quality inspection and audit reports. It pertains to QualityReport: QR-2025-156 Stress Analysis, Part: Carbon Fiber Panel CFP-88, ProductionLine: Line D - Assembly, Person: David Park and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to QualityReport: QR-2025-156 Stress Analysis, Part: Carbon Fiber Panel CFP-88, ProductionLine: Line D - Assembly, Person: David Park are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of QualityReport: QR-2025-156 Stress Analysis, Part: Carbon Fiber Panel CFP-88, ProductionLine: Line D - Assembly, Person: David Park, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior quality audit records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "quality_audit",
+      "template_name": "Quality Audit",
+      "title": "Quality Audit: QR-2025-041 Dimensional Check 1",
+      "content": "# Quality Audit\n\n**Date:** 2025-10-04  \n**Domain:** Manufacturing  \n**Reference:** QualityReport: QR-2025-041 Dimensional Check 1, Part: Precision Valve PV-610, ProductionLine: Line A - High Volume 1, Person: Elena Volkov\n\n## Summary\n\nThis quality audit documents quality inspection and audit reports. It pertains to QualityReport: QR-2025-041 Dimensional Check 1, Part: Precision Valve PV-610, ProductionLine: Line A - High Volume 1, Person: Elena Volkov and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to QualityReport: QR-2025-041 Dimensional Check 1, Part: Precision Valve PV-610, ProductionLine: Line A - High Volume 1, Person: Elena Volkov are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of QualityReport: QR-2025-041 Dimensional Check 1, Part: Precision Valve PV-610, ProductionLine: Line A - High Volume 1, Person: Elena Volkov, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior quality audit records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "supplier_evaluation",
+      "template_name": "Supplier Evaluation",
+      "title": "Supplier Evaluation: Pacific Steel Corp",
+      "content": "# Supplier Evaluation\n\n**Date:** 2025-11-09  \n**Domain:** Manufacturing  \n**Reference:** Supplier: Pacific Steel Corp, Part: Titanium Gear Assembly TGA-401, QualityReport: QR-2025-041 Dimensional Check\n\n## Summary\n\nThis supplier evaluation documents periodic supplier performance evaluations. It pertains to Supplier: Pacific Steel Corp, Part: Titanium Gear Assembly TGA-401, QualityReport: QR-2025-041 Dimensional Check and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Supplier: Pacific Steel Corp, Part: Titanium Gear Assembly TGA-401, QualityReport: QR-2025-041 Dimensional Check are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Supplier: Pacific Steel Corp, Part: Titanium Gear Assembly TGA-401, QualityReport: QR-2025-041 Dimensional Check, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior supplier evaluation records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "supplier_evaluation",
+      "template_name": "Supplier Evaluation",
+      "title": "Supplier Evaluation: Rhine Valley Components",
+      "content": "# Supplier Evaluation\n\n**Date:** 2025-01-20  \n**Domain:** Manufacturing  \n**Reference:** Supplier: Rhine Valley Components, Part: Steel Bearing Housing SBH-220, QualityReport: QR-2025-078 Material Test\n\n## Summary\n\nThis supplier evaluation documents periodic supplier performance evaluations. It pertains to Supplier: Rhine Valley Components, Part: Steel Bearing Housing SBH-220, QualityReport: QR-2025-078 Material Test and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Supplier: Rhine Valley Components, Part: Steel Bearing Housing SBH-220, QualityReport: QR-2025-078 Material Test are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Supplier: Rhine Valley Components, Part: Steel Bearing Housing SBH-220, QualityReport: QR-2025-078 Material Test, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior supplier evaluation records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "supplier_evaluation",
+      "template_name": "Supplier Evaluation",
+      "title": "Supplier Evaluation: Shanghai Precision Parts",
+      "content": "# Supplier Evaluation\n\n**Date:** 2025-05-23  \n**Domain:** Manufacturing  \n**Reference:** Supplier: Shanghai Precision Parts, Part: Aluminum Heat Sink AHS-150, QualityReport: QR-2025-112 Surface Finish Audit\n\n## Summary\n\nThis supplier evaluation documents periodic supplier performance evaluations. It pertains to Supplier: Shanghai Precision Parts, Part: Aluminum Heat Sink AHS-150, QualityReport: QR-2025-112 Surface Finish Audit and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Supplier: Shanghai Precision Parts, Part: Aluminum Heat Sink AHS-150, QualityReport: QR-2025-112 Surface Finish Audit are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Supplier: Shanghai Precision Parts, Part: Aluminum Heat Sink AHS-150, QualityReport: QR-2025-112 Surface Finish Audit, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior supplier evaluation records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "supplier_evaluation",
+      "template_name": "Supplier Evaluation",
+      "title": "Supplier Evaluation: Great Lakes Polymers",
+      "content": "# Supplier Evaluation\n\n**Date:** 2026-12-20  \n**Domain:** Manufacturing  \n**Reference:** Supplier: Great Lakes Polymers, Part: Carbon Fiber Panel CFP-88, QualityReport: QR-2025-156 Stress Analysis\n\n## Summary\n\nThis supplier evaluation documents periodic supplier performance evaluations. It pertains to Supplier: Great Lakes Polymers, Part: Carbon Fiber Panel CFP-88, QualityReport: QR-2025-156 Stress Analysis and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Supplier: Great Lakes Polymers, Part: Carbon Fiber Panel CFP-88, QualityReport: QR-2025-156 Stress Analysis are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Supplier: Great Lakes Polymers, Part: Carbon Fiber Panel CFP-88, QualityReport: QR-2025-156 Stress Analysis, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior supplier evaluation records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "supplier_evaluation",
+      "template_name": "Supplier Evaluation",
+      "title": "Supplier Evaluation: Nordic Metals AB",
+      "content": "# Supplier Evaluation\n\n**Date:** 2026-10-31  \n**Domain:** Manufacturing  \n**Reference:** Supplier: Nordic Metals AB, Part: Precision Valve PV-610, QualityReport: QR-2025-041 Dimensional Check 1\n\n## Summary\n\nThis supplier evaluation documents periodic supplier performance evaluations. It pertains to Supplier: Nordic Metals AB, Part: Precision Valve PV-610, QualityReport: QR-2025-041 Dimensional Check 1 and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Supplier: Nordic Metals AB, Part: Precision Valve PV-610, QualityReport: QR-2025-041 Dimensional Check 1 are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Supplier: Nordic Metals AB, Part: Precision Valve PV-610, QualityReport: QR-2025-041 Dimensional Check 1, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior supplier evaluation records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "maintenance_log",
+      "template_name": "Maintenance Log",
+      "title": "Maintenance Log: CNC Mill Station A3",
+      "content": "# Maintenance Log\n\n**Date:** 2026-03-04  \n**Domain:** Manufacturing  \n**Reference:** Machine: CNC Mill Station A3, ProductionLine: Line A - High Volume, Person: Sarah Chen\n\n## Summary\n\nThis maintenance log documents equipment maintenance and repair logs. It pertains to Machine: CNC Mill Station A3, ProductionLine: Line A - High Volume, Person: Sarah Chen and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Machine: CNC Mill Station A3, ProductionLine: Line A - High Volume, Person: Sarah Chen are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Machine: CNC Mill Station A3, ProductionLine: Line A - High Volume, Person: Sarah Chen, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior maintenance log records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "maintenance_log",
+      "template_name": "Maintenance Log",
+      "title": "Maintenance Log: Hydraulic Press HP-200",
+      "content": "# Maintenance Log\n\n**Date:** 2026-06-08  \n**Domain:** Manufacturing  \n**Reference:** Machine: Hydraulic Press HP-200, ProductionLine: Line B - Custom Orders, Person: James Morrison\n\n## Summary\n\nThis maintenance log documents equipment maintenance and repair logs. It pertains to Machine: Hydraulic Press HP-200, ProductionLine: Line B - Custom Orders, Person: James Morrison and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Machine: Hydraulic Press HP-200, ProductionLine: Line B - Custom Orders, Person: James Morrison are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Machine: Hydraulic Press HP-200, ProductionLine: Line B - Custom Orders, Person: James Morrison, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior maintenance log records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "maintenance_log",
+      "template_name": "Maintenance Log",
+      "title": "Maintenance Log: Laser Cutter LC-5000",
+      "content": "# Maintenance Log\n\n**Date:** 2026-03-11  \n**Domain:** Manufacturing  \n**Reference:** Machine: Laser Cutter LC-5000, ProductionLine: Line C - Precision Parts, Person: Maria Rodriguez\n\n## Summary\n\nThis maintenance log documents equipment maintenance and repair logs. It pertains to Machine: Laser Cutter LC-5000, ProductionLine: Line C - Precision Parts, Person: Maria Rodriguez and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Machine: Laser Cutter LC-5000, ProductionLine: Line C - Precision Parts, Person: Maria Rodriguez are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Machine: Laser Cutter LC-5000, ProductionLine: Line C - Precision Parts, Person: Maria Rodriguez, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior maintenance log records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "maintenance_log",
+      "template_name": "Maintenance Log",
+      "title": "Maintenance Log: Assembly Robot AR-12",
+      "content": "# Maintenance Log\n\n**Date:** 2025-12-17  \n**Domain:** Manufacturing  \n**Reference:** Machine: Assembly Robot AR-12, ProductionLine: Line D - Assembly, Person: David Park\n\n## Summary\n\nThis maintenance log documents equipment maintenance and repair logs. It pertains to Machine: Assembly Robot AR-12, ProductionLine: Line D - Assembly, Person: David Park and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Machine: Assembly Robot AR-12, ProductionLine: Line D - Assembly, Person: David Park are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Machine: Assembly Robot AR-12, ProductionLine: Line D - Assembly, Person: David Park, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior maintenance log records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "maintenance_log",
+      "template_name": "Maintenance Log",
+      "title": "Maintenance Log: Injection Molder IM-800",
+      "content": "# Maintenance Log\n\n**Date:** 2026-01-26  \n**Domain:** Manufacturing  \n**Reference:** Machine: Injection Molder IM-800, ProductionLine: Line A - High Volume 1, Person: Elena Volkov\n\n## Summary\n\nThis maintenance log documents equipment maintenance and repair logs. It pertains to Machine: Injection Molder IM-800, ProductionLine: Line A - High Volume 1, Person: Elena Volkov and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to Machine: Injection Molder IM-800, ProductionLine: Line A - High Volume 1, Person: Elena Volkov are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of Machine: Injection Molder IM-800, ProductionLine: Line A - High Volume 1, Person: Elena Volkov, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior maintenance log records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "production_report",
+      "template_name": "Production Report",
+      "title": "Production Report: Line A - High Volume",
+      "content": "# Production Report\n\n**Date:** 2026-09-21  \n**Domain:** Manufacturing  \n**Reference:** ProductionLine: Line A - High Volume, WorkOrder: WO-2025-0412 Batch Production, QualityReport: QR-2025-041 Dimensional Check\n\n## Summary\n\nThis production report documents daily or weekly production summary reports. It pertains to ProductionLine: Line A - High Volume, WorkOrder: WO-2025-0412 Batch Production, QualityReport: QR-2025-041 Dimensional Check and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to ProductionLine: Line A - High Volume, WorkOrder: WO-2025-0412 Batch Production, QualityReport: QR-2025-041 Dimensional Check are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of ProductionLine: Line A - High Volume, WorkOrder: WO-2025-0412 Batch Production, QualityReport: QR-2025-041 Dimensional Check, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior production report records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "production_report",
+      "template_name": "Production Report",
+      "title": "Production Report: Line B - Custom Orders",
+      "content": "# Production Report\n\n**Date:** 2025-09-24  \n**Domain:** Manufacturing  \n**Reference:** ProductionLine: Line B - Custom Orders, WorkOrder: WO-2025-0587 Custom Fabrication, QualityReport: QR-2025-078 Material Test\n\n## Summary\n\nThis production report documents daily or weekly production summary reports. It pertains to ProductionLine: Line B - Custom Orders, WorkOrder: WO-2025-0587 Custom Fabrication, QualityReport: QR-2025-078 Material Test and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to ProductionLine: Line B - Custom Orders, WorkOrder: WO-2025-0587 Custom Fabrication, QualityReport: QR-2025-078 Material Test are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of ProductionLine: Line B - Custom Orders, WorkOrder: WO-2025-0587 Custom Fabrication, QualityReport: QR-2025-078 Material Test, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior production report records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "production_report",
+      "template_name": "Production Report",
+      "title": "Production Report: Line C - Precision Parts",
+      "content": "# Production Report\n\n**Date:** 2025-01-26  \n**Domain:** Manufacturing  \n**Reference:** ProductionLine: Line C - Precision Parts, WorkOrder: WO-2025-0721 Maintenance Overhaul, QualityReport: QR-2025-112 Surface Finish Audit\n\n## Summary\n\nThis production report documents daily or weekly production summary reports. It pertains to ProductionLine: Line C - Precision Parts, WorkOrder: WO-2025-0721 Maintenance Overhaul, QualityReport: QR-2025-112 Surface Finish Audit and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to ProductionLine: Line C - Precision Parts, WorkOrder: WO-2025-0721 Maintenance Overhaul, QualityReport: QR-2025-112 Surface Finish Audit are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of ProductionLine: Line C - Precision Parts, WorkOrder: WO-2025-0721 Maintenance Overhaul, QualityReport: QR-2025-112 Surface Finish Audit, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior production report records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "production_report",
+      "template_name": "Production Report",
+      "title": "Production Report: Line D - Assembly",
+      "content": "# Production Report\n\n**Date:** 2024-03-13  \n**Domain:** Manufacturing  \n**Reference:** ProductionLine: Line D - Assembly, WorkOrder: WO-2025-0893 Quality Rework, QualityReport: QR-2025-156 Stress Analysis\n\n## Summary\n\nThis production report documents daily or weekly production summary reports. It pertains to ProductionLine: Line D - Assembly, WorkOrder: WO-2025-0893 Quality Rework, QualityReport: QR-2025-156 Stress Analysis and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to ProductionLine: Line D - Assembly, WorkOrder: WO-2025-0893 Quality Rework, QualityReport: QR-2025-156 Stress Analysis are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of ProductionLine: Line D - Assembly, WorkOrder: WO-2025-0893 Quality Rework, QualityReport: QR-2025-156 Stress Analysis, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior production report records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    },
+    {
+      "template_id": "production_report",
+      "template_name": "Production Report",
+      "title": "Production Report: Line A - High Volume 1",
+      "content": "# Production Report\n\n**Date:** 2025-05-31  \n**Domain:** Manufacturing  \n**Reference:** ProductionLine: Line A - High Volume 1, WorkOrder: WO-2025-1045 Prototype Build, QualityReport: QR-2025-041 Dimensional Check 1\n\n## Summary\n\nThis production report documents daily or weekly production summary reports. It pertains to ProductionLine: Line A - High Volume 1, WorkOrder: WO-2025-1045 Prototype Build, QualityReport: QR-2025-041 Dimensional Check 1 and was prepared as part of standard manufacturing operations.\n\n## Details\n\nThe following information has been compiled based on available records and observations. All referenced entities have been verified against the current knowledge graph.\n\nKey findings and observations related to ProductionLine: Line A - High Volume 1, WorkOrder: WO-2025-1045 Prototype Build, QualityReport: QR-2025-041 Dimensional Check 1 are documented below. This record should be reviewed in conjunction with related documents and entity records for complete context.\n\n## Recommendations\n\nBased on the analysis of ProductionLine: Line A - High Volume 1, WorkOrder: WO-2025-1045 Prototype Build, QualityReport: QR-2025-041 Dimensional Check 1, the following actions are recommended for continued monitoring and follow-up. Please refer to the relevant entity profiles and prior production report records for historical context and trend analysis.\n\n---\n\n*Document generated for Manufacturing context graph application.*"
+    }
+  ],
+  "traces": [
+    {
+      "id": "production_scheduling",
+      "task": "Determine optimal scheduling for work order WO-2026-0004 on available production lines",
+      "steps": [
+        {
+          "thought": "Assess current production line capacity and availability",
+          "action": "Query production lines, current workload, and maintenance schedules",
+          "observation": "Found 7 relevant records in the manufacturing knowledge graph. Top result: QR-2025-041 Dimensional Check with 5 connected entities."
+        },
+        {
+          "thought": "Check material availability for all required parts",
+          "action": "Verify stock levels against bill of materials requirements",
+          "observation": "Verified Product Launch Summit against manufacturing standards. All 7 checked parameters within acceptable thresholds."
+        },
+        {
+          "thought": "Evaluate machine assignments and tooling requirements",
+          "action": "Match work order specifications to capable machines",
+          "observation": "Action completed for Technical Specification. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Optimize for due date compliance and line efficiency",
+          "action": "Calculate scheduling options ranked by efficiency and on-time delivery",
+          "observation": "Analysis of Primary Analysis Report complete. Key metrics computed and compared against historical baselines \u2014 3 indicators flagged for review."
+        }
+      ],
+      "outcome": "Schedule: the assessed criteria on the assessed criteria with estimated completion the assessed criteria"
+    },
+    {
+      "id": "supplier_selection",
+      "task": "Select supplier for part PRT-2025-0000 given quality and lead time requirements",
+      "steps": [
+        {
+          "thought": "Review available suppliers for this part category",
+          "action": "Query approved suppliers and their historical performance",
+          "observation": "Found 11 relevant records in the manufacturing knowledge graph. Top result: Compliance Certificate with 5 connected entities."
+        },
+        {
+          "thought": "Compare quality ratings and defect rates",
+          "action": "Analyze quality reports linked to each supplier's parts",
+          "observation": "Analysis of Technical Specification complete. Key metrics computed and compared against historical baselines \u2014 3 indicators flagged for review."
+        },
+        {
+          "thought": "Factor in lead time, cost, and risk diversification",
+          "action": "Rank suppliers by weighted score of quality, cost, and reliability",
+          "observation": "Action completed for Compliance Certificate. Results consistent with expected manufacturing domain patterns."
+        }
+      ],
+      "outcome": "Selected supplier: the assessed criteria \u2014 analysis of available data and alignment with operational guidelines"
+    },
+    {
+      "id": "defect_investigation",
+      "task": "Investigate root cause of quality defects in Titanium Gear Assembly TGA-401 batch",
+      "steps": [
+        {
+          "thought": "Review defect details and patterns from quality reports",
+          "action": "Query recent quality reports for this part with fail results",
+          "observation": "Found 12 relevant records in the manufacturing knowledge graph. Top result: Primary Analysis Report with 4 connected entities."
+        },
+        {
+          "thought": "Trace back through production process and materials",
+          "action": "Follow production chain: machine, line, supplier, raw materials",
+          "observation": "Action completed for Westside Corporate Campus. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Identify common factors across defective units",
+          "action": "Correlate defects with machine, shift, material batch, or operator",
+          "observation": "Action completed for Aluminum Heat Sink AHS-150. Results consistent with expected manufacturing domain patterns."
+        }
+      ],
+      "outcome": "Root cause: the assessed criteria. Corrective action: immediate follow-up recommended"
+    },
+    {
+      "id": "supply_chain_disruption",
+      "task": "Assess impact and alternatives when supplier Shanghai Precision Parts reports delivery delay for Carbon Fiber Panel CFP-88",
+      "steps": [
+        {
+          "thought": "Identify all work orders depending on the delayed part",
+          "action": "Query work orders with DEPENDS_ON relationship to the affected part",
+          "observation": "Found 7 relevant records in the manufacturing knowledge graph. Top result: Quarterly Assessment Document with 3 connected entities."
+        },
+        {
+          "thought": "Check current stock levels against immediate production needs",
+          "action": "Compare part stock_quantity to work order quantities with upcoming due dates",
+          "observation": "Action completed for Technical Specification. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Find alternative approved suppliers for the same part",
+          "action": "Query other suppliers linked to the part or its category with approved status",
+          "observation": "Found 7 relevant records in the manufacturing knowledge graph. Top result: Compliance Certificate with 2 connected entities."
+        },
+        {
+          "thought": "Evaluate expedited shipping or substitute parts",
+          "action": "Compare lead times and costs across alternative suppliers and compatible parts",
+          "observation": "Action completed for Riverside Research Park. Results consistent with expected manufacturing domain patterns."
+        }
+      ],
+      "outcome": "Impact: the assessed criteria work orders at risk. Mitigation: the assessed criteria"
+    },
+    {
+      "id": "equipment_maintenance",
+      "task": "Determine maintenance priority for Injection Molder IM-800 with 43 operating hours",
+      "steps": [
+        {
+          "thought": "Review machine maintenance history and current status",
+          "action": "Query maintenance logs and current status for the machine",
+          "observation": "Found 10 relevant records in the manufacturing knowledge graph. Top result: James Morrison with 4 connected entities."
+        },
+        {
+          "thought": "Assess impact on production line if machine goes offline",
+          "action": "Check production line assignment and active work orders using this machine",
+          "observation": "Verified Q4 Strategy Review against manufacturing standards. All 5 checked parameters within acceptable thresholds."
+        },
+        {
+          "thought": "Compare operating hours to manufacturer maintenance intervals",
+          "action": "Evaluate operating_hours against recommended service thresholds",
+          "observation": "Action completed for WO-2025-0893 Quality Rework. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Schedule maintenance window to minimize production disruption",
+          "action": "Identify lowest-impact time slot based on work order due dates and line capacity",
+          "observation": "Action completed for Compliance Certificate. Results consistent with expected manufacturing domain patterns."
+        }
+      ],
+      "outcome": "Maintenance priority: high. Schedule: the assessed criteria. Estimated downtime: the assessed criteria"
+    },
+    {
+      "id": "quality_audit",
+      "task": "Conduct quality audit for parts produced on Line C - Precision Parts over the past period",
+      "steps": [
+        {
+          "thought": "Aggregate quality report outcomes for the production line",
+          "action": "Query quality reports for parts produced on this line, grouped by result",
+          "observation": "Found 10 relevant records in the manufacturing knowledge graph. Top result: Annual Compliance Audit with 6 connected entities."
+        },
+        {
+          "thought": "Identify recurring defect types and patterns",
+          "action": "Analyze defect_type distribution and correlate with specific machines or shifts",
+          "observation": "Analysis of WO-2025-0412 Batch Production complete. Key metrics computed and compared against historical baselines \u2014 5 indicators flagged for review."
+        },
+        {
+          "thought": "Compare pass rates against target quality thresholds",
+          "action": "Calculate pass rate percentage and benchmark against line efficiency_rating",
+          "observation": "Analysis of Emergency Response Drill complete. Key metrics computed and compared against historical baselines \u2014 4 indicators flagged for review."
+        }
+      ],
+      "outcome": "Audit result: the assessed criteria% pass rate. Top defect: the assessed criteria. Action: immediate follow-up recommended"
+    },
+    {
+      "id": "material_selection",
+      "task": "Select optimal material supplier for Titanium Gear Assembly TGA-401 balancing cost, quality, and lead time",
+      "steps": [
+        {
+          "thought": "List all suppliers providing this part or compatible raw materials",
+          "action": "Query suppliers linked to the part via SUPPLIED_BY relationship",
+          "observation": "Found 6 relevant records in the manufacturing knowledge graph. Top result: Standard Operating Procedure with 4 connected entities."
+        },
+        {
+          "thought": "Rank suppliers by quality rating and historical defect rates",
+          "action": "Join supplier quality_rating with quality report pass rates for their parts",
+          "observation": "Action completed for Primary Analysis Report. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Factor in lead time urgency against work order due dates",
+          "action": "Compare supplier lead_time_days to nearest work order deadlines",
+          "observation": "Action completed for Emergency Response Drill. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Calculate total cost including shipping and potential rework",
+          "action": "Estimate unit_cost multiplied by quantity plus rework costs from defect rates",
+          "observation": "Action completed for Standard Operating Procedure. Results consistent with expected manufacturing domain patterns."
+        }
+      ],
+      "outcome": "Selected: the assessed criteria \u2014 cost $the assessed criteria/unit, the assessed criteria day lead, the assessed criteria% quality"
+    },
+    {
+      "id": "capacity_optimization",
+      "task": "Optimize production capacity across all lines to meet pending work orders",
+      "steps": [
+        {
+          "thought": "Survey current utilization of all production lines",
+          "action": "Query production lines with status, capacity_per_hour, and assigned work orders",
+          "observation": "Found 11 relevant records in the manufacturing knowledge graph. Top result: Q4 Strategy Review with 6 connected entities."
+        },
+        {
+          "thought": "Identify bottleneck lines with overloaded schedules",
+          "action": "Compare total assigned quantity to available capacity for each line",
+          "observation": "Action completed for Riverside Research Park. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Redistribute work orders to balance load across lines",
+          "action": "Match work order requirements to capable machines on underutilized lines",
+          "observation": "Action completed for Primary Analysis Report. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Evaluate shift pattern changes to increase throughput",
+          "action": "Model output gains from shifting idle lines to double or triple shifts",
+          "observation": "Action completed for Technical Specification. Results consistent with expected manufacturing domain patterns."
+        }
+      ],
+      "outcome": "Optimization: the assessed criteria orders redistributed. Projected throughput increase: the assessed criteria%"
+    },
+    {
+      "id": "preventive_maintenance_planning",
+      "task": "Plan preventive maintenance schedule for machines on Line D - Assembly",
+      "steps": [
+        {
+          "thought": "Inventory all machines assigned to the production line",
+          "action": "Query machines with OPERATED_BY relationship to the production line",
+          "observation": "Found 3 relevant records in the manufacturing knowledge graph. Top result: Annual Compliance Audit with 2 connected entities."
+        },
+        {
+          "thought": "Assess each machine's operating hours and last maintenance date",
+          "action": "Review operating_hours and install_date to estimate service intervals",
+          "observation": "Review of Board of Directors Meeting completed. Identified 5 key factors relevant to the current decision context."
+        },
+        {
+          "thought": "Prioritize machines by criticality and failure risk",
+          "action": "Rank machines by hours since last maintenance and impact on line output",
+          "observation": "Action completed for Standard Operating Procedure. Results consistent with expected manufacturing domain patterns."
+        }
+      ],
+      "outcome": "Maintenance plan: the assessed criteria machines scheduled. Next critical: the assessed criteria in the assessed criteria days"
+    },
+    {
+      "id": "work_order_prioritization",
+      "task": "Reprioritize work orders when Laser Cutter LC-5000 goes offline unexpectedly",
+      "steps": [
+        {
+          "thought": "Identify all work orders assigned to the offline machine",
+          "action": "Query work orders with ASSIGNED_TO relationship to the machine",
+          "observation": "Found 3 relevant records in the manufacturing knowledge graph. Top result: Line A - High Volume 1 with 3 connected entities."
+        },
+        {
+          "thought": "Assess due date urgency and customer impact for each order",
+          "action": "Rank affected work orders by due_date and priority level",
+          "observation": "Action completed for QR-2025-041 Dimensional Check. Results consistent with expected manufacturing domain patterns."
+        },
+        {
+          "thought": "Find alternative machines capable of handling the work",
+          "action": "Query machines of same type on other production lines with operational status",
+          "observation": "Found 6 relevant records in the manufacturing knowledge graph. Top result: Primary Analysis Report with 5 connected entities."
+        },
+        {
+          "thought": "Reassign critical orders and adjust schedules",
+          "action": "Move highest-priority orders to available machines and update timelines",
+          "observation": "Action completed for Annual Compliance Audit. Results consistent with expected manufacturing domain patterns."
+        }
+      ],
+      "outcome": "Reassigned the assessed criteria orders. the assessed criteria critical orders preserved. New completion: the assessed criteria"
+    }
+  ]
+}

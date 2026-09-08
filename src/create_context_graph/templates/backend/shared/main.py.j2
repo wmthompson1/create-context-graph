@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.context_graph_client import connect_neo4j, close_neo4j, is_connected
+from app.manufacturing_reasoning import load_manufacturing_reasoning
 from app.memory import (
     close_memory,
     connect_memory,
@@ -35,6 +36,11 @@ async def lifespan(app: FastAPI):
     Neo4j (which in turn initializes the memory integration).
     """
     global _neo4j_available, _memory_available
+
+    try:
+        load_manufacturing_reasoning()
+    except Exception as e:
+        logger.warning("Manufacturing reasoning package unavailable: %s", e)
 
     if settings.memory_backend == "nams":
         try:

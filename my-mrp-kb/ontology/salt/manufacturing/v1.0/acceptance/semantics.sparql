@@ -1,5 +1,10 @@
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX saltmfg: <https://example.org/ontology/salt/manufacturing/v1.0#>
 
-ASK {
-  <https://example.org/ontology/salt/manufacturing/v1.0> a owl:Ontology .
+SELECT ?resource ?source ?target
+WHERE {
+  ?resource a saltmfg:KnowledgeBase .
+  ?resource a saltmfg:ManufacturingResource .
+  ?resource a saltmfg:MaterialRequirement .
+  ?resource a saltmfg:WorkOrder .
+  ?source saltmfg:requiresMaterial ?target .
 }

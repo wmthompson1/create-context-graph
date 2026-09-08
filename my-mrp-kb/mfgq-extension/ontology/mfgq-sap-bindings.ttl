@@ -1,0 +1,47 @@
+@prefix mfgq: <https://example.com/mfgq/> .
+@prefix sap: <https://example.org/sap/obkg/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+sap: a owl:Ontology ;
+  rdfs:label "SAP OBKG binding layer for MFGQ"@en ;
+  rdfs:comment "Binding layer that anchors MFGQ quality properties to the exact SAP OBKG predicates used in the target deployment."@en .
+
+# Quality-case bindings to SAP context entities and predicates.
+mfgq:affectedPart owl:equivalentProperty sap:hasPart ;
+  rdfs:comment "Maps an NCR to the SAP OBKG part reference for the affected item."@en .
+
+mfgq:affectedMaterial owl:equivalentProperty sap:hasMaterial ;
+  rdfs:comment "Maps an NCR to the SAP OBKG material reference for the affected material."@en .
+
+mfgq:affectedBatch owl:equivalentProperty sap:hasBatch ;
+  rdfs:comment "Maps an NCR to the SAP OBKG batch reference for the affected batch."@en .
+
+mfgq:occurredAtPlant owl:equivalentProperty sap:hasPlant ;
+  rdfs:comment "Maps an NCR to the SAP OBKG plant reference for the occurrence site."@en .
+
+mfgq:associatedWithOrder owl:equivalentProperty sap:hasProductionOrder ;
+  rdfs:comment "Maps an NCR to the SAP production order relation."@en .
+
+mfgq:associatedWithOperation owl:equivalentProperty sap:hasOperation ;
+  rdfs:comment "Maps an NCR to the SAP operation relation."@en .
+
+mfgq:associatedWithWorkCenter owl:equivalentProperty sap:hasWorkCenter ;
+  rdfs:comment "Maps an NCR to the SAP work-center relation."@en .
+
+mfgq:associatedWithEquipment owl:equivalentProperty sap:hasEquipment ;
+  rdfs:comment "Maps an NCR to the SAP equipment relation."@en .
+
+mfgq:associatedWithSupplier owl:equivalentProperty sap:hasSupplier ;
+  rdfs:comment "Maps an NCR to the SAP supplier relation."@en .
+
+# SAP context class anchors used by the quality extension.
+sap:Material a owl:Class .
+sap:Batch a owl:Class .
+sap:Plant a owl:Class .
+sap:ProductionOrder a owl:Class .
+sap:Operation a owl:Class .
+sap:WorkCenter a owl:Class .
+sap:Equipment a owl:Class .
+sap:Supplier a owl:Class .
+sap:Part a owl:Class .

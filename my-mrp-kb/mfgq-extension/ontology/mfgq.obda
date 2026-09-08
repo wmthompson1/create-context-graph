@@ -1,0 +1,38 @@
+[PrefixDeclaration]
+prefix :      http://example.com/mfgq/
+prefix sap:   https://example.org/sap/obkg/
+prefix xsd:   http://www.w3.org/2001/XMLSchema#
+
+[SourceDeclaration]
+sourceId   = sapdb
+connectionUrl = jdbc:postgresql://sap-host:5432/sapdb
+username   = sap_user
+password   = sap_password
+driverClass = org.postgresql.Driver
+
+[MappingDeclaration] @collection [[
+
+mappingId: NCRIdentifier
+target: :Nonconformance({ncr_id}) :identifier {identifier} .
+source: SELECT ncr_id, identifier FROM ncr ;
+
+mappingId: NCRAffectedPart
+target: :Nonconformance({ncr_id}) :affectedPart sap:Part({part_id}) .
+source: SELECT ncr_id, part_id FROM ncr_part ;
+
+mappingId: NCRStatus
+target: :Nonconformance({ncr_id}) :status :{status} .
+source: SELECT ncr_id, status FROM ncr ;
+
+mappingId: MeasurementMapping
+target: :Measurement({meas_id})
+        :value {value} ;
+        :unitCode {unit_code} ;
+        :evaluation :{evaluation} .
+source: SELECT meas_id, value, unit_code, evaluation FROM measurement ;
+
+mappingId: NCRDisposition
+target: :Nonconformance({ncr_id}) :hasDisposition :Disposition({disp_id}) .
+source: SELECT ncr_id, disp_id FROM ncr_disposition ;
+
+]]

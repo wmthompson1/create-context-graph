@@ -1,0 +1,153 @@
+@prefix saltmfg: <https://example.org/ontology/salt/manufacturing/v1.1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://example.org/ontology/salt/manufacturing/v1.1> a owl:Ontology ;
+    rdfs:label "SALT Manufacturing Ontology v1.1" ;
+    rdfs:comment "ontology_id: salt.manufacturing.v1.1" .
+
+saltmfg:BillOfMaterials a owl:Class ;
+    rdfs:label "Bill of materials" .
+
+saltmfg:KnowledgeBase a owl:Class ;
+    rdfs:label "Knowledge base" .
+
+saltmfg:Machine a owl:Class ;
+    rdfs:label "Machine" .
+
+saltmfg:ManufacturingResource a owl:Class ;
+    rdfs:label "Manufacturing resource" .
+
+saltmfg:MaterialRequirement a owl:Class ;
+    rdfs:label "Material requirement" .
+
+saltmfg:Part a owl:Class ;
+    rdfs:label "Part" .
+
+saltmfg:ProductionEvent a owl:Class ;
+    rdfs:label "Production event" .
+
+saltmfg:ScheduleSlot a owl:Class ;
+    rdfs:label "Schedule slot" .
+
+saltmfg:Supplier a owl:Class ;
+    rdfs:label "Supplier" .
+
+saltmfg:SupplyCommitment a owl:Class ;
+    rdfs:label "Supply commitment" .
+
+saltmfg:WorkCenter a owl:Class ;
+    rdfs:label "Work center" .
+
+saltmfg:WorkOrder a owl:Class ;
+    rdfs:label "Work order" .
+
+saltmfg:actualEnd a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:label "actual end" .
+
+saltmfg:actualStart a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:label "actual start" .
+
+saltmfg:allocatedTo a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#WorkCenter> ;
+    rdfs:label "allocated to" .
+
+saltmfg:commitmentDate a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment> ;
+    rdfs:label "commitment date" .
+
+saltmfg:committedBy a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#Supplier> ;
+    rdfs:label "committed by" .
+
+saltmfg:consumesPart a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#Part> ;
+    rdfs:label "consumes part" .
+
+saltmfg:definesRequirement a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#BillOfMaterials> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement> ;
+    rdfs:label "defines requirement" .
+
+saltmfg:executesWorkOrder a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder> ;
+    rdfs:label "executes work order" .
+
+saltmfg:hasBillOfMaterials a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#BillOfMaterials> ;
+    rdfs:label "has bill of materials" .
+
+saltmfg:hasWorkCenter a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#Machine> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#WorkCenter> ;
+    rdfs:label "has work center" .
+
+saltmfg:identifier a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ManufacturingResource> ;
+    rdfs:label "identifier" .
+
+saltmfg:leadTimeDays a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment> ;
+    rdfs:label "lead time days" .
+
+saltmfg:plannedEnd a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot> ;
+    rdfs:label "planned end" .
+
+saltmfg:plannedStart a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot> ;
+    rdfs:label "planned start" .
+
+saltmfg:precedesEvent a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:label "precedes event" .
+
+saltmfg:producesPart a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#Part> ;
+    rdfs:label "produces part" .
+
+saltmfg:quantity a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement> ;
+    rdfs:label "quantity" .
+
+saltmfg:requiresPart a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#Part> ;
+    rdfs:label "requires part" .
+
+saltmfg:scheduledAt a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#WorkCenter> ;
+    rdfs:label "scheduled at" .
+
+saltmfg:scheduledFor a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder> ;
+    rdfs:label "scheduled for" .
+
+saltmfg:status a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:label "status" .
+
+saltmfg:suppliesPart a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#Part> ;
+    rdfs:label "supplies part" .
+
+saltmfg:unitOfMeasure a owl:DatatypeProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement> ;
+    rdfs:label "unit of measure" .
+
+saltmfg:usesMachine a owl:ObjectProperty ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.1#Machine> ;
+    rdfs:label "uses machine" .

@@ -1,8 +1,5 @@
 PREFIX saltmfg: <https://example.org/ontology/salt/manufacturing/v1.0#>
 
-SELECT ?workOrder ?materialRequirement
-WHERE {
-  ?workOrder a saltmfg:WorkOrder ;
-    saltmfg:requiresMaterial ?materialRequirement .
+ASK {
+  ?source saltmfg:requiresMaterial ?target .
 }
-ORDER BY ?workOrder ?materialRequirement

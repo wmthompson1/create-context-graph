@@ -1,0 +1,42 @@
+ontology_id: salt.manufacturing.v1.1
+execution:
+  engine: parameterized_read_only_cypher
+  max_hops: 4
+  ontology_id_required: true
+  no_inferred_relationships: true
+strategies:
+- name: bom_requirements
+  purpose: Trace explicit work-order BOM requirements to parts.
+  parameters:
+  - work_order_id
+  tool: get_bom_components
+- name: schedule_contention
+  purpose: Compare explicit schedule slots assigned to the same work center.
+  parameters:
+  - work_center_id
+  - window_start
+  - window_end
+  cypher: MATCH (slot:ScheduleSlot)-[:ALLOCATED_TO]->(center:WorkCenter) WHERE slot.ontology_id
+    = $ontology_id AND center.ontology_id = $ontology_id AND center.id = $work_center_id
+    AND slot.plannedStart < $window_end AND slot.plannedEnd > $window_start OPTIONAL
+    MATCH (slot)-[:SCHEDULED_FOR]->(workOrder:WorkOrder) WHERE workOrder.ontology_id
+    = $ontology_id RETURN slot, workOrder ORDER BY slot.plannedStart
+- name: production_lineage
+  purpose: Follow explicitly asserted production-event ordering and material use.
+  parameters:
+  - part_id
+  cypher: MATCH (event:ProductionEvent)-[material:CONSUMES_PART|PRODUCES_PART]->(part:Part)
+    WHERE event.ontology_id = $ontology_id AND part.ontology_id = $ontology_id AND
+    part.id = $part_id OPTIONAL MATCH (previous:ProductionEvent)-[:PRECEDES_EVENT]->(event)
+    WHERE previous.ontology_id = $ontology_id OPTIONAL MATCH (event)-[:PRECEDES_EVENT]->(next:ProductionEvent)
+    WHERE next.ontology_id = $ontology_id RETURN previous, event, material, part,
+    next ORDER BY event.actualStart
+- name: supply_coverage
+  purpose: Find explicit supplier commitments for a required part.
+  parameters:
+  - part_id
+  cypher: MATCH (commitment:SupplyCommitment)-[:SUPPLIES_PART]->(part:Part) WHERE
+    commitment.ontology_id = $ontology_id AND part.ontology_id = $ontology_id AND
+    part.id = $part_id MATCH (commitment)-[:COMMITTED_BY]->(supplier:Supplier) WHERE
+    supplier.ontology_id = $ontology_id RETURN commitment, supplier, part ORDER BY
+    commitment.commitmentDate

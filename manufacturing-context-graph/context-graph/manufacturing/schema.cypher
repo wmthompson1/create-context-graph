@@ -1,0 +1,25 @@
+// Generated from salt.manufacturing.v1.1; metadata-only schema, no records are created.
+CREATE CONSTRAINT salt_manufacturing_v1_1_billofmaterials_identity IF NOT EXISTS FOR (node:BillOfMaterials) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_knowledgebase_identity IF NOT EXISTS FOR (node:KnowledgeBase) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_machine_identity IF NOT EXISTS FOR (node:Machine) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_manufacturingresource_identity IF NOT EXISTS FOR (node:ManufacturingResource) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_materialrequirement_identity IF NOT EXISTS FOR (node:MaterialRequirement) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_part_identity IF NOT EXISTS FOR (node:Part) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_productionevent_identity IF NOT EXISTS FOR (node:ProductionEvent) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_scheduleslot_identity IF NOT EXISTS FOR (node:ScheduleSlot) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_supplier_identity IF NOT EXISTS FOR (node:Supplier) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_supplycommitment_identity IF NOT EXISTS FOR (node:SupplyCommitment) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_workcenter_identity IF NOT EXISTS FOR (node:WorkCenter) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE CONSTRAINT salt_manufacturing_v1_1_workorder_identity IF NOT EXISTS FOR (node:WorkOrder) REQUIRE (node.ontology_id, node.id) IS UNIQUE;
+CREATE INDEX salt_manufacturing_v1_1_billofmaterials_identifier IF NOT EXISTS FOR (node:BillOfMaterials) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_knowledgebase_identifier IF NOT EXISTS FOR (node:KnowledgeBase) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_machine_identifier IF NOT EXISTS FOR (node:Machine) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_manufacturingresource_identifier IF NOT EXISTS FOR (node:ManufacturingResource) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_materialrequirement_identifier IF NOT EXISTS FOR (node:MaterialRequirement) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_part_identifier IF NOT EXISTS FOR (node:Part) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_productionevent_identifier IF NOT EXISTS FOR (node:ProductionEvent) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_scheduleslot_identifier IF NOT EXISTS FOR (node:ScheduleSlot) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_supplier_identifier IF NOT EXISTS FOR (node:Supplier) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_supplycommitment_identifier IF NOT EXISTS FOR (node:SupplyCommitment) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_workcenter_identifier IF NOT EXISTS FOR (node:WorkCenter) ON (node.ontology_id, node.identifier);
+CREATE INDEX salt_manufacturing_v1_1_workorder_identifier IF NOT EXISTS FOR (node:WorkOrder) ON (node.ontology_id, node.identifier);

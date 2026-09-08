@@ -127,6 +127,39 @@ class TestProjectRenderer:
         assert (tmp_output / "data" / "_base.yaml").exists()
         assert (tmp_output / "data" / "documents").is_dir()
 
+    def test_manufacturing_scaffold_includes_gds_free_reasoning(self, tmp_output):
+        config = ProjectConfig(
+            project_name="Manufacturing Test",
+            domain="manufacturing",
+            framework="strands",
+            neo4j_type="existing",
+        )
+        ProjectRenderer(config, load_domain(config.domain)).render(tmp_output)
+
+        package = tmp_output / "context-graph" / "manufacturing"
+        agent = (tmp_output / "backend" / "app" / "agent.py").read_text(encoding="utf-8")
+        assert (package / "domain.yaml").is_file()
+        assert (package / "tools" / "manufacturing-tools.yaml").is_file()
+        assert (package / "reasoning" / "strategies.yaml").is_file()
+        assert not (package / "gds.cypher").exists()
+        assert not (tmp_output / "backend" / "app" / "gds_client.py").exists()
+        assert not (tmp_output / "cypher" / "gds_projections.cypher").exists()
+        assert "execute_manufacturing_tool" in agent
+        assert "def get_bom_components" in agent
+
+    def test_manufacturing_scaffold_omits_gds_imports(self, tmp_output):
+        config = ProjectConfig(
+            project_name="Manufacturing Test",
+            domain="manufacturing",
+            framework="strands",
+            neo4j_type="existing",
+        )
+        ProjectRenderer(config, load_domain(config.domain)).render(tmp_output)
+
+        routes = (tmp_output / "backend" / "app" / "routes.py").read_text(encoding="utf-8")
+        assert "from app.gds_client" not in routes
+        assert "gds_available" not in routes or "check_gds_available" not in routes
+
     def test_fixtures_bundled(self, financial_config, tmp_output):
         ontology = load_domain(financial_config.domain)
         renderer = ProjectRenderer(financial_config, ontology)

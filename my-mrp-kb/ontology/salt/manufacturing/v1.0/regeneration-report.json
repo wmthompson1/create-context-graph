@@ -1,0 +1,19 @@
+{
+  "artifacts": {
+    "acceptance/lineage.sparql": "aaa4622182aaa65c90b6bb8a9e91fb786f00d7b1fd4502529ac45a56c2171cf9",
+    "acceptance/provenance.sparql": "8af11098a37e1c59c41dda1c55e7b58d009888efda8204e7b516e4738923cec4",
+    "acceptance/semantics.sparql": "3ea3ee3fb7940147db478a0baa9f03d241e56f5f600d8efaea6737f081be1754",
+    "ontop.properties": "b92c7e82e9fb1eca4e89c4647fd4cb681e335a2c53e2668d7012786a81a1daba",
+    "salt-manufacturing.obda": "bda9a4a56f7cb474fbcc291769f055f81849726462531fdebc72c6dcd2a4145b",
+    "salt-manufacturing.sparql": "687203f19e1a524b33b0e54ef977e055c6777e4bb507b57a309065b3674992c6",
+    "salt-manufacturing.ttl": "e5233a63f2491eaba748017e89fcf658e3208d52edd655452d551f335995dd61"
+  },
+  "ontology_id": "salt.manufacturing.v1.0",
+  "provenance": {
+    "run_id": "salt.manufacturing.v1.0:regeneration:2026-09-06T18:13:31.968051+00:00",
+    "status": "regenerated"
+  },
+  "snapshot_sha256": "404c4d9ebb5b408385798f6558b5af769dd6acf80fe572ae91333eb500cbc498",
+  "validated": true,
+  "written": true
+}

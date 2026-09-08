@@ -340,7 +340,7 @@ class ProjectRenderer:
         template = self.env.get_template(template_name)
         content = template.render(**ctx)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(content)
+        output_path.write_text(content, encoding="utf-8")
 
     def render(self, output_dir: Path) -> None:
         """Render the complete project to output_dir."""
@@ -352,6 +352,16 @@ class ProjectRenderer:
         self._render_frontend(output_dir / "frontend", ctx)
         self._render_cypher(output_dir / "cypher", ctx)
         self._render_data(output_dir / "data", ctx)
+        self._render_context_graph_package(output_dir)
+
+    def _render_context_graph_package(self, output_dir: Path) -> None:
+        """Copy the versioned manufacturing reasoning package when applicable."""
+        if self.config.domain != "manufacturing":
+            return
+        source = Path(str(files("create_context_graph") / "context_graph_resources" / "manufacturing"))
+        destination = output_dir / "context-graph" / "manufacturing"
+        shutil.copytree(source, destination, dirs_exist_ok=True)
+        shutil.copy2(output_dir / "data" / "ontology.yaml", destination / "domain.yaml")
 
     def _render_base(self, output_dir: Path, ctx: dict) -> None:
         """Render root-level project files."""
@@ -415,14 +425,16 @@ class ProjectRenderer:
             "backend/shared/config.py.j2": "app/config.py",
             "backend/shared/context_graph_client.py.j2": "app/context_graph_client.py",
             "backend/shared/constants.py.j2": "app/constants.py",
-            "backend/shared/gds_client.py.j2": "app/gds_client.py",
             "backend/shared/vector_client.py.j2": "app/vector_client.py",
             "backend/shared/models.py.j2": "app/models.py",
             "backend/shared/routes.py.j2": "app/routes.py",
             "backend/shared/memory.py.j2": "app/memory.py",
             "backend/shared/memory_adapter.py.j2": "app/memory_adapter.py",
+            "backend/shared/manufacturing_reasoning.py.j2": "app/manufacturing_reasoning.py",
             "backend/shared/pyproject.toml.j2": "pyproject.toml",
         }
+        if self.config.domain != "manufacturing":
+            shared_templates["backend/shared/gds_client.py.j2"] = "app/gds_client.py"
         for template_name, output_name in shared_templates.items():
             self._render_template(template_name, backend_dir / output_name, ctx)
 
@@ -550,11 +562,12 @@ class ProjectRenderer:
     def _render_cypher(self, cypher_dir: Path, ctx: dict) -> None:
         """Render Cypher schema files."""
         self._render_template("cypher/schema.cypher.j2", cypher_dir / "schema.cypher", ctx)
-        self._render_template(
-            "cypher/gds_projections.cypher.j2",
-            cypher_dir / "gds_projections.cypher",
-            ctx,
-        )
+        if self.config.domain != "manufacturing":
+            self._render_template(
+                "cypher/gds_projections.cypher.j2",
+                cypher_dir / "gds_projections.cypher",
+                ctx,
+            )
 
     def _render_data(self, data_dir: Path, ctx: dict) -> None:
         """Copy ontology and create data directory structure."""

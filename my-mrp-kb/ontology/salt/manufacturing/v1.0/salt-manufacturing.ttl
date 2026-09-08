@@ -19,6 +19,6 @@ saltmfg:WorkOrder a owl:Class ;
     rdfs:label "Work order" .
 
 saltmfg:requiresMaterial a owl:ObjectProperty ;
-    rdfs:domain saltmfg:WorkOrder ;
-    rdfs:range saltmfg:MaterialRequirement ;
+    rdfs:domain <https://example.org/ontology/salt/manufacturing/v1.0#WorkOrder> ;
+    rdfs:range <https://example.org/ontology/salt/manufacturing/v1.0#MaterialRequirement> ;
     rdfs:label "requires material" .

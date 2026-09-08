@@ -1,5 +1,5 @@
-PREFIX saltmfg: <https://example.org/ontology/salt/manufacturing/v1.0#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 ASK {
-  <https://example.org/kb/my-mrp-kb> a saltmfg:KnowledgeBase .
+  <https://example.org/ontology/salt/manufacturing/v1.0> a owl:Ontology .
 }

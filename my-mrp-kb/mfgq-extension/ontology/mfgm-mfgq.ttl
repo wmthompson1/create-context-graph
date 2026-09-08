@@ -1,0 +1,27 @@
+@prefix mfgq: <https://example.com/mfgq/> .
+@prefix mfgm: <https://example.com/mfgm/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+mfgm: a owl:Ontology ;
+  rdfs:label "Manufacturing Operations Ontology"@en ;
+  rdfs:comment "WorkOrder, BOM, Schedule, Supplier, Lineage layer aligned with MFGQ quality ontology."@en ;
+  owl:imports mfgq: .
+
+# Manufacturing core classes
+mfgm:WorkOrder a owl:Class ; rdfs:subClassOf prov:Activity .
+mfgm:BillOfMaterials a owl:Class .
+mfgm:MaterialRequirement a owl:Class .
+mfgm:Part a owl:Class .
+mfgm:WorkCenter a owl:Class .
+mfgm:ScheduleSlot a owl:Class .
+mfgm:ProductionEvent a owl:Class ; rdfs:subClassOf prov:Activity .
+mfgm:Supplier a owl:Class .
+
+# Alignment between quality and manufacturing
+mfgq:Nonconformance rdfs:seeAlso mfgm:WorkOrder .
+mfgq:affectedPart rdfs:range mfgm:Part .
+mfgq:associatedWithOrder rdfs:range mfgm:WorkOrder .
+mfgq:associatedWithWorkCenter rdfs:range mfgm:WorkCenter .
+mfgq:associatedWithSupplier rdfs:range mfgm:Supplier .

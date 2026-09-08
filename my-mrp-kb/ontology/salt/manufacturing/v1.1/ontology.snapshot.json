@@ -1,0 +1,451 @@
+{
+  "artifacts": [
+    {
+      "format": "sparql",
+      "kind": "acceptance_query",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "path": "acceptance/lineage.sparql",
+      "sha256": "d448f50c03bd8708f4f66e1f9e52c44d3d98f2ae899c0b02fb6e40ccff3e267c"
+    },
+    {
+      "format": "sparql",
+      "kind": "acceptance_query",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "path": "acceptance/provenance.sparql",
+      "sha256": "5081263a9e56d5e8d8ee99d781790ff8655641de95b1944d64da5dc282fcbb85"
+    },
+    {
+      "format": "sparql",
+      "kind": "acceptance_query",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "path": "acceptance/semantics.sparql",
+      "sha256": "1b6a51e8d99486c98ec497b367862082855d07d7b5d64af9087de5c456d9b926"
+    },
+    {
+      "format": "properties",
+      "kind": "configuration",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "path": "ontop.properties",
+      "sha256": "8639740372c0fd75f68f33e71f2b375fe0ee2b40214a0ad90521e7cb064b31ef"
+    },
+    {
+      "format": "obda",
+      "kind": "mapping",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "path": "salt-manufacturing.obda",
+      "sha256": "4b34b87c7e173962fb7b2f4440fa3c591c2e7d09b8fa5c71a553ccc8373169c7"
+    },
+    {
+      "format": "sparql",
+      "kind": "query",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "path": "salt-manufacturing.sparql",
+      "sha256": "fec812f52a0cfa9d10d25c2fef709774950d76f830c6601f63ae4c2e70298715"
+    },
+    {
+      "format": "turtle",
+      "kind": "ontology",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "path": "salt-manufacturing.ttl",
+      "sha256": "e0b9798db35bd085f8598a111833caca79654dcda56460ead6d9d1b46b5a1566"
+    }
+  ],
+  "classes": [
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#BillOfMaterials",
+      "label": "Bill of materials",
+      "local_name": "BillOfMaterials",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#KnowledgeBase",
+      "label": "Knowledge base",
+      "local_name": "KnowledgeBase",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#Machine",
+      "label": "Machine",
+      "local_name": "Machine",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#ManufacturingResource",
+      "label": "Manufacturing resource",
+      "local_name": "ManufacturingResource",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement",
+      "label": "Material requirement",
+      "local_name": "MaterialRequirement",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#Part",
+      "label": "Part",
+      "local_name": "Part",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent",
+      "label": "Production event",
+      "local_name": "ProductionEvent",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot",
+      "label": "Schedule slot",
+      "local_name": "ScheduleSlot",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#Supplier",
+      "label": "Supplier",
+      "local_name": "Supplier",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment",
+      "label": "Supply commitment",
+      "local_name": "SupplyCommitment",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#WorkCenter",
+      "label": "Work center",
+      "local_name": "WorkCenter",
+      "ontology_id": "salt.manufacturing.v1.1"
+    },
+    {
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder",
+      "label": "Work order",
+      "local_name": "WorkOrder",
+      "ontology_id": "salt.manufacturing.v1.1"
+    }
+  ],
+  "ingestion_runs": [
+    {
+      "completed_at": "2026-09-06T18:34:02.008000000+00:00",
+      "manifest_sha256": "1a051375badff4e84031aa93873edc64c8b8e7e461888da9d1297e7839176f00",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "run_id": "salt.manufacturing.v1.1:2026-09-06T18:33:47.597115+00:00",
+      "started_at": "2026-09-06T18:33:47.597115000+00:00",
+      "status": "succeeded"
+    }
+  ],
+  "knowledge_base": {
+    "document_root": "../../../../",
+    "kb_id": "my-mrp-kb",
+    "name": "Manufacturing and MRP Knowledge Base"
+  },
+  "ontology": {
+    "domain": "manufacturing",
+    "manifest_sha256": "1a051375badff4e84031aa93873edc64c8b8e7e461888da9d1297e7839176f00",
+    "namespace": "salt",
+    "ontology_id": "salt.manufacturing.v1.1",
+    "ontology_iri": "https://example.org/ontology/salt/manufacturing/v1.1",
+    "version": "v1.1"
+  },
+  "properties": [
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#actualEnd",
+      "label": "actual end",
+      "local_name": "actualEnd",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#actualStart",
+      "label": "actual start",
+      "local_name": "actualStart",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#allocatedTo",
+      "label": "allocated to",
+      "local_name": "allocatedTo",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#WorkCenter"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#commitmentDate",
+      "label": "commitment date",
+      "local_name": "commitmentDate",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#committedBy",
+      "label": "committed by",
+      "local_name": "committedBy",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#Supplier"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#consumesPart",
+      "label": "consumes part",
+      "local_name": "consumesPart",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#Part"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#BillOfMaterials"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#definesRequirement",
+      "label": "defines requirement",
+      "local_name": "definesRequirement",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#executesWorkOrder",
+      "label": "executes work order",
+      "local_name": "executesWorkOrder",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#hasBillOfMaterials",
+      "label": "has bill of materials",
+      "local_name": "hasBillOfMaterials",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#BillOfMaterials"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#Machine"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#hasWorkCenter",
+      "label": "has work center",
+      "local_name": "hasWorkCenter",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#WorkCenter"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ManufacturingResource"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#identifier",
+      "label": "identifier",
+      "local_name": "identifier",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#leadTimeDays",
+      "label": "lead time days",
+      "local_name": "leadTimeDays",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#plannedEnd",
+      "label": "planned end",
+      "local_name": "plannedEnd",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#plannedStart",
+      "label": "planned start",
+      "local_name": "plannedStart",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#precedesEvent",
+      "label": "precedes event",
+      "local_name": "precedesEvent",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#producesPart",
+      "label": "produces part",
+      "local_name": "producesPart",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#Part"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#quantity",
+      "label": "quantity",
+      "local_name": "quantity",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#requiresPart",
+      "label": "requires part",
+      "local_name": "requiresPart",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#Part"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#scheduledAt",
+      "label": "scheduled at",
+      "local_name": "scheduledAt",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#WorkCenter"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ScheduleSlot"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#scheduledFor",
+      "label": "scheduled for",
+      "local_name": "scheduledFor",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#WorkOrder"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#status",
+      "label": "status",
+      "local_name": "status",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#SupplyCommitment"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#suppliesPart",
+      "label": "supplies part",
+      "local_name": "suppliesPart",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#Part"
+      ]
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#MaterialRequirement"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#unitOfMeasure",
+      "label": "unit of measure",
+      "local_name": "unitOfMeasure",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "datatype",
+      "ranges": []
+    },
+    {
+      "domains": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#ProductionEvent"
+      ],
+      "iri": "https://example.org/ontology/salt/manufacturing/v1.1#usesMachine",
+      "label": "uses machine",
+      "local_name": "usesMachine",
+      "ontology_id": "salt.manufacturing.v1.1",
+      "property_kind": "object",
+      "ranges": [
+        "https://example.org/ontology/salt/manufacturing/v1.1#Machine"
+      ]
+    }
+  ],
+  "source_policy": [
+    {
+      "ontology_id": "salt.manufacturing.v1.1",
+      "source_name": "sap_salt_data",
+      "usage_status": "Reference-only pending license review"
+    }
+  ]
+}

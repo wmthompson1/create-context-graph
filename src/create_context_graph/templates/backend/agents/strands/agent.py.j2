@@ -13,6 +13,9 @@ from strands.tools import tool
 from app.config import settings
 from app.context_graph_client import execute_cypher, get_schema
 from app.memory import store_message, get_context, resolve_session_id
+{% if domain.id == "manufacturing" %}
+from app.manufacturing_reasoning import execute_manufacturing_tool
+{% endif %}
 
 {% raw %}
 # Ensure ANTHROPIC_API_KEY is available in the environment
@@ -55,6 +58,13 @@ SYSTEM_PROMPT = """{{ system_prompt }}
 IMPORTANT: You MUST use the available tools to query the knowledge graph before answering any question about the data. Never guess or make up information — always use tools to look up actual data from the graph.
 
 CRITICAL: Call tools DIRECTLY without any introductory text. Do NOT say "I'll search for..." or "Let me look up..." before calling a tool — just call the tool immediately. Only generate text AFTER you have received the tool results and are ready to provide your final answer."""
+{% if domain.id == "manufacturing" %}
+
+SYSTEM_PROMPT += """
+
+For manufacturing reasoning, separate observed evidence, missing evidence, and assumptions. Use only explicit graph nodes and relationships returned by tools. Do not infer relationships from matching names, identifiers, dates, or timestamps. When evidence is absent, say so and request clarification. Cite node IDs and relationship types when present.
+"""
+{% endif %}
 
 # ---------------------------------------------------------------------------
 # Agent tools — domain-specific for {{ domain.name }}
@@ -74,6 +84,43 @@ def {{ tool.name }}({% for param in tool.parameters %}{{ param.name }}: {{ 'str'
     return json.dumps(result, default=str)
 
 {% endfor %}
+
+{% if domain.id == "manufacturing" %}
+@tool
+def get_work_order(id: str) -> str:
+    """Retrieve one scoped manufacturing work order by identifier."""
+    return json.dumps(_run_sync(execute_manufacturing_tool("get_work_order", {"id": id})), default=str)
+
+
+@tool
+def get_bom_components(work_order_id: str) -> str:
+    """Retrieve explicit bill-of-material requirements for a work order."""
+    return json.dumps(_run_sync(execute_manufacturing_tool("get_bom_components", {"work_order_id": work_order_id})), default=str)
+
+
+@tool
+def get_machine_status(machine_id: str) -> str:
+    """Retrieve a machine and its explicitly assigned work center."""
+    return json.dumps(_run_sync(execute_manufacturing_tool("get_machine_status", {"machine_id": machine_id})), default=str)
+
+
+@tool
+def get_supplier_parts(supplier_id: str) -> str:
+    """Retrieve explicit supplier commitments and supplied parts."""
+    return json.dumps(_run_sync(execute_manufacturing_tool("get_supplier_parts", {"supplier_id": supplier_id})), default=str)
+
+
+@tool
+def get_material_requirements(part_id: str) -> str:
+    """Retrieve explicit material requirements for a part."""
+    return json.dumps(_run_sync(execute_manufacturing_tool("get_material_requirements", {"part_id": part_id})), default=str)
+
+
+@tool
+def get_production_events(work_order_id: str) -> str:
+    """Retrieve explicit production events for a work order."""
+    return json.dumps(_run_sync(execute_manufacturing_tool("get_production_events", {"work_order_id": work_order_id})), default=str)
+{% endif %}
 
 {% raw %}
 @tool
@@ -107,6 +154,14 @@ agent = Agent(
 {% for tool in agent_tools %}
         {{ tool.name }},
 {% endfor %}
+{% if domain.id == "manufacturing" %}
+    get_work_order,
+    get_bom_components,
+    get_machine_status,
+    get_supplier_parts,
+    get_material_requirements,
+    get_production_events,
+{% endif %}
         run_cypher,
         get_graph_schema,
     ],

@@ -1,0 +1,36 @@
+@prefix mfgq: <https://example.com/mfgq/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+mfgq:NonconformanceShape a sh:NodeShape ;
+  sh:targetClass mfgq:Nonconformance ;
+  sh:property [ sh:path mfgq:identifier ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path mfgq:affectedPart ; sh:minCount 1 ] ;
+  sh:property [ sh:path mfgq:hasNonconformity ; sh:minCount 1 ] ;
+  sh:property [ sh:path mfgq:detectedBy ; sh:minCount 1 ] ;
+  sh:property [ sh:path mfgq:severity ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path mfgq:status ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+mfgq:NonconformityShape a sh:NodeShape ;
+  sh:targetClass mfgq:Nonconformity ;
+  sh:property [ sh:path mfgq:violates ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path mfgq:concernsCharacteristic ; sh:minCount 1 ] .
+
+mfgq:MeasurementShape a sh:NodeShape ;
+  sh:targetClass mfgq:Measurement ;
+  sh:property [ sh:path mfgq:measuresCharacteristic ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path mfgq:value ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ] ;
+  sh:property [ sh:path mfgq:unitCode ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path mfgq:evaluation ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+mfgq:ClosedNonconformanceShape a sh:NodeShape ;
+  sh:targetClass mfgq:Nonconformance ;
+  sh:sparql [
+    sh:message "Closed nonconformance must have a disposition." ;
+    sh:select """
+      SELECT $this WHERE {
+        $this mfgq:status mfgq:Closed .
+        FILTER NOT EXISTS { $this mfgq:hasDisposition ?d }
+      }
+    """
+  ] .

@@ -1,0 +1,598 @@
+{
+  "domain": {
+    "id": "financial-services",
+    "name": "Financial Services",
+    "description": "Investment management, trading, compliance, and risk assessment",
+    "tagline": "AI-powered Financial Intelligence",
+    "emoji": "\ud83d\udcb0"
+  },
+  "entity_types": [
+    {
+      "label": "Person",
+      "pole_type": "PERSON",
+      "subtype": null,
+      "color": "#22c55e",
+      "icon": "user",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Organization",
+      "pole_type": "ORGANIZATION",
+      "subtype": null,
+      "color": "#3b82f6",
+      "icon": "building",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "industry",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Location",
+      "pole_type": "LOCATION",
+      "subtype": null,
+      "color": "#a855f7",
+      "icon": "map-pin",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "latitude",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "longitude",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Event",
+      "pole_type": "EVENT",
+      "subtype": null,
+      "color": "#f97316",
+      "icon": "calendar",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "type": "datetime",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Object",
+      "pole_type": "OBJECT",
+      "subtype": null,
+      "color": "#eab308",
+      "icon": "box",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Account",
+      "pole_type": "OBJECT",
+      "subtype": "FINANCIAL_ACCOUNT",
+      "color": "#0ea5e9",
+      "icon": "wallet",
+      "properties": [
+        {
+          "name": "account_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "account_type",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "checking",
+            "savings",
+            "investment",
+            "retirement",
+            "trust"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "balance",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": "USD",
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "active",
+            "frozen",
+            "closed"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Transaction",
+      "pole_type": "EVENT",
+      "subtype": "FINANCIAL_TRANSACTION",
+      "color": "#f59e0b",
+      "icon": "arrow-right-left",
+      "properties": [
+        {
+          "name": "transaction_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "amount",
+          "type": "float",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": "USD",
+          "description": ""
+        },
+        {
+          "name": "transaction_type",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "buy",
+            "sell",
+            "transfer",
+            "deposit",
+            "withdrawal",
+            "dividend"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "type": "datetime",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Decision",
+      "pole_type": "EVENT",
+      "subtype": "DECISION",
+      "color": "#8b5cf6",
+      "icon": "scale",
+      "properties": [
+        {
+          "name": "decision_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "decision_type",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "trade",
+            "risk_assessment",
+            "compliance_review",
+            "portfolio_rebalance",
+            "client_advisory"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "outcome",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "confidence",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "type": "datetime",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Policy",
+      "pole_type": "OBJECT",
+      "subtype": "REGULATION",
+      "color": "#dc2626",
+      "icon": "shield",
+      "properties": [
+        {
+          "name": "policy_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "compliance",
+            "risk",
+            "trading",
+            "reporting",
+            "aml"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "effective_date",
+          "type": "date",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Security",
+      "pole_type": "OBJECT",
+      "subtype": "FINANCIAL_INSTRUMENT",
+      "color": "#06b6d4",
+      "icon": "trending-up",
+      "properties": [
+        {
+          "name": "ticker",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "security_type",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "equity",
+            "bond",
+            "etf",
+            "mutual_fund",
+            "option",
+            "futures"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "sector",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "WORKS_FOR",
+      "source": "Person",
+      "target": "Organization",
+      "properties": []
+    },
+    {
+      "type": "LOCATED_AT",
+      "source": "Organization",
+      "target": "Location",
+      "properties": []
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source": "Person",
+      "target": "Event",
+      "properties": []
+    },
+    {
+      "type": "OWNS",
+      "source": "Person",
+      "target": "Account",
+      "properties": []
+    },
+    {
+      "type": "TRANSFERRED_TO",
+      "source": "Transaction",
+      "target": "Account",
+      "properties": []
+    },
+    {
+      "type": "TRANSFERRED_FROM",
+      "source": "Transaction",
+      "target": "Account",
+      "properties": []
+    },
+    {
+      "type": "INVOLVES",
+      "source": "Transaction",
+      "target": "Security",
+      "properties": []
+    },
+    {
+      "type": "CAUSED",
+      "source": "Decision",
+      "target": "Transaction",
+      "properties": []
+    },
+    {
+      "type": "APPLIED_POLICY",
+      "source": "Decision",
+      "target": "Policy",
+      "properties": []
+    },
+    {
+      "type": "ADVISED_BY",
+      "source": "Decision",
+      "target": "Person",
+      "properties": []
+    },
+    {
+      "type": "MANAGES",
+      "source": "Person",
+      "target": "Account",
+      "properties": []
+    },
+    {
+      "type": "PRECEDED_BY",
+      "source": "Decision",
+      "target": "Decision",
+      "properties": []
+    }
+  ]
+}

@@ -2,7 +2,24 @@
 :	https://example.org/ontology/salt/manufacturing/v1.0#
 
 [MappingDeclaration] @collection [[
-mappingId	knowledge-base
-target		<https://example.org/kb/my-mrp-kb> a :KnowledgeBase ; <http://www.w3.org/2000/01/rdf-schema#label> {label} .
-source		SELECT 'Manufacturing and MRP Knowledge Base' AS label
+mappingId	class-knowledgebase
+target		<https://example.org/ontology/salt/manufacturing/v1.0/synthetic/KnowledgeBase> a :KnowledgeBase .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-manufacturingresource
+target		<https://example.org/ontology/salt/manufacturing/v1.0/synthetic/ManufacturingResource> a :ManufacturingResource .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-materialrequirement
+target		<https://example.org/ontology/salt/manufacturing/v1.0/synthetic/MaterialRequirement> a :MaterialRequirement .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-workorder
+target		<https://example.org/ontology/salt/manufacturing/v1.0/synthetic/WorkOrder> a :WorkOrder .
+source		SELECT 1 AS synthetic_row
+
+mappingId	object-requiresmaterial-workorder-materialrequirement
+target		<https://example.org/ontology/salt/manufacturing/v1.0/synthetic/WorkOrder> :requiresMaterial <https://example.org/ontology/salt/manufacturing/v1.0/synthetic/MaterialRequirement> .
+source		SELECT 1 AS synthetic_join_row
+
 ]]

@@ -1,0 +1,36 @@
+PREFIX mfgq: <https://example.com/mfgq/>
+PREFIX sap:  <https://example.org/sap/obkg/>
+
+# A) All open NCRs
+SELECT ?ncr ?identifier ?severity
+WHERE {
+  ?ncr a mfgq:Nonconformance ;
+       mfgq:identifier ?identifier ;
+       mfgq:severity ?severity ;
+       mfgq:status mfgq:Open .
+}
+
+# B) NCR → SAP context join
+SELECT ?ncr ?order ?plant ?part
+WHERE {
+  ?ncr a mfgq:Nonconformance ;
+       mfgq:associatedWithOrder ?order ;
+       mfgq:occurredAtPlant ?plant ;
+       mfgq:affectedPart ?part .
+}
+
+# C) Closed NCRs missing disposition (SHACL rule)
+SELECT ?ncr
+WHERE {
+  ?ncr mfgq:status mfgq:Closed .
+  FILTER NOT EXISTS { ?ncr mfgq:hasDisposition ?d }
+}
+
+# D) Measurements and evaluations
+SELECT ?meas ?value ?unit ?eval
+WHERE {
+  ?meas a mfgq:Measurement ;
+        mfgq:value ?value ;
+        mfgq:unitCode ?unit ;
+        mfgq:evaluation ?eval .
+}

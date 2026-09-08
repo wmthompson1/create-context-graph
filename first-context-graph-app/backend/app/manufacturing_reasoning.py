@@ -1,0 +1,51 @@
+"""GDS-free, evidence-only manufacturing reasoning runtime."""
+
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+from app.context_graph_client import execute_cypher
+
+
+_WRITE_KEYWORDS = ("CREATE", "MERGE", "SET", "DELETE", "REMOVE", "CALL GDS.")
+_catalog: dict[str, Any] | None = None
+
+
+def load_manufacturing_reasoning() -> dict[str, Any] | None:
+    """Load and validate the copied manufacturing package at application startup."""
+    global _catalog
+    package_dir = Path(__file__).resolve().parents[2] / "context-graph" / "manufacturing"
+    if not package_dir.is_dir():
+        _catalog = None
+        return None
+    domain = yaml.safe_load((package_dir / "domain.yaml").read_text(encoding="utf-8"))
+    tools = yaml.safe_load((package_dir / "tools" / "manufacturing-tools.yaml").read_text(encoding="utf-8"))
+    reasoning = yaml.safe_load((package_dir / "reasoning" / "strategies.yaml").read_text(encoding="utf-8"))
+    ontology_id = "salt.manufacturing.v1.1"
+    if domain.get("domain", {}).get("id") != "manufacturing" or tools.get("ontology_id") != ontology_id or reasoning.get("ontology_id") != ontology_id:
+        raise ValueError("manufacturing reasoning package identity mismatch")
+    execution = reasoning.get("execution", {})
+    if execution.get("engine") != "parameterized_read_only_cypher" or execution.get("max_hops") != 4:
+        raise ValueError("manufacturing reasoning package has an invalid execution policy")
+    for item in reasoning.get("strategies", []):
+        query = item.get("cypher", "").upper()
+        if query and ("$ONTOLOGY_ID" not in query or any(keyword in query for keyword in _WRITE_KEYWORDS)):
+            raise ValueError(f"unsafe reasoning strategy: {item.get('name')}")
+    _catalog = {"ontology_id": ontology_id, "tools": {item["name"]: item for item in tools["tools"]}, "strategies": {item["name"]: item for item in reasoning["strategies"]}}
+    return _catalog
+
+
+async def execute_manufacturing_tool(name: str, parameters: dict[str, Any]) -> dict[str, Any]:
+    """Run one registered manufacturing tool and return only its observed evidence."""
+    catalog = _catalog or load_manufacturing_reasoning()
+    if catalog is None or name not in catalog["tools"]:
+        raise ValueError(f"unregistered manufacturing tool: {name}")
+    tool = catalog["tools"][name]
+    expected = set(tool.get("parameters", []))
+    if set(parameters) != expected:
+        raise ValueError(f"invalid parameters for manufacturing tool: {name}")
+    records = await execute_cypher(tool["cypher"], {"ontology_id": catalog["ontology_id"], **parameters}, tool_name=name)
+    return {"tool": name, "ontology_id": catalog["ontology_id"], "evidence": records}

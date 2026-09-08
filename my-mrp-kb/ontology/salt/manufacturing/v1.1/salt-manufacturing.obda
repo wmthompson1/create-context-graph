@@ -1,0 +1,149 @@
+[PrefixDeclaration]
+:	https://example.org/ontology/salt/manufacturing/v1.1#
+
+[MappingDeclaration] @collection [[
+mappingId	class-billofmaterials
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/BillOfMaterials> a :BillOfMaterials .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-knowledgebase
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/KnowledgeBase> a :KnowledgeBase .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-machine
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Machine> a :Machine .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-manufacturingresource
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ManufacturingResource> a :ManufacturingResource .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-materialrequirement
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/MaterialRequirement> a :MaterialRequirement .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-part
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Part> a :Part .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-productionevent
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> a :ProductionEvent .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-scheduleslot
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ScheduleSlot> a :ScheduleSlot .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-supplier
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Supplier> a :Supplier .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-supplycommitment
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/SupplyCommitment> a :SupplyCommitment .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-workcenter
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkCenter> a :WorkCenter .
+source		SELECT 1 AS synthetic_row
+
+mappingId	class-workorder
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkOrder> a :WorkOrder .
+source		SELECT 1 AS synthetic_row
+
+mappingId	datatype-actualend-productionevent
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> :actualEnd {value} .
+source		SELECT 'actualEnd' AS value
+
+mappingId	datatype-actualstart-productionevent
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> :actualStart {value} .
+source		SELECT 'actualStart' AS value
+
+mappingId	object-allocatedto-scheduleslot-workcenter
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ScheduleSlot> :allocatedTo <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkCenter> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	datatype-commitmentdate-supplycommitment
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/SupplyCommitment> :commitmentDate {value} .
+source		SELECT 'commitmentDate' AS value
+
+mappingId	object-committedby-supplycommitment-supplier
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/SupplyCommitment> :committedBy <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Supplier> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	object-consumespart-productionevent-part
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> :consumesPart <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Part> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	object-definesrequirement-billofmaterials-materialrequirement
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/BillOfMaterials> :definesRequirement <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/MaterialRequirement> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	object-executesworkorder-productionevent-workorder
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> :executesWorkOrder <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkOrder> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	object-hasbillofmaterials-workorder-billofmaterials
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkOrder> :hasBillOfMaterials <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/BillOfMaterials> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	object-hasworkcenter-machine-workcenter
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Machine> :hasWorkCenter <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkCenter> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	datatype-identifier-manufacturingresource
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ManufacturingResource> :identifier {value} .
+source		SELECT 'identifier' AS value
+
+mappingId	datatype-leadtimedays-supplycommitment
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/SupplyCommitment> :leadTimeDays {value} .
+source		SELECT 'leadTimeDays' AS value
+
+mappingId	datatype-plannedend-scheduleslot
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ScheduleSlot> :plannedEnd {value} .
+source		SELECT 'plannedEnd' AS value
+
+mappingId	datatype-plannedstart-scheduleslot
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ScheduleSlot> :plannedStart {value} .
+source		SELECT 'plannedStart' AS value
+
+mappingId	object-precedesevent-productionevent-productionevent
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> :precedesEvent <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	object-producespart-productionevent-part
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> :producesPart <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Part> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	datatype-quantity-materialrequirement
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/MaterialRequirement> :quantity {value} .
+source		SELECT 'quantity' AS value
+
+mappingId	object-requirespart-materialrequirement-part
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/MaterialRequirement> :requiresPart <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Part> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	object-scheduledat-workorder-workcenter
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkOrder> :scheduledAt <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkCenter> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	object-scheduledfor-scheduleslot-workorder
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ScheduleSlot> :scheduledFor <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/WorkOrder> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	datatype-status-productionevent
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> :status {value} .
+source		SELECT 'status' AS value
+
+mappingId	object-suppliespart-supplycommitment-part
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/SupplyCommitment> :suppliesPart <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Part> .
+source		SELECT 1 AS synthetic_join_row
+
+mappingId	datatype-unitofmeasure-materialrequirement
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/MaterialRequirement> :unitOfMeasure {value} .
+source		SELECT 'unitOfMeasure' AS value
+
+mappingId	object-usesmachine-productionevent-machine
+target		<https://example.org/ontology/salt/manufacturing/v1.1/synthetic/ProductionEvent> :usesMachine <https://example.org/ontology/salt/manufacturing/v1.1/synthetic/Machine> .
+source		SELECT 1 AS synthetic_join_row
+
+]]

@@ -1,0 +1,5 @@
+PREFIX saltmfg: <https://example.org/ontology/salt/manufacturing/v1.1#>
+
+ASK {
+  ?source saltmfg:allocatedTo ?target .
+}

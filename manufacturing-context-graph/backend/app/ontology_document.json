@@ -1,0 +1,1529 @@
+{
+  "domain": {
+    "id": "manufacturing",
+    "name": "Manufacturing",
+    "description": "Production management, quality control, supply chain, and equipment maintenance",
+    "tagline": "AI-powered Manufacturing Intelligence",
+    "emoji": "\ud83c\udfed"
+  },
+  "entity_types": [
+    {
+      "label": "Person",
+      "pole_type": "PERSON",
+      "subtype": null,
+      "color": "#22c55e",
+      "icon": "user",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Organization",
+      "pole_type": "ORGANIZATION",
+      "subtype": null,
+      "color": "#3b82f6",
+      "icon": "building",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "industry",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Location",
+      "pole_type": "LOCATION",
+      "subtype": null,
+      "color": "#a855f7",
+      "icon": "map-pin",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "latitude",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "longitude",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Event",
+      "pole_type": "EVENT",
+      "subtype": null,
+      "color": "#f97316",
+      "icon": "calendar",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "type": "datetime",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Object",
+      "pole_type": "OBJECT",
+      "subtype": null,
+      "color": "#eab308",
+      "icon": "box",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Machine",
+      "pole_type": "OBJECT",
+      "subtype": "EQUIPMENT",
+      "color": "#475569",
+      "icon": "cog",
+      "properties": [
+        {
+          "name": "machine_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "machine_type",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "cnc",
+            "press",
+            "lathe",
+            "welder",
+            "assembler",
+            "conveyor",
+            "robot",
+            "packaging"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "manufacturer",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "install_date",
+          "type": "date",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "operational",
+            "maintenance",
+            "offline",
+            "decommissioned"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "operating_hours",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Part",
+      "pole_type": "OBJECT",
+      "subtype": "COMPONENT",
+      "color": "#0284c7",
+      "icon": "box",
+      "properties": [
+        {
+          "name": "part_number",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "raw_material",
+            "component",
+            "subassembly",
+            "finished_good"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "unit_cost",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "stock_quantity",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "minimum_stock",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "specification",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "WorkOrder",
+      "pole_type": "EVENT",
+      "subtype": "PRODUCTION_ORDER",
+      "color": "#d97706",
+      "icon": "clipboard-list",
+      "properties": [
+        {
+          "name": "work_order_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "priority",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "planned",
+            "in_progress",
+            "completed",
+            "on_hold",
+            "cancelled"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "type": "datetime",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "due_date",
+          "type": "datetime",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "WorkCenter",
+      "pole_type": "LOCATION",
+      "subtype": "PRODUCTION_WORK_CENTER",
+      "color": "#0f766e",
+      "icon": "building-2",
+      "properties": [
+        {
+          "name": "work_center_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "capacity_per_hour",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "available",
+            "constrained",
+            "maintenance",
+            "offline"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "ProductionEvent",
+      "pole_type": "EVENT",
+      "subtype": "PRODUCTION_EXECUTION",
+      "color": "#be123c",
+      "icon": "play-circle",
+      "properties": [
+        {
+          "name": "production_event_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "actual_start",
+          "type": "datetime",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "actual_end",
+          "type": "datetime",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "planned",
+            "in_progress",
+            "completed",
+            "interrupted",
+            "cancelled"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "BillOfMaterials",
+      "pole_type": "OBJECT",
+      "subtype": "MATERIAL_STRUCTURE",
+      "color": "#a16207",
+      "icon": "list-tree",
+      "properties": [
+        {
+          "name": "bill_of_materials_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "draft",
+            "active",
+            "obsolete"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "MaterialRequirement",
+      "pole_type": "OBJECT",
+      "subtype": "MATERIAL_DEMAND",
+      "color": "#0369a1",
+      "icon": "package-check",
+      "properties": [
+        {
+          "name": "material_requirement_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "quantity",
+          "type": "float",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "unit_of_measure",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "ScheduleSlot",
+      "pole_type": "EVENT",
+      "subtype": "PRODUCTION_SCHEDULE",
+      "color": "#7e22ce",
+      "icon": "calendar-clock",
+      "properties": [
+        {
+          "name": "schedule_slot_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "planned_start",
+          "type": "datetime",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "planned_end",
+          "type": "datetime",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "priority",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "SupplyCommitment",
+      "pole_type": "EVENT",
+      "subtype": "SUPPLY_COMMITMENT",
+      "color": "#b45309",
+      "icon": "handshake",
+      "properties": [
+        {
+          "name": "supply_commitment_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "commitment_date",
+          "type": "date",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "lead_time_days",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "planned",
+            "confirmed",
+            "delayed",
+            "fulfilled",
+            "cancelled"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "Supplier",
+      "pole_type": "OBJECT",
+      "subtype": "VENDOR",
+      "color": "#7c3aed",
+      "icon": "truck",
+      "properties": [
+        {
+          "name": "supplier_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "country",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "lead_time_days",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "quality_rating",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "approved",
+            "probationary",
+            "suspended",
+            "blacklisted"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "QualityReport",
+      "pole_type": "EVENT",
+      "subtype": "INSPECTION_REPORT",
+      "color": "#dc2626",
+      "icon": "check-circle",
+      "properties": [
+        {
+          "name": "report_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "inspection_date",
+          "type": "datetime",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "inspector",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "result",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "pass",
+            "fail",
+            "conditional_pass"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "defect_count",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "defect_type",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "ProductionLine",
+      "pole_type": "OBJECT",
+      "subtype": "FACILITY",
+      "color": "#059669",
+      "icon": "factory",
+      "properties": [
+        {
+          "name": "line_id",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "capacity_per_hour",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "efficiency_rating",
+          "type": "float",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "active",
+            "idle",
+            "maintenance",
+            "retooling"
+          ],
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "shift_pattern",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "single",
+            "double",
+            "triple",
+            "continuous"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "CDSView",
+      "pole_type": "OBJECT",
+      "subtype": "ENTERPRISE_DATA_VIEW",
+      "color": "#0f766e",
+      "icon": "table-2",
+      "properties": [
+        {
+          "name": "view_uri",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "technical_name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "short_description",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "source_system",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "CDSField",
+      "pole_type": "OBJECT",
+      "subtype": "ENTERPRISE_DATA_FIELD",
+      "color": "#2563eb",
+      "icon": "columns-3",
+      "properties": [
+        {
+          "name": "field_uri",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "field_name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "field_type",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "definition",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "reference_field",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "BusinessConcept",
+      "pole_type": "OBJECT",
+      "subtype": "SEMANTIC_CONCEPT",
+      "color": "#be123c",
+      "icon": "lightbulb",
+      "properties": [
+        {
+          "name": "concept_uri",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "notation",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "scope_note",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "TaxonomyConcept",
+      "pole_type": "OBJECT",
+      "subtype": "CONTROLLED_VOCABULARY_TERM",
+      "color": "#a16207",
+      "icon": "tags",
+      "properties": [
+        {
+          "name": "concept_uri",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "pref_label",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "alt_labels",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "notation",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "scope_note",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "governance_status",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": [
+            "draft",
+            "approved",
+            "deprecated"
+          ],
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "SourceDataset",
+      "pole_type": "OBJECT",
+      "subtype": "DATA_PROVENANCE",
+      "color": "#4f46e5",
+      "icon": "database",
+      "properties": [
+        {
+          "name": "source_uri",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "source_commit",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "license",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "import_timestamp",
+          "type": "datetime",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "row_count",
+          "type": "integer",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "SalesDocument",
+      "pole_type": "EVENT",
+      "subtype": "CUSTOMER_SALES_DOCUMENT",
+      "color": "#c2410c",
+      "icon": "file-text",
+      "properties": [
+        {
+          "name": "sales_document",
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "sales_organization",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "sales_document_type",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "distribution_channel",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "division",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "transaction_currency",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "incoterms_classification",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        },
+        {
+          "name": "creation_timestamp",
+          "type": "datetime",
+          "required": false,
+          "unique": false,
+          "enum": null,
+          "default": null,
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "WORKS_FOR",
+      "source": "Person",
+      "target": "Organization",
+      "properties": []
+    },
+    {
+      "type": "LOCATED_AT",
+      "source": "Organization",
+      "target": "Location",
+      "properties": []
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "source": "Person",
+      "target": "Event",
+      "properties": []
+    },
+    {
+      "type": "HAS_WORK_CENTER",
+      "source": "Machine",
+      "target": "WorkCenter",
+      "properties": []
+    },
+    {
+      "type": "SCHEDULED_AT",
+      "source": "WorkOrder",
+      "target": "WorkCenter",
+      "properties": []
+    },
+    {
+      "type": "USES_MACHINE",
+      "source": "ProductionEvent",
+      "target": "Machine",
+      "properties": []
+    },
+    {
+      "type": "EXECUTES_WORK_ORDER",
+      "source": "ProductionEvent",
+      "target": "WorkOrder",
+      "properties": []
+    },
+    {
+      "type": "CONSUMES_PART",
+      "source": "ProductionEvent",
+      "target": "Part",
+      "properties": []
+    },
+    {
+      "type": "PRODUCES_PART",
+      "source": "ProductionEvent",
+      "target": "Part",
+      "properties": []
+    },
+    {
+      "type": "HAS_BILL_OF_MATERIALS",
+      "source": "WorkOrder",
+      "target": "BillOfMaterials",
+      "properties": []
+    },
+    {
+      "type": "DEFINES_REQUIREMENT",
+      "source": "BillOfMaterials",
+      "target": "MaterialRequirement",
+      "properties": []
+    },
+    {
+      "type": "REQUIRES_PART",
+      "source": "MaterialRequirement",
+      "target": "Part",
+      "properties": []
+    },
+    {
+      "type": "SCHEDULED_FOR",
+      "source": "ScheduleSlot",
+      "target": "WorkOrder",
+      "properties": []
+    },
+    {
+      "type": "ALLOCATED_TO",
+      "source": "ScheduleSlot",
+      "target": "WorkCenter",
+      "properties": []
+    },
+    {
+      "type": "SUPPLIES_PART",
+      "source": "SupplyCommitment",
+      "target": "Part",
+      "properties": []
+    },
+    {
+      "type": "COMMITTED_BY",
+      "source": "SupplyCommitment",
+      "target": "Supplier",
+      "properties": []
+    },
+    {
+      "type": "PRECEDES_EVENT",
+      "source": "ProductionEvent",
+      "target": "ProductionEvent",
+      "properties": []
+    },
+    {
+      "type": "ASSEMBLED_FROM",
+      "source": "Part",
+      "target": "Part",
+      "properties": []
+    },
+    {
+      "type": "SUPPLIED_BY",
+      "source": "Part",
+      "target": "Supplier",
+      "properties": []
+    },
+    {
+      "type": "INSPECTED",
+      "source": "QualityReport",
+      "target": "Part",
+      "properties": []
+    },
+    {
+      "type": "PRODUCED_ON",
+      "source": "WorkOrder",
+      "target": "ProductionLine",
+      "properties": []
+    },
+    {
+      "type": "DEPENDS_ON",
+      "source": "WorkOrder",
+      "target": "Part",
+      "properties": []
+    },
+    {
+      "type": "OPERATED_BY",
+      "source": "Machine",
+      "target": "ProductionLine",
+      "properties": []
+    },
+    {
+      "type": "ASSIGNED_TO",
+      "source": "WorkOrder",
+      "target": "Machine",
+      "properties": []
+    },
+    {
+      "type": "REPORTED_BY",
+      "source": "QualityReport",
+      "target": "Person",
+      "properties": []
+    },
+    {
+      "type": "DEFINES_FIELD",
+      "source": "CDSView",
+      "target": "CDSField",
+      "properties": []
+    },
+    {
+      "type": "INSTANCE_OF_VIEW",
+      "source": "SalesDocument",
+      "target": "CDSView",
+      "properties": []
+    },
+    {
+      "type": "REPRESENTS_CONCEPT",
+      "source": "CDSField",
+      "target": "BusinessConcept",
+      "properties": []
+    },
+    {
+      "type": "BROADER_THAN",
+      "source": "TaxonomyConcept",
+      "target": "TaxonomyConcept",
+      "properties": []
+    },
+    {
+      "type": "NARROWER_THAN",
+      "source": "TaxonomyConcept",
+      "target": "TaxonomyConcept",
+      "properties": []
+    },
+    {
+      "type": "EXACT_MATCH",
+      "source": "TaxonomyConcept",
+      "target": "TaxonomyConcept",
+      "properties": []
+    },
+    {
+      "type": "CLOSE_MATCH",
+      "source": "TaxonomyConcept",
+      "target": "TaxonomyConcept",
+      "properties": []
+    },
+    {
+      "type": "SOURCED_FROM",
+      "source": "SalesDocument",
+      "target": "SourceDataset",
+      "properties": []
+    },
+    {
+      "type": "DRIVES_DEMAND_FOR",
+      "source": "SalesDocument",
+      "target": "WorkOrder",
+      "properties": []
+    }
+  ]
+}

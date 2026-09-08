@@ -1,5 +1,4 @@
 """API routes for {{ domain.name }} Context Graph."""
-{% raw %}
 from __future__ import annotations
 
 import asyncio
@@ -16,7 +15,9 @@ from app.context_graph_client import (
     execute_cypher, search_entities, get_entity_graph, get_schema,
     get_schema_visualization, expand_node, get_collector, is_connected,
 )
+{% if domain.id != "manufacturing" %}
 from app.gds_client import check_gds_available, run_community_detection, run_pagerank
+{% endif %}
 from app.memory_adapter import (
     expand_node_nams,
     get_document_nams,
@@ -293,6 +294,7 @@ async def cypher(request: CypherRequest):
         raise HTTPException(status_code=400, detail=str(e))
 
 
+{% if domain.id != "manufacturing" %}
 @router.get("/gds/status")
 async def gds_status():
     """Check if GDS is available."""
@@ -323,6 +325,7 @@ async def pagerank():
     return {"pagerank": results}
 
 
+{% endif %}
 @router.get("/documents")
 async def list_documents(template_id: str | None = None, skip: int = 0, limit: int = 50):
     """List documents; template filtering is only available on bolt."""
@@ -437,7 +440,6 @@ async def get_entity_detail(name: str):
     if not results:
         raise HTTPException(status_code=404, detail="Entity not found")
     return results[0]
-{% endraw %}
 
 @router.get("/scenarios")
 async def scenarios():

@@ -1,0 +1,43 @@
+@prefix mfgq: <https://example.com/mfgq/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+mfgq:NC_10482
+  a mfgq:Nonconformance ;
+  mfgq:identifier "NC-10482" ;
+  mfgq:affectedPart <urn:sap:Part:88421> ;
+  mfgq:affectedMaterial <urn:sap:Material:100234> ;
+  mfgq:affectedBatch <urn:sap:Batch:7842> ;
+  mfgq:occurredAtPlant <urn:sap:Plant:1000> ;
+  mfgq:associatedWithOrder <urn:sap:ProductionOrder:98342> ;
+  mfgq:associatedWithOperation <urn:sap:Operation:40> ;
+  mfgq:hasNonconformity mfgq:NCY_773 ;
+  mfgq:hasDefect mfgq:DEF_DIAMETER_OOS ;
+  mfgq:detectedBy mfgq:INSP_551 ;
+  mfgq:hasDisposition mfgq:Rework ;
+  mfgq:severity mfgq:Major ;
+  mfgq:status mfgq:Closed ;
+  mfgq:detectedAt "2026-08-19T14:32:00Z"^^xsd:dateTime .
+
+mfgq:NCY_773
+  a mfgq:Nonconformity ;
+  mfgq:violates mfgq:SPEC_22 ;
+  mfgq:concernsCharacteristic mfgq:Diameter .
+
+mfgq:SPEC_22
+  a mfgq:Specification ;
+  mfgq:specifies mfgq:Diameter ;
+  mfgq:nominalValue "10.00"^^xsd:decimal ;
+  mfgq:lowerLimit "9.95"^^xsd:decimal ;
+  mfgq:upperLimit "10.05"^^xsd:decimal ;
+  mfgq:unitCode "MM" .
+
+mfgq:INSP_551
+  a mfgq:Inspection ;
+  mfgq:producesMeasurement mfgq:MEAS_991 .
+
+mfgq:MEAS_991
+  a mfgq:Measurement ;
+  mfgq:measuresCharacteristic mfgq:Diameter ;
+  mfgq:value "10.087"^^xsd:decimal ;
+  mfgq:unitCode "MM" ;
+  mfgq:evaluation mfgq:Fail .

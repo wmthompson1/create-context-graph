@@ -1,0 +1,18 @@
+{
+  "ontology_id": "salt.manufacturing.v1.1",
+  "required_tools": [
+    "get_work_order",
+    "get_bom_components",
+    "get_machine_status",
+    "get_supplier_parts",
+    "get_material_requirements",
+    "get_production_events"
+  ],
+  "required_reasoning_strategies": [
+    "bom_requirements",
+    "schedule_contention",
+    "production_lineage",
+    "supply_coverage"
+  ],
+  "source_policy": "metadata-only; no SAP, CDS, or transactional source records"
+}

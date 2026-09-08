@@ -11,6 +11,9 @@ from create_context_graph.ontology_ingest import (
     generate_scripts,
     load_manifest,
     parse_ontology,
+    promote_regenerated_artifacts,
+    record_regeneration_provenance,
+    render_regenerated_artifacts,
 )
 
 
@@ -75,3 +78,96 @@ def test_rejects_non_versioned_ontology_identifier(ontology_manifest):
 
     with pytest.raises(ValueError, match="ontology_id"):
         load_manifest(ontology_manifest)
+
+
+def test_renders_deterministic_artifacts_from_snapshot(ontology_manifest):
+    snapshot_path = ontology_manifest.parent / "ontology.snapshot.json"
+    snapshot_path.write_text(json.dumps({
+        "ontology": {
+            "ontology_id": "salt.manufacturing.v1.0",
+            "ontology_iri": "https://example.org/ontology/test/v1.0",
+            "version": "v1.0",
+        },
+        "classes": [
+            {"iri": "https://example.org/ontology/test/v1.0#Part", "local_name": "Part", "label": "Part"},
+            {"iri": "https://example.org/ontology/test/v1.0#Order", "local_name": "Order", "label": "Order"},
+        ],
+        "properties": [{
+            "iri": "https://example.org/ontology/test/v1.0#requiresPart",
+            "local_name": "requiresPart",
+            "label": "requires part",
+            "property_kind": "object",
+            "domains": ["https://example.org/ontology/test/v1.0#Order"],
+            "ranges": ["https://example.org/ontology/test/v1.0#Part"],
+        }],
+        "source_policy": [{"usage_status": "Reference-only pending license review"}],
+    }), encoding="utf-8")
+
+    first = render_regenerated_artifacts(snapshot_path, ontology_manifest)
+    second = render_regenerated_artifacts(snapshot_path, ontology_manifest)
+
+    assert first["artifacts"] == second["artifacts"]
+    turtle = first["artifacts"]["ontology.ttl"]
+    assert turtle.index("saltmfg:Order") < turtle.index("saltmfg:Part")
+    assert "owl:ObjectProperty" in turtle
+    obda = first["artifacts"]["mapping.obda"]
+    assert "mappingId\tclass-order" in obda
+    assert "synthetic_join_row" in obda
+
+
+def test_renders_datatype_property_mapping_from_snapshot(ontology_manifest):
+    snapshot_path = ontology_manifest.parent / "ontology.snapshot.json"
+    snapshot_path.write_text(json.dumps({
+        "ontology": {
+            "ontology_id": "salt.manufacturing.v1.0",
+            "ontology_iri": "https://example.org/ontology/test/v1.0",
+            "version": "v1.0",
+        },
+        "classes": [{
+            "iri": "https://example.org/ontology/test/v1.0#Order",
+            "local_name": "Order",
+            "label": "Order",
+        }],
+        "properties": [{
+            "iri": "https://example.org/ontology/test/v1.0#orderNumber",
+            "local_name": "orderNumber",
+            "label": "order number",
+            "property_kind": "datatype",
+            "domains": ["https://example.org/ontology/test/v1.0#Order"],
+            "ranges": [],
+        }],
+        "source_policy": [{"usage_status": "Reference-only pending license review"}],
+    }), encoding="utf-8")
+
+    rendered = render_regenerated_artifacts(snapshot_path, ontology_manifest)
+
+    assert "owl:DatatypeProperty" in rendered["artifacts"]["ontology.ttl"]
+    assert "mappingId\tdatatype-ordernumber-order" in rendered["artifacts"]["mapping.obda"]
+
+
+def test_regeneration_provenance_requires_every_generated_hash(ontology_manifest):
+    manifest = load_manifest(ontology_manifest)
+    with pytest.raises(ValueError, match="missing regenerated hash"):
+        record_regeneration_provenance(
+            ontology_manifest, "snapshot-hash", {}, "neo4j://unused", "neo4j", "unused",
+        )
+
+
+def test_promotes_complete_staged_directory(ontology_manifest, tmp_path):
+    destination = tmp_path / "canonical"
+    staging = tmp_path / "staging"
+    destination.mkdir()
+    staging.mkdir()
+    (destination / "manifest.json").write_text("old manifest", encoding="utf-8")
+    (destination / "ontology.ttl").write_text("old ontology", encoding="utf-8")
+    (staging / "manifest.json").write_text("preserved manifest", encoding="utf-8")
+    (staging / "ontology.ttl").write_text("new ontology", encoding="utf-8")
+    (staging / "mapping.obda").write_text("new mapping", encoding="utf-8")
+
+    hashes = promote_regenerated_artifacts(staging, destination)
+
+    assert (destination / "manifest.json").read_text(encoding="utf-8") == "preserved manifest"
+    assert (destination / "ontology.ttl").read_text(encoding="utf-8") == "new ontology"
+    assert (destination / "mapping.obda").read_text(encoding="utf-8") == "new mapping"
+    assert not staging.exists()
+    assert set(hashes) == {"ontology.ttl", "mapping.obda"}
