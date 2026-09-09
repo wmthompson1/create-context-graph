@@ -1,0 +1,51 @@
+@prefix mfgm: <https://example.com/mfgm/> .
+@prefix sap:  <https://example.org/sap/obkg/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+sap: a owl:Ontology ;
+  rdfs:label "SAP OBKG binding layer for MFGM"@en ;
+  rdfs:comment "Aligns MFGM manufacturing classes and properties to SAP OBKG operational entities."@en .
+
+########## CLASS EQUIVALENCE ##########
+
+mfgm:WorkOrder owl:equivalentClass sap:ProductionOrder ;
+  rdfs:comment "Manufacturing work order aligned to SAP production order."@en .
+
+mfgm:Part owl:equivalentClass sap:Part ;
+  rdfs:comment "Manufacturing part aligned to SAP part entity."@en .
+
+mfgm:Supplier owl:equivalentClass sap:Supplier ;
+  rdfs:comment "Manufacturing supplier aligned to SAP supplier master."@en .
+
+mfgm:WorkCenter owl:equivalentClass sap:WorkCenter ;
+  rdfs:comment "Manufacturing work center aligned to SAP work center."@en .
+
+mfgm:ScheduleSlot owl:equivalentClass sap:CapacitySlot ;
+  rdfs:comment "Manufacturing schedule slot aligned to SAP capacity scheduling slot."@en .
+
+mfgm:ProductionEvent owl:equivalentClass sap:ExecutionEvent ;
+  rdfs:comment "Manufacturing production event aligned to SAP execution event."@en .
+
+########## PROPERTY EQUIVALENCE ##########
+
+mfgm:hasSupplier owl:equivalentProperty sap:hasSupplier ;
+  rdfs:comment "Supplier relationship aligned to SAP supplier relation."@en .
+
+mfgm:hasPart owl:equivalentProperty sap:hasPart ;
+  rdfs:comment "Part relationship aligned to SAP part relation."@en .
+
+mfgm:hasWorkCenter owl:equivalentProperty sap:hasWorkCenter ;
+  rdfs:comment "Work center relationship aligned to SAP work center relation."@en .
+
+mfgm:hasRiskCategory owl:equivalentProperty sap:hasSupplierRiskRating ;
+  rdfs:comment "Supplier risk category aligned to SAP supplier risk rating."@en .
+
+########## DOMAIN/RANGE ALIGNMENT ##########
+
+mfgm:WorkOrder rdfs:subClassOf sap:ProductionOrder .
+mfgm:Supplier rdfs:subClassOf sap:Supplier .
+mfgm:Part rdfs:subClassOf sap:Part .
+mfgm:WorkCenter rdfs:subClassOf sap:WorkCenter .
+mfgm:ScheduleSlot rdfs:subClassOf sap:CapacitySlot .
+mfgm:ProductionEvent rdfs:subClassOf sap:ExecutionEvent .
