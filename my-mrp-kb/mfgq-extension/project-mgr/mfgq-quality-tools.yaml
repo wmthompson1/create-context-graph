@@ -1,0 +1,92 @@
+ontology_id: mfgq.quality.v0.1
+execution:
+  engine: parameterized_read_only_cypher
+  max_hops: 4
+  ontology_id_required: true
+  no_inferred_relationships: true
+  read_only: true
+
+tools:
+  - name: get_open_nonconformances
+    purpose: Retrieve all open nonconformance cases linked to a plant or material.
+    parameters:
+      - plant_id
+      - material_id
+    cypher: |
+      MATCH (nc:Nonconformance)
+      WHERE nc.ontology_id = $ontology_id
+        AND nc.status = 'Open'
+        AND ($plant_id IS NULL OR nc.occurredAtPlant = $plant_id)
+        AND ($material_id IS NULL OR nc.affectedMaterial = $material_id)
+      OPTIONAL MATCH (nc)-[:HAS_NONCONFORMITY]->(ncy:Nonconformity)
+      OPTIONAL MATCH (nc)-[:DETECTED_BY]->(insp:Inspection)
+      RETURN nc, collect(DISTINCT ncy) AS nonconformities, collect(DISTINCT insp) AS inspections
+      ORDER BY nc.detectedAt DESC
+      LIMIT 50
+
+  - name: get_nonconformance_root_cause
+    purpose: Trace the defect, requirement violation, and root cause associated with a case.
+    parameters:
+      - nonconformance_id
+    cypher: |
+      MATCH (nc:Nonconformance {id: $nonconformance_id})
+      WHERE nc.ontology_id = $ontology_id
+      OPTIONAL MATCH (nc)-[:HAS_NONCONFORMITY]->(ncy:Nonconformity)
+      OPTIONAL MATCH (ncy)-[:VIOLATES]->(req:Requirement)
+      OPTIONAL MATCH (nc)-[:HAS_DEFECT]->(defect:Defect)
+      OPTIONAL MATCH (nc)-[:HAS_ROOT_CAUSE]->(root:RootCause)
+      RETURN nc, ncy, req, defect, root
+
+  - name: get_part_measurement_failures
+    purpose: Show inspection measurements that failed against the specification for a part.
+    parameters:
+      - part_id
+    cypher: |
+      MATCH (nc:Nonconformance)-[:AFFECTS_PART]->(part:Part)
+      WHERE part.id = $part_id AND nc.ontology_id = $ontology_id
+      MATCH (nc)-[:HAS_NONCONFORMITY]->(ncy:Nonconformity)
+      MATCH (ncy)-[:VIOLATES]->(spec:Specification)
+      MATCH (nc)-[:DETECTED_BY]->(insp:Inspection)-[:PRODUCES_MEASUREMENT]->(m:Measurement)
+      WHERE m.ontology_id = $ontology_id AND m.evaluation = 'Fail'
+      RETURN nc, part, spec, insp, m
+      ORDER BY nc.detectedAt DESC
+
+  - name: get_supplier_nc_history
+    purpose: Link quality issues back to supplier context and the affected materials.
+    parameters:
+      - supplier_id
+    cypher: |
+      MATCH (nc:Nonconformance)-[:ASSOCIATED_WITH_SUPPLIER]->(supplier:Supplier)
+      WHERE supplier.id = $supplier_id AND nc.ontology_id = $ontology_id
+      OPTIONAL MATCH (nc)-[:AFFECTS_MATERIAL]->(mat:Material)
+      OPTIONAL MATCH (nc)-[:HAS_DISPOSITION]->(disp:Disposition)
+      RETURN nc, supplier, mat, disp
+      ORDER BY nc.detectedAt DESC
+      LIMIT 50
+
+  - name: get_workorder_quality_impact
+    purpose: Show nonconformance and inspection evidence for a work order and its linked operations.
+    parameters:
+      - work_order_id
+    cypher: |
+      MATCH (nc:Nonconformance)-[:ASSOCIATED_WITH_ORDER]->(wo:WorkOrder)
+      WHERE wo.id = $work_order_id AND nc.ontology_id = $ontology_id
+      OPTIONAL MATCH (nc)-[:ASSOCIATED_WITH_OPERATION]->(op:Operation)
+      OPTIONAL MATCH (nc)-[:HAS_NONCONFORMITY]->(ncy:Nonconformity)
+      OPTIONAL MATCH (nc)-[:DETECTED_BY]->(insp:Inspection)
+      RETURN nc, wo, op, ncy, insp
+      ORDER BY nc.detectedAt DESC
+
+  - name: get_quality_summary_by_plant
+    purpose: Summarize nonconformance counts and severities by plant.
+    parameters:
+      - plant_id
+    cypher: |
+      MATCH (nc:Nonconformance)
+      WHERE nc.ontology_id = $ontology_id
+        AND ($plant_id IS NULL OR nc.occurredAtPlant = $plant_id)
+      RETURN nc.occurredAtPlant AS plant_id,
+             count(nc) AS total_nc,
+             sum(CASE WHEN nc.status = 'Open' THEN 1 ELSE 0 END) AS open_nc,
+             sum(CASE WHEN nc.severity = 'Critical' THEN 1 ELSE 0 END) AS critical_nc
+      ORDER BY total_nc DESC

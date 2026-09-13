@@ -1,0 +1,22 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix mfgm: <https://example.com/mfgm/> .
+@prefix mfgq: <https://example.com/mfgq/> .
+
+# Nonconformance must reference correct manufacturing entities
+mfgq:NonconformanceShape a sh:NodeShape ;
+  sh:targetClass mfgq:Nonconformance ;
+  sh:property [
+    sh:path mfgq:affectedPart ;
+    sh:class mfgm:Part ;
+    sh:message "affectedPart must reference a Part." ;
+  ] ;
+  sh:property [
+    sh:path mfgq:associatedWithOrder ;
+    sh:class mfgm:WorkOrder ;
+    sh:message "associatedWithOrder must reference a WorkOrder." ;
+  ] ;
+  sh:property [
+    sh:path mfgq:associatedWithSupplier ;
+    sh:class mfgm:Supplier ;
+    sh:message "associatedWithSupplier must reference a Supplier." ;
+  ] .

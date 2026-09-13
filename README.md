@@ -5,6 +5,8 @@
 
 > **Neo4j Labs Project** — This project is part of [Neo4j Labs](https://neo4j.com/labs/). It is maintained by Neo4j staff and the community, but not officially supported. For help, use [GitHub Issues](https://github.com/neo4j-labs/create-context-graph/issues) or the [Neo4j Community Forum](https://community.neo4j.com/).
 
+## ALL CREDIT GOES TO THE CREATORS OF THE REPO THAT THIS WAS CLONED FROM !!!
+
 Interactive CLI scaffolding tool that generates fully-functional, domain-specific context graph applications. Pick your industry domain, pick your agent framework, and get a complete full-stack app in under 5 minutes.
 
 <p align="center">

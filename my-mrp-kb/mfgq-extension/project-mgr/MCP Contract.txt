@@ -1,0 +1,21 @@
+contract_id: mfgm_mfgq_semantic_contract_v1
+ontology_id: mfgq.quality.v0.1
+read_only: true
+evidence_bound: true
+
+types:
+  WorkOrder:
+    provenance: prov:Activity
+  Nonconformance:
+    fields:
+      affectedPart: Part
+      associatedWithOrder: WorkOrder
+      associatedWithSupplier: Supplier
+
+permissions:
+  - query: open_ncrs_by_plant_material
+  - query: supplier_linked_defects
+  - query: work_order_quality_impact
+
+constraints:
+  - shacl: mfgq:NonconformanceShape

@@ -1,0 +1,46 @@
+read_only: true
+evidence_bound: true
+ontology_id: mfgq.quality.v0.1
+queries:
+  - name: open_ncrs_by_plant_material
+    purpose: Show open nonconformances attached to a plant and/or material reference.
+    parameters:
+      - plant_id
+      - material_id
+    cypher: |
+      MATCH (nc:Nonconformance)
+      WHERE nc.ontology_id = $ontology_id
+        AND nc.status = 'Open'
+        AND ($plant_id IS NULL OR nc.occurredAtPlant = $plant_id)
+        AND ($material_id IS NULL OR nc.affectedMaterial = $material_id)
+      OPTIONAL MATCH (nc)-[:HAS_NONCONFORMITY]->(ncy:Nonconformity)
+      RETURN nc, collect(DISTINCT ncy) AS nonconformities
+      ORDER BY nc.detectedAt DESC
+      LIMIT 50
+
+  - name: supplier_linked_defects
+    purpose: Link nonconformance cases to supplier and defect evidence.
+    parameters:
+      - supplier_id
+    cypher: |
+      MATCH (nc:Nonconformance)-[:ASSOCIATED_WITH_SUPPLIER]->(supplier:Supplier)
+      WHERE supplier.id = $supplier_id AND nc.ontology_id = $ontology_id
+      OPTIONAL MATCH (nc)-[:HAS_DEFECT]->(defect:Defect)
+      OPTIONAL MATCH (nc)-[:HAS_DISPOSITION]->(disp:Disposition)
+      RETURN nc, supplier, collect(DISTINCT defect) AS defects, collect(DISTINCT disp) AS dispositions
+      ORDER BY nc.detectedAt DESC
+      LIMIT 50
+
+  - name: work_order_quality_impact
+    purpose: Return operations and inspection evidence associated with a work order.
+    parameters:
+      - work_order_id
+    cypher: |
+      MATCH (nc:Nonconformance)-[:ASSOCIATED_WITH_ORDER]->(wo:WorkOrder)
+      WHERE wo.id = $work_order_id AND nc.ontology_id = $ontology_id
+      OPTIONAL MATCH (nc)-[:ASSOCIATED_WITH_OPERATION]->(op:Operation)
+      OPTIONAL MATCH (nc)-[:DETECTED_BY]->(insp:Inspection)
+      OPTIONAL MATCH (nc)-[:HAS_NONCONFORMITY]->(ncy:Nonconformity)
+      RETURN nc, wo, op, insp, collect(DISTINCT ncy) AS nonconformities
+      ORDER BY nc.detectedAt DESC
+      LIMIT 50

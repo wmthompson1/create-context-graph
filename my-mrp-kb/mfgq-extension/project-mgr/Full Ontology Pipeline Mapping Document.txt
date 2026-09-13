@@ -1,0 +1,28 @@
+# Ontology Pipeline Mapping (Manufacturing + Quality)
+
+## 1. Vocabularies
+- WorkOrder
+- Part
+- Supplier
+- Nonconformance
+(From mfgm-mfgq.ttl)
+
+## 2. Schemas
+- Infor Visual ERP schema fields
+- rdfs:range constraints
+  * affectedPart → Part
+  * associatedWithOrder → WorkOrder
+  * associatedWithSupplier → Supplier
+
+## 3. Taxonomies
+- prov:Activity hierarchy
+- manufacturing entity groupings
+- quality entity groupings
+
+## 4. Ontologies
+- mfgm-mfgq.ttl (attached)
+- combined OWL ontology (generated)
+
+## 5. Knowledge Graphs
+- mfgq-quality-reasoning.yaml (attached)
+- Cypher lineage + quality queries

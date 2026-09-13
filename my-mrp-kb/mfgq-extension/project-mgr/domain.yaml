@@ -1,0 +1,15 @@
+id: manufacturing_quality_domain
+version: 0.1
+entities:
+  WorkOrder:
+    inherits: prov.Activity
+  ProductionEvent:
+    inherits: prov.Activity
+  Part: {}
+  Supplier: {}
+  WorkCenter: {}
+  Nonconformance:
+    fields:
+      affectedPart: Part
+      associatedWithOrder: WorkOrder
+      associatedWithSupplier: Supplier
