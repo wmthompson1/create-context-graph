@@ -1,0 +1,78 @@
+@prefix saltkg: <https://wmthompson1.github.io/create-context-graph/saltkg#> .
+@prefix salt:   <https://wmthompson1.github.io/create-context-graph/salt#> .
+@prefix mfgm:   <https://wmthompson1.github.io/create-context-graph/mfgm#> .
+@prefix mfgq:   <https://wmthompson1.github.io/create-context-graph/mfgq#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+#################################################################
+# SALT_KG → SALT Manufacturing + Quality Bindings
+# These bindings map SALT_KG structural classes to your SALT
+# manufacturing (mfgm) and quality (mfgq) ontology domains.
+#################################################################
+
+#################################################################
+# BusinessObject → SALT Manufacturing Entities
+#################################################################
+
+saltkg:BusinessObject saltkg:mapsToSALT mfgm:Part ;
+    rdfs:comment "SALT_KG BusinessObject mapped to SALT Part when representing material master or product entities." .
+
+saltkg:BusinessObject saltkg:mapsToSALT mfgm:Supplier ;
+    rdfs:comment "SALT_KG BusinessObject mapped to SALT Supplier when representing vendor or external entity metadata." .
+
+saltkg:BusinessObject saltkg:mapsToSALT mfgm:WorkOrder ;
+    rdfs:comment "SALT_KG BusinessObject mapped to SALT WorkOrder when representing operational production objects." .
+
+saltkg:BusinessObject saltkg:mapsToSALT mfgm:WorkCenter ;
+    rdfs:comment "SALT_KG BusinessObject mapped to SALT WorkCenter when representing resource nodes or production centers." .
+
+saltkg:BusinessObject saltkg:mapsToSALT mfgm:BillOfMaterials ;
+    rdfs:comment "SALT_KG BusinessObject mapped to SALT BillOfMaterials when representing structured component relationships." .
+
+#################################################################
+# MetadataElement → SALT Attribute
+#################################################################
+
+saltkg:MetadataElement saltkg:mapsToSALT salt:Attribute ;
+    rdfs:comment "MetadataElement mapped to SALT Attribute for schema-level or field-level metadata." .
+
+#################################################################
+# LinkedBusinessTable → SALT ERPTable
+#################################################################
+
+saltkg:LinkedBusinessTable saltkg:mapsToSALT salt:ERPTable ;
+    rdfs:comment "LinkedBusinessTable mapped to SALT ERPTable for table-level metadata and schema alignment." .
+
+#################################################################
+# OperationalEvent → SALT Manufacturing + Quality Events
+#################################################################
+
+saltkg:OperationalEvent saltkg:mapsToSALT mfgm:ProductionEvent ;
+    rdfs:comment "OperationalEvent mapped to SALT ProductionEvent when representing manufacturing execution events." .
+
+saltkg:OperationalEvent saltkg:mapsToSALT mfgq:QualityEvent ;
+    rdfs:comment "OperationalEvent mapped to SALT QualityEvent when representing inspection, deviation, or NCR-related events." .
+
+#################################################################
+# BAHElement → SALT MasterData
+#################################################################
+
+saltkg:BAHElement saltkg:mapsToSALT salt:MasterData ;
+    rdfs:comment "BAHElement mapped to SALT MasterData for public SAP metadata elements." .
+
+#################################################################
+# Cross-domain Bindings
+#################################################################
+
+saltkg:BusinessObject mfgm:affectsPart mfgm:Part ;
+    rdfs:comment "Cross-domain binding: SALT_KG BusinessObject affecting SALT Part." .
+
+saltkg:OperationalEvent mfgm:associatedWithOrder mfgm:WorkOrder ;
+    rdfs:comment "Cross-domain binding: SALT_KG OperationalEvent associated with SALT WorkOrder." .
+
+saltkg:OperationalEvent mfgq:associatedWithInspection mfgq:Inspection ;
+    rdfs:comment "Cross-domain binding: SALT_KG OperationalEvent associated with SALT Quality Inspection." .
+
+saltkg:OperationalEvent mfgq:associatedWithNCR mfgq:NonConformanceReport ;
+    rdfs:comment "Cross-domain binding: SALT_KG OperationalEvent associated with SALT NCR." .

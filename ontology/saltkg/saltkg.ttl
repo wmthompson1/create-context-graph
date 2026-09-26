@@ -1,0 +1,70 @@
+@prefix saltkg: <https://wmthompson1.github.io/create-context-graph/saltkg#> .
+@prefix salt:   <https://wmthompson1.github.io/create-context-graph/salt#> .
+@prefix mfgm:   <https://wmthompson1.github.io/create-context-graph/mfgm#> .
+@prefix mfgq:   <https://wmthompson1.github.io/create-context-graph/mfgq#> .
+@prefix sapo:   <https://sap-ontology.deloitte.com/schema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+#################################################################
+# SALT_KG Ontology — Structural Skeleton
+# This file defines the semantic classes and properties needed
+# to integrate SAP SALT_KG with SALT Manufacturing + Quality
+# and Deloitte sap‑ontology domains.
+#################################################################
+
+saltkg:BusinessObject a owl:Class ;
+    rdfs:label "Business Object" ;
+    rdfs:comment "Generic SAP SALT_KG business object representing entities found in SALT metadata and BAH operational datasets." .
+
+saltkg:MetadataElement a owl:Class ;
+    rdfs:label "Metadata Element" ;
+    rdfs:comment "Metadata element describing attributes, fields, or schema components in SALT_KG." .
+
+saltkg:OperationalEvent a owl:Class ;
+    rdfs:label "Operational Event" ;
+    rdfs:comment "Event extracted from SALT_KG operational business data." .
+
+saltkg:LinkedBusinessTable a owl:Class ;
+    rdfs:label "Linked Business Table" ;
+    rdfs:comment "Represents a SALT_KG linked business table used for autocompletion and metadata KG alignment." .
+
+saltkg:BAHElement a owl:Class ;
+    rdfs:label "Business Accelerator Hub Element" ;
+    rdfs:comment "Represents public SAP BAH metadata elements included in SALT_KG." .
+
+#################################################################
+# Core Properties
+#################################################################
+
+saltkg:hasMetadata a owl:ObjectProperty ;
+    rdfs:label "has metadata" ;
+    rdfs:domain saltkg:BusinessObject ;
+    rdfs:range saltkg:MetadataElement .
+
+saltkg:hasOperationalEvent a owl:ObjectProperty ;
+    rdfs:label "has operational event" ;
+    rdfs:domain saltkg:BusinessObject ;
+    rdfs:range saltkg:OperationalEvent .
+
+saltkg:linkedToTable a owl:ObjectProperty ;
+    rdfs:label "linked to table" ;
+    rdfs:domain saltkg:BusinessObject ;
+    rdfs:range saltkg:LinkedBusinessTable .
+
+saltkg:hasBAHElement a owl:ObjectProperty ;
+    rdfs:label "has BAH element" ;
+    rdfs:domain saltkg:BusinessObject ;
+    rdfs:range saltkg:BAHElement .
+
+#################################################################
+# Alignment Hooks (empty — filled in bindings file)
+#################################################################
+
+saltkg:mapsToSALT a owl:ObjectProperty ;
+    rdfs:label "maps to SALT domain" ;
+    rdfs:comment "Used in saltkg-bindings.ttl to map SALT_KG objects to SALT manufacturing and quality ontology." .
+
+saltkg:mapsToSAPO a owl:ObjectProperty ;
+    rdfs:label "maps to Deloitte SAP Ontology" ;
+    rdfs:comment "Used in saltkg-bindings.ttl to map SALT_KG objects to Deloitte sap‑ontology domains." .

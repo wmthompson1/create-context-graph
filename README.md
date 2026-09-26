@@ -9,6 +9,12 @@
 
 Interactive CLI scaffolding tool that generates fully-functional, domain-specific context graph applications. Pick your industry domain, pick your agent framework, and get a complete full-stack app in under 5 minutes.
 
+ontology/
+  saltkg/
+    saltkg.ttl
+    saltkg-bindings.ttl
+
+
 <p align="center">
   <img src="docs/static/img/app-three-panel.png" alt="Generated app: chat interface, graph visualization, and document browser" width="800" />
 </p>

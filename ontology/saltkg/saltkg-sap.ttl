@@ -1,0 +1,84 @@
+@prefix saltkg: <https://wmthompson1.github.io/create-context-graph/saltkg#> .
+@prefix sapo:   <https://sap-ontology.deloitte.com/schema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+#################################################################
+# SALT_KG → Deloitte SAP Ontology Bindings
+# These bindings map SALT_KG structural classes to Deloitte’s
+# enterprise semantic domains: Architecture, BusinessProcess,
+# Scenario, Organization, and Implementation/Change.
+#################################################################
+
+#################################################################
+# BusinessObject → Architecture Domain
+#################################################################
+
+saltkg:BusinessObject saltkg:mapsToSAPO sapo:MasterData ;
+    rdfs:comment "SALT_KG BusinessObject mapped to Deloitte Architecture:MasterData when representing core business entities." .
+
+saltkg:BusinessObject saltkg:mapsToSAPO sapo:DataObject ;
+    rdfs:comment "BusinessObject mapped to Architecture:DataObject for structured SAP metadata entities." .
+
+saltkg:BusinessObject saltkg:mapsToSAPO sapo:ExternalEntity ;
+    rdfs:comment "BusinessObject mapped to Architecture:ExternalEntity when representing suppliers, vendors, or external actors." .
+
+#################################################################
+# MetadataElement → Architecture Metadata
+#################################################################
+
+saltkg:MetadataElement saltkg:mapsToSAPO sapo:MetadataElement ;
+    rdfs:comment "MetadataElement mapped to Architecture:MetadataElement for schema-level metadata." .
+
+saltkg:MetadataElement saltkg:mapsToSAPO sapo:Attribute ;
+    rdfs:comment "MetadataElement mapped to Architecture:Attribute for field-level metadata." .
+
+#################################################################
+# LinkedBusinessTable → Architecture Table
+#################################################################
+
+saltkg:LinkedBusinessTable saltkg:mapsToSAPO sapo:Table ;
+    rdfs:comment "LinkedBusinessTable mapped to Architecture:Table for SAP table-level metadata." .
+
+#################################################################
+# OperationalEvent → BusinessProcess Domain
+#################################################################
+
+saltkg:OperationalEvent saltkg:mapsToSAPO sapo:Event ;
+    rdfs:comment "OperationalEvent mapped to BusinessProcess:Event for execution or operational events." .
+
+saltkg:OperationalEvent saltkg:mapsToSAPO sapo:ProcessInstance ;
+    rdfs:comment "OperationalEvent mapped to BusinessProcess:ProcessInstance when tied to workflow execution." .
+
+#################################################################
+# BAHElement → Architecture + Organization
+#################################################################
+
+saltkg:BAHElement saltkg:mapsToSAPO sapo:MasterData ;
+    rdfs:comment "BAHElement mapped to Architecture:MasterData for public SAP metadata elements." .
+
+saltkg:BAHElement saltkg:mapsToSAPO sapo:OrganizationalUnit ;
+    rdfs:comment "BAHElement mapped to Organization:OrganizationalUnit when representing SAP business units or structures." .
+
+#################################################################
+# Cross-domain Bindings
+#################################################################
+
+saltkg:BusinessObject sapo:hasEvent saltkg:OperationalEvent ;
+    rdfs:comment "Cross-domain binding: BusinessObject associated with OperationalEvent in BusinessProcess domain." .
+
+saltkg:OperationalEvent sapo:affectsDataObject saltkg:BusinessObject ;
+    rdfs:comment "Cross-domain binding: OperationalEvent affecting BusinessObject in Architecture domain." .
+
+saltkg:OperationalEvent sapo:occursInOrganizationalUnit sapo:OrganizationalUnit ;
+    rdfs:comment "Cross-domain binding: OperationalEvent occurring within an organizational unit." .
+
+#################################################################
+# Implementation/Change Domain Hooks
+#################################################################
+
+saltkg:MetadataElement sapo:hasChangeRecord sapo:ChangeRecord ;
+    rdfs:comment "MetadataElement linked to Implementation/Change:ChangeRecord for configuration or schema changes." .
+
+saltkg:BusinessObject sapo:hasRelease sapo:Release ;
+    rdfs:comment "BusinessObject linked to Implementation/Change:Release for lifecycle or deployment metadata." .
