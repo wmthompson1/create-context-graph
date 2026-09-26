@@ -1,0 +1,3 @@
+[submodule "external/sap-salt-kg"]
+	path = external/sap-salt-kg
+	url = https://github.com/SAP-samples/salt-kg
